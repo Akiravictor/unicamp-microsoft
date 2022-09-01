@@ -2,4 +2,8 @@
 Console.WriteLine("Hello, World!");
 
 
+// <<<<<<< HEAD
 //Alteração realizada por mim no notebook
+// =======
+//Alteração realizada por mim no desktop
+// >>>>>>> tarefa/desktop
