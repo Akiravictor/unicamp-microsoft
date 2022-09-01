@@ -1,0 +1,3 @@
+# UNICAMP - Curso de Extensão Tecnologias Microsoft
+
+ O Curso de Extensão em Tecnologias Microsoft (MSFT) tem como objetivo capacitar estudantes e profissionais para o uso de tecnologias avançadas Microsoft no desenvolvimento de software. O curso irá explorar programação básica e avançada em C#, controle de versão, computação em nuvem (incluindo tópicos de segurança, lifecycle, e azure services), gerenciamento ágil de projetos, experiência de usuário, desenvolvimento de interface de usuário, devops, e programação segura.
