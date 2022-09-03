@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1- Service", "1- Service", "{6F784FEE-8B01-4907-85FB-0D662FC33E98}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2- Application", "2- Application", "{55DBB0B1-DFDC-4845-9CEE-55B1F0570382}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3- Domain", "3- Domain", "{AE0CC23C-342D-49A3-B3AF-7F2E7384F167}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JewelCollector.Service", "1- Service\JewelCollector.Service\JewelCollector.Service.csproj", "{DB20AFB9-39C1-4A00-94FE-066D70BB42E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JewelCollector.Application", "2- Application\JewelCollector.Application\JewelCollector.Application.csproj", "{D1A9E290-46B6-4C34-96D3-B082A9DE72F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JewelCollector.Domain", "3- Domain\JewelCollector.Domain\JewelCollector.Domain.csproj", "{572E5E3D-8B54-4A90-8626-0CF655EE3D3C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB20AFB9-39C1-4A00-94FE-066D70BB42E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB20AFB9-39C1-4A00-94FE-066D70BB42E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB20AFB9-39C1-4A00-94FE-066D70BB42E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB20AFB9-39C1-4A00-94FE-066D70BB42E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1A9E290-46B6-4C34-96D3-B082A9DE72F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1A9E290-46B6-4C34-96D3-B082A9DE72F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1A9E290-46B6-4C34-96D3-B082A9DE72F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1A9E290-46B6-4C34-96D3-B082A9DE72F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{572E5E3D-8B54-4A90-8626-0CF655EE3D3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{572E5E3D-8B54-4A90-8626-0CF655EE3D3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{572E5E3D-8B54-4A90-8626-0CF655EE3D3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{572E5E3D-8B54-4A90-8626-0CF655EE3D3C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DB20AFB9-39C1-4A00-94FE-066D70BB42E8} = {6F784FEE-8B01-4907-85FB-0D662FC33E98}
+		{D1A9E290-46B6-4C34-96D3-B082A9DE72F2} = {55DBB0B1-DFDC-4845-9CEE-55B1F0570382}
+		{572E5E3D-8B54-4A90-8626-0CF655EE3D3C} = {AE0CC23C-342D-49A3-B3AF-7F2E7384F167}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9517DE09-92CD-4F65-9425-5117FFA1D2FE}
+	EndGlobalSection
+EndGlobal
