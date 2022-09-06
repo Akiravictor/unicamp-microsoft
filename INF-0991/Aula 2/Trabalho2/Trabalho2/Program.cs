@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!"); //Bug encontrado v3.2
+Console.WriteLine("Hello, World!"); //Bug encontrado v3.2  //Modificação para a featureX v2.2
 
 //Adicionando v1.0
 //Adicionando v2.0
