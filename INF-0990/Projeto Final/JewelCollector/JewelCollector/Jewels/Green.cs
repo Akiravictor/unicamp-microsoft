@@ -8,12 +8,9 @@ namespace JewelCollector.Jewels
 {
 	public class Green : Jewel
 	{
-		public Green(int x, int y)
+		public Green(int x, int y) : base(x, y, 50, EnumColor.Green)
 		{
-			base.X = x;
-			base.Y = y;
-			base.Value = 50;
-			base.Symbol = "JG";
+			
 		}
 	}
 }

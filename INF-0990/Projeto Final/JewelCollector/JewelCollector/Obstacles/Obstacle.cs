@@ -12,5 +12,21 @@ namespace JewelCollector.Obstacles
 		public int Y { get; set; }
 		public string Symbol { get; set; } = "";
 
+		public Obstacle(int x, int y, EnumObstacle obstacle)
+		{
+			X = x;
+			Y = y;
+
+			switch (obstacle)
+			{
+				case EnumObstacle.Tree:
+					Symbol = "$$";
+					break;
+
+				case EnumObstacle.Water:
+					Symbol = "##";
+					break;
+			}
+		}
 	}
 }

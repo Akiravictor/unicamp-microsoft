@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JewelCollector.Map
+namespace JewelCollector.Jewels
 {
-	public class Map
+	public enum EnumColor
 	{
-
+		Blue,
+		Green,
+		Red
 	}
 }

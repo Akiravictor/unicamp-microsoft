@@ -8,11 +8,9 @@ namespace JewelCollector.Obstacles
 {
 	public class Water : Obstacle
 	{
-		public Water(int x, int y)
+		public Water(int x, int y) : base(x, y, "##")
 		{
-			base.X = x;
-			base.Y = y;
-			base.Symbol = "##";
+			
 		}
 	}
 }

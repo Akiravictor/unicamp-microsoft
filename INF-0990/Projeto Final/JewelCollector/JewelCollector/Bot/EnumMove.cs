@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JewelCollector.Robot
+namespace JewelCollector.Bot
 {
-	public class Bag
+	public enum EnumMove
 	{
-		public int TotalItems { get; set; }
-		public int TotalValue { get; set; }
+		Up,
+		Down,
+		Left,
+		Right
 	}
 }

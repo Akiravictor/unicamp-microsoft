@@ -8,11 +8,9 @@ namespace JewelCollector.Obstacles
 {
 	public class Tree : Obstacle
 	{
-		public Tree(int x, int y)
+		public Tree(int x, int y) : base(x, y, "$$")
 		{
-			base.X = x;
-			base.Y = y;
-			base.Symbol = "$$";
+
 		}
 	}
 }

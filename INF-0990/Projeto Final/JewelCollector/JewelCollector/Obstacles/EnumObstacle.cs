@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JewelCollector.Jewels
+namespace JewelCollector.Obstacles
 {
-	public class Red : Jewel
+	public enum EnumObstacle
 	{
-		public Red(int x, int y) : base(x, y, 100, EnumColor.Red)
-		{
-			
-		}
+		Tree,
+		Water
 	}
 }
