@@ -11,22 +11,24 @@ namespace JewelCollector.Jewels
         /// <summary>
         /// Stores the X position of a <typeparamref name="Jewel" /> in the Grid.
         /// </summary>
-        public int X { get; set; }
+        public int X { get; private set; }
 
         /// <summary>
         /// Stores the Y position of a <typeparamref name="Jewel" /> in the Grid.
         /// </summary>
-        public int Y { get; set; }
+        public int Y { get; private set; }
 
         /// <summary>
         /// Stores the Value of a <typeparamref name="Jewel" />.
         /// </summary>
-        public int Value { get; set; }
+        public int Value { get; private set; }
 
         /// <summary>
         /// Stores the Symbol of a <typeparamref name="Jewel" />.
         /// </summary>
-        public string Symbol { get; set; } = "";
+        public string Symbol { get; private set; } = "";
+
+		public EnumColor Color { get; private set; }
 
 		/// <summary>
 		/// Constructor for <typeparamref name="Jewel" />.
@@ -40,6 +42,7 @@ namespace JewelCollector.Jewels
 			X = x;
 			Y = y;
 			Value = value;
+			Color = color;
 
 			switch (color)
 			{

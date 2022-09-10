@@ -46,5 +46,15 @@ namespace JewelCollector.Bot
 		{
 			Console.WriteLine($"Bag total items: {TotalItems} | Bag total value: {TotalValue}");
 		}
+
+        /// <summary>
+        /// Overrides ToString for showing Bag's status.
+        /// </summary>
+        /// <returns>Returns a string containing the Bag's status.</returns>
+        public override string ToString()
+		{
+			return $"Bag total items: {TotalItems} | Bag total value: {TotalValue}";
+
+        }
 	}
 }

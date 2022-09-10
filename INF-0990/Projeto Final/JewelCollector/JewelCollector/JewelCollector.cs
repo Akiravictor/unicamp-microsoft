@@ -2,6 +2,7 @@
 using JewelCollector.Bot;
 using JewelCollector.Jewels;
 using JewelCollector.Obstacles;
+using System.Data;
 
 namespace JewelCollector
 {
@@ -37,35 +38,39 @@ namespace JewelCollector
 
             do
             {
-                map.PrintMap();
-                robot.PrintBag();
+                Console.WriteLine(map.ToString());
+                Console.WriteLine(robot.Bag.ToString());
+                Console.WriteLine(robot.ToString());
 
-                Console.Write("Enter the command: ");
-                string command = Console.ReadLine() ?? "";
+                Console.WriteLine("Commands:");
+                Console.WriteLine("W - Up | A - Left | S - Down | D - Right | G - Use/Collect | Esc - Quit");
+                //string command = Console.ReadLine() ?? "";
 
-                if (command.Equals("quit"))
+                var command = Console.ReadKey(true);
+
+                if (command.Key == ConsoleKey.Escape)
                 {
                     running = false;
                 }
-                else if (command.ToLower().Equals("w"))
+                else if (command.KeyChar.ToString().ToUpper().Equals("W"))
                 {
-                    robot.MoveUp(map);
+                    robot.Move(map, EnumMove.Up);
                 }
-                else if (command.ToLower().Equals("s"))
+                else if (command.KeyChar.ToString().ToUpper().Equals("S"))
                 {
-                    robot.MoveDown(map);
+                    robot.Move(map, EnumMove.Down);
                 }
-                else if (command.ToLower().Equals("a"))
+                else if (command.KeyChar.ToString().ToUpper().Equals("A"))
                 {
-                    robot.MoveLeft(map);
+                    robot.Move(map, EnumMove.Left);
                 }
-                else if (command.ToLower().Equals("d"))
+                else if (command.KeyChar.ToString().ToUpper().Equals("D"))
                 {
-                    robot.MoveRight(map);
+                    robot.Move(map, EnumMove.Right);
                 }
-                else if (command.ToLower().Equals("g"))
+                else if (command.KeyChar.ToString().ToUpper().Equals("G"))
                 {
-                    robot.CollectJewel(map);
+                    robot.Interact(map);
                 }
                 else
                 {

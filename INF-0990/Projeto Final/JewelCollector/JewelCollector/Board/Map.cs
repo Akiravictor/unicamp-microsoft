@@ -111,5 +111,25 @@ namespace JewelCollector.Board
 				Console.WriteLine();
 			}
 		}
+
+        /// <summary>
+        /// Overrides ToString for showing Grid.
+        /// </summary>
+        /// <returns>Returns a string containing the Grid.</returns>
+        public override string ToString()
+		{
+			StringBuilder sb = new();
+
+            for (int i = 0; i < Height; i++)
+            {
+                for (int j = 0; j < Width; j++)
+                {
+                    sb.Append($"{Grid[i, j]}  ");
+                }
+                sb.Append('\n');
+            }
+
+            return sb.ToString();
+		}
 	}
 }

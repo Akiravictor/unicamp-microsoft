@@ -1,4 +1,5 @@
 ﻿using JewelCollector.Board;
+using JewelCollector.Jewels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,22 +8,27 @@ using System.Threading.Tasks;
 
 namespace JewelCollector.Bot
 {
-	public class Robot
+	public class Robot : IInteraction
 	{
         /// <summary>
         /// Stores the X position of the <typeparamref name="Robot" /> in the Grid.
         /// </summary>
-        private int X { get; set; }
+        public int X { get; private set; }
 
         /// <summary>
         /// Stores the Y position of the <typeparamref name="Robot" /> in the Grid.
         /// </summary>
-        private int Y { get; set; }
+        public int Y { get; private set; }
 
 		/// <summary>
 		/// <typeparamref name="Bag" /> for storing the collected items.
 		/// </summary>
-		private Bag Bag { get; set; }
+		public Bag Bag { get; private set; }
+
+		/// <summary>
+		/// Robot's energy
+		/// </summary>
+		public int Energy { get; private set; }
 
         /// <summary>
         /// Constructor for <typeparamref name="Robot" />
@@ -33,13 +39,45 @@ namespace JewelCollector.Bot
 		{
 			Bag = new Bag();
 			map.Grid[0, 0] = "ME";
+			Energy = 5;
+		}
+
+        #region [Movement]
+
+        /// <summary>
+        /// Move robot accordingly to <paramref name="moveTo"/>.
+        /// </summary>
+        /// <param name="map"></param>
+        /// <param name="moveTo"></param>
+        public void Move(Map map, EnumMove moveTo)
+		{
+			switch (moveTo)
+			{
+				case EnumMove.Up:
+					MoveUp(map);
+					break;
+
+				case EnumMove.Down:
+					MoveDown(map);
+					break;
+
+				case EnumMove.Right:
+					MoveRight(map);
+					break;
+
+				case EnumMove.Left:
+					MoveLeft(map);
+					break;
+			}
+
+			Energy -= 1;
 		}
 
 		/// <summary>
 		/// Moves the robot 1 position Up in the Grid.
 		/// </summary>
 		/// <param name="map"></param>
-		public void MoveUp(Map map)
+		private void MoveUp(Map map)
 		{
 			if(CheckUpFor(map, "--"))
 			{
@@ -54,11 +92,11 @@ namespace JewelCollector.Bot
 			}
 		}
 
-		/// <summary>
-		/// Moves the robot 1 position Down in the Grid.
-		/// </summary>
-		/// <param name="map"></param>
-		public void MoveDown(Map map)
+        /// <summary>
+        /// Moves the robot 1 position Down in the Grid.
+        /// </summary>
+        /// <param name="map"></param>
+        private void MoveDown(Map map)
 		{
 			if(CheckDownFor(map, "--"))
 			{
@@ -73,11 +111,11 @@ namespace JewelCollector.Bot
 			}
 		}
 
-		/// <summary>
-		/// Moves the robot 1 position Right in the Grid.
-		/// </summary>
-		/// <param name="map"></param>
-		public void MoveRight(Map map)
+        /// <summary>
+        /// Moves the robot 1 position Right in the Grid.
+        /// </summary>
+        /// <param name="map"></param>
+        private void MoveRight(Map map)
 		{
 			if(CheckRightFor(map, "--"))
 			{
@@ -92,11 +130,11 @@ namespace JewelCollector.Bot
 			}
 		}
 
-		/// <summary>
-		/// Moves the robot 1 position Left in the Grid.
-		/// </summary>
-		/// <param name="map"></param>
-		public void MoveLeft(Map map)
+        /// <summary>
+        /// Moves the robot 1 position Left in the Grid.
+        /// </summary>
+        /// <param name="map"></param>
+        private void MoveLeft(Map map)
 		{
 			if(CheckLeftFor(map, "--"))
 			{
@@ -111,11 +149,15 @@ namespace JewelCollector.Bot
 			}
 		}
 
+		#endregion [Movement]
+
+		#region [Interaction]
+
 		/// <summary>
 		/// Collect a <typeparamref name="Jewel" /> that is adjacent to the robot.
 		/// </summary>
 		/// <param name="map"></param>
-		public void CollectJewel(Map map)
+		private void CollectJewel(Map map)
 		{
 			if(CheckUpFor(map, "JB") || CheckUpFor(map, "JG") || CheckUpFor(map, "JR"))
 			{
@@ -143,21 +185,35 @@ namespace JewelCollector.Bot
 			}
 		}
 
-		/// <summary>
-		///	Shows in Console the values in <typeparamref name="Bag" />.
-		/// </summary>
-		public void PrintBag()
-		{
-			Bag.PrintBag();
-		}
+        /// <summary>
+        /// Recharges Robot's energy by the given <paramref name="value"/> amount.
+        /// </summary>
+        /// <param name="value"></param>
+        private void RechargeEnergy(int value)
+        {
+            Energy += value;
+        }
 
-		/// <summary>
-		/// Verifies the Up cell, relative to the robot, if it contains <paramref name="str"/>.
-		/// </summary>
-		/// <param name="map"></param>
-		/// <param name="str"></param>
-		/// <returns>Returns true if <paramref name="str"/> is found in the cell, else false.</returns>
-		private bool CheckUpFor(Map map, string str)
+        /// <summary>
+        /// Interacts with the surroundings
+        /// </summary>
+        /// <param name="map"></param>
+        public void Interact(Map map)
+        {
+			CollectJewel(map);
+        }
+
+        #endregion [Interaction]
+
+        #region [Utils]
+
+        /// <summary>
+        /// Verifies the Up cell, relative to the robot, if it contains <paramref name="str"/>.
+        /// </summary>
+        /// <param name="map"></param>
+        /// <param name="str"></param>
+        /// <returns>Returns true if <paramref name="str"/> is found in the cell, else false.</returns>
+        private bool CheckUpFor(Map map, string str)
 		{
 			return X - 1 > -1 && map.Grid[X - 1, Y].Equals(str);
 		}
@@ -194,5 +250,26 @@ namespace JewelCollector.Bot
 		{
 			return Y + 1 < map.Width && map.Grid![X, Y + 1].Equals(str);
 		}
-	}
+
+		/// <summary>
+		/// Overrides ToString for showing Robot's status.
+		/// </summary>
+		/// <returns>Returns a string containing the Robot's status.</returns>
+		public override string ToString()
+		{
+			return $"Energy Remaining: {Energy}";
+		}
+
+        /// <summary>
+        ///	Shows in Console the values in <typeparamref name="Bag" />.
+        /// </summary>
+        [Obsolete(message: "Method no longer used")]
+        public void PrintBag()
+        {
+            Bag.PrintBag();
+        }
+
+        #endregion [Utils]
+
+    }
 }
