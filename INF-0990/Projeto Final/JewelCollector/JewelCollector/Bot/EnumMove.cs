@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace JewelCollector.Bot
 {
+	/// <summary>
+	/// Enumeration for <typeparamref name="Robot" /> movement.
+	/// </summary>
 	public enum EnumMove
 	{
 		Up,

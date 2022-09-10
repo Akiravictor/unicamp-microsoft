@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace JewelCollector.Obstacles
 {
-	public enum EnumObstacle
+    /// <summary>
+    /// Enumeration for <typeparamref name="Obstacle" /> type.
+    /// </summary>
+    public enum EnumObstacle
 	{
 		Tree,
 		Water

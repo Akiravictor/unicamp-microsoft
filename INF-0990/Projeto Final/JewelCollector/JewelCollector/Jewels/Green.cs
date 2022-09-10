@@ -8,7 +8,12 @@ namespace JewelCollector.Jewels
 {
 	public class Green : Jewel
 	{
-		public Green(int x, int y) : base(x, y, 50, EnumColor.Green)
+        /// <summary>
+        /// Constructor for <typeparamref name="Green Jewel" />.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        public Green(int x, int y) : base(x, y, 50, EnumColor.Green)
 		{
 			
 		}

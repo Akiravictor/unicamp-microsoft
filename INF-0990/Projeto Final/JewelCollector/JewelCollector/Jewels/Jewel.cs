@@ -8,11 +8,33 @@ namespace JewelCollector.Jewels
 {
 	public abstract class Jewel
 	{
-		public int X { get; set; }
-		public int Y { get; set; }
-		public int Value { get; set; }
-		public string Symbol { get; set; } = "";
+        /// <summary>
+        /// Stores the X position of a <typeparamref name="Jewel" /> in the Grid.
+        /// </summary>
+        public int X { get; set; }
 
+        /// <summary>
+        /// Stores the Y position of a <typeparamref name="Jewel" /> in the Grid.
+        /// </summary>
+        public int Y { get; set; }
+
+        /// <summary>
+        /// Stores the Value of a <typeparamref name="Jewel" />.
+        /// </summary>
+        public int Value { get; set; }
+
+        /// <summary>
+        /// Stores the Symbol of a <typeparamref name="Jewel" />.
+        /// </summary>
+        public string Symbol { get; set; } = "";
+
+		/// <summary>
+		/// Constructor for <typeparamref name="Jewel" />.
+		/// </summary>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
+		/// <param name="value"></param>
+		/// <param name="color"></param>
 		public Jewel(int x, int y, int value, EnumColor color)
 		{
 			X = x;

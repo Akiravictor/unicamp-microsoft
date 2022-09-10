@@ -8,7 +8,12 @@ namespace JewelCollector.Obstacles
 {
 	public class Water : Obstacle
 	{
-		public Water(int x, int y) : base(x, y, "##")
+        /// <summary>
+        /// Constructor for <typeparamref name="Water Obstacle" />.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        public Water(int x, int y) : base(x, y, EnumObstacle.Water)
 		{
 			
 		}

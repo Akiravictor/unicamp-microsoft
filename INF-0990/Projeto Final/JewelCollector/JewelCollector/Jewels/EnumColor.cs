@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace JewelCollector.Jewels
 {
+	/// <summary>
+	/// Enumeration for <typeparamref name="Jewel" /> color.
+	/// </summary>
 	public enum EnumColor
 	{
 		Blue,

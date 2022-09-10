@@ -11,12 +11,33 @@ namespace JewelCollector.Board
 {
 	public class Map
 	{
-		public string[,] Grid { get; set; }
-		public int Height { get; set; }
-		public int Width { get; set; }
-		public List<Jewel> Jewels { get; set; }
-		public List<Obstacle> Obstacles { get; set; }
+		/// <summary>
+		/// Stores the state of the grid.
+		/// </summary>
+		public string[,] Grid { get; private set; }
+		/// <summary>
+		/// Stores the Height of the grid.
+		/// </summary>
+		public int Height { get; private set; }
+		/// <summary>
+		/// Stores the Width of the grid.
+		/// </summary>
+		public int Width { get; private set; }
+		/// <summary>
+		/// Stores a collection of <typeparamref name="Jewel" />.
+		/// </summary>
+		public List<Jewel> Jewels { get; private set; }
+		/// <summary>
+		/// Stores a collection of <typeparamref name="Obstacle" />.
+		/// </summary>
+		public List<Obstacle> Obstacles { get; private set; }
 
+		/// <summary>
+		/// Constructor for <typeparamref name="Map" />.
+		/// Intializes an empty <paramref name="Grid"/> with the given <paramref name="height"/> and <paramref name="width"/>.
+		/// </summary>
+		/// <param name="height">Grid Height</param>
+		/// <param name="width">Grid Width</param>
 		public Map(int height, int width)
 		{
 			Height = height;
@@ -36,30 +57,49 @@ namespace JewelCollector.Board
 			Obstacles = new List<Obstacle>();
 		}
 
+		/// <summary>
+		/// Add a <typeparamref name="Jewel" /> to Collection <paramref name="Jewels"/>.
+		/// </summary>
+		/// <param name="jewel"></param>
 		public void AddJewel(Jewel jewel)
 		{
 			Jewels.Add(jewel);
 			Grid[jewel.X, jewel.Y] = jewel.Symbol;
 		}
 
-		public void RemoveJewel(Jewel jewel)
+        /// <summary>
+        /// Remove a <typeparamref name="Jewel" /> from Collection <paramref name="Jewels"/>.
+        /// </summary>
+        /// <param name="jewel"></param>
+        public void RemoveJewel(Jewel jewel)
 		{
 			Jewels.Remove(jewel);
 			Grid[jewel.X, jewel.Y] = "--";
 		}
 
-		public void AddObstacle(Obstacle obstacle)
+        /// <summary>
+        /// Add an <typeparamref name="Obstacle" /> to Collection <paramref name="Obstacles"/>.
+        /// </summary>
+        /// <param name="obstacle"></param>
+        public void AddObstacle(Obstacle obstacle)
 		{
 			Obstacles.Add(obstacle);
 			Grid[obstacle.X, obstacle.Y] = obstacle.Symbol;
 		}
 
-		public void RemoveObstacle(Obstacle obstacle)
+        /// <summary>
+        /// Remove an <typeparamref name="Obstacle" /> from Collection <paramref name="Obstacles"/>.
+        /// </summary>
+        /// <param name="obstacle"></param>
+        public void RemoveObstacle(Obstacle obstacle)
 		{
 			Obstacles.Remove(obstacle);
 			Grid[obstacle.X, obstacle.Y] = "--";
 		}
 
+		/// <summary>
+		/// Shows the <paramref name="Grid" /> in Console.
+		/// </summary>
 		public void PrintMap()
 		{
 			for (int i = 0; i < Height; i++)
