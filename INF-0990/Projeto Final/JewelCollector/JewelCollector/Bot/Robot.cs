@@ -1,4 +1,5 @@
 ﻿using JewelCollector.Board;
+using JewelCollector.Consts;
 using JewelCollector.Jewels;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,16 @@ namespace JewelCollector.Bot
 		/// </summary>
 		public int Energy { get; private set; }
 
+		/// <summary>
+		/// Robot's Moved event
+		/// </summary>
+		public event EventHandler RobotMoved;
+
+		/// <summary>
+		/// Robot's Interaction event
+		/// </summary>
+		public event EventHandler RobotInteracted;
+
         /// <summary>
         /// Constructor for <typeparamref name="Robot" />
 		/// Sets the robot in position (0,0) in the Grid.
@@ -38,39 +49,62 @@ namespace JewelCollector.Bot
         public Robot(Map map)
 		{
 			Bag = new Bag();
-			map.Grid[0, 0] = "ME";
+			map.Grid[0, 0] = Symbols.Robot;
 			Energy = 5;
+
+			map.JewelCollected += Map_BlueJewelCollected;
 		}
 
-        #region [Movement]
-
-        /// <summary>
-        /// Move robot accordingly to <paramref name="moveTo"/>.
-        /// </summary>
-        /// <param name="map"></param>
-        /// <param name="moveTo"></param>
-        public void Move(Map map, EnumMove moveTo)
+		/// <summary>
+		/// Event handling for Blue Jewel Collected
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void Map_BlueJewelCollected(object? sender, EventArgs e)
 		{
-			switch (moveTo)
+			RechargeEnergy(5);
+		}
+
+		#region [Movement]
+
+		/// <summary>
+		/// Move robot accordingly to <paramref name="moveTo"/>.
+		/// </summary>
+		/// <param name="map"></param>
+		/// <param name="moveTo"></param>
+		public void Move(Map map, EnumMove moveTo)
+		{
+			if(Energy > 0)
 			{
-				case EnumMove.Up:
-					MoveUp(map);
-					break;
+				switch (moveTo)
+				{
+					case EnumMove.Up:
+						MoveUp(map);
+						break;
 
-				case EnumMove.Down:
-					MoveDown(map);
-					break;
+					case EnumMove.Down:
+						MoveDown(map);
+						break;
 
-				case EnumMove.Right:
-					MoveRight(map);
-					break;
+					case EnumMove.Right:
+						MoveRight(map);
+						break;
 
-				case EnumMove.Left:
-					MoveLeft(map);
-					break;
+					case EnumMove.Left:
+						MoveLeft(map);
+						break;
+				}
+
+				Energy -= 1;
+
+				OnRobotMoved(EventArgs.Empty);
+			}
+			else
+			{
+				Console.WriteLine("Not more Energy available...");
+				Thread.Sleep(1000);
 			}
 
-			Energy -= 1;
 		}
 
 		/// <summary>
@@ -79,11 +113,11 @@ namespace JewelCollector.Bot
 		/// <param name="map"></param>
 		private void MoveUp(Map map)
 		{
-			if(CheckUpFor(map, "--"))
+			if(CheckUpFor(map, Symbols.Empty))
 			{
-				map.Grid[X, Y] = "--";
+				map.Grid[X, Y] = Symbols.Empty;
 				X--;
-				map.Grid[X, Y] = "ME";
+				map.Grid[X, Y] = Symbols.Robot;
 			}
 			else
 			{
@@ -98,11 +132,11 @@ namespace JewelCollector.Bot
         /// <param name="map"></param>
         private void MoveDown(Map map)
 		{
-			if(CheckDownFor(map, "--"))
+			if(CheckDownFor(map, Symbols.Empty))
 			{
-				map.Grid[X, Y] = "--";
+				map.Grid[X, Y] = Symbols.Empty;
 				X++;
-				map.Grid[X, Y] = "ME";
+				map.Grid[X, Y] = Symbols.Robot;
 			}
 			else
 			{
@@ -117,11 +151,11 @@ namespace JewelCollector.Bot
         /// <param name="map"></param>
         private void MoveRight(Map map)
 		{
-			if(CheckRightFor(map, "--"))
+			if(CheckRightFor(map, Symbols.Empty))
 			{
-				map.Grid[X, Y] = "--";
+				map.Grid[X, Y] = Symbols.Empty;
 				Y++;
-				map.Grid[X, Y] = "ME";
+				map.Grid[X, Y] = Symbols.Robot;
 			}
 			else
 			{
@@ -136,11 +170,11 @@ namespace JewelCollector.Bot
         /// <param name="map"></param>
         private void MoveLeft(Map map)
 		{
-			if(CheckLeftFor(map, "--"))
+			if(CheckLeftFor(map, Symbols.Empty))
 			{
-				map.Grid[X, Y] = "--";
+				map.Grid[X, Y] = Symbols.Empty;
 				Y--;
-				map.Grid[X, Y] = "ME";
+				map.Grid[X, Y] = Symbols.Robot;
 			}
 			else
 			{
@@ -159,29 +193,57 @@ namespace JewelCollector.Bot
 		/// <param name="map"></param>
 		private void CollectJewel(Map map)
 		{
-			if(CheckUpFor(map, "JB") || CheckUpFor(map, "JG") || CheckUpFor(map, "JR"))
+			Jewel? jewel = null;
+
+			if(CheckUpFor(map, Symbols.BlueJewel) || CheckUpFor(map, Symbols.GreenJewel) || CheckUpFor(map, Symbols.RedJewel))
 			{
-				var jewel = map.Jewels.First(jewel => jewel.X == X - 1 && jewel.Y == Y);
+				jewel = map.Jewels.First(jewel => jewel.X == X - 1 && jewel.Y == Y);
+			}
+			else if (CheckDownFor(map, Symbols.BlueJewel) || CheckDownFor(map, Symbols.GreenJewel) || CheckDownFor(map, Symbols.RedJewel))
+			{
+				jewel = map.Jewels.First(jewel => jewel.X == X + 1 && jewel.Y == Y);
+			}
+			else if (CheckLeftFor(map, Symbols.BlueJewel) || CheckLeftFor(map, Symbols.GreenJewel) || CheckLeftFor(map, Symbols.RedJewel))
+			{
+				jewel = map.Jewels.First(jewel => jewel.X == X && jewel.Y == Y - 1);
+			}
+			else if (CheckRightFor(map, Symbols.BlueJewel) || CheckRightFor(map, Symbols.GreenJewel) || CheckRightFor(map, Symbols.RedJewel))
+			{
+				jewel = map.Jewels.First(jewel => jewel.X == X && jewel.Y == Y + 1);
+			}
+
+			if(jewel != null)
+			{
 				Bag.AddItem(jewel.Value);
 				map.RemoveJewel(jewel);
 			}
-			else if (CheckDownFor(map, "JB") || CheckDownFor(map, "JG") || CheckDownFor(map, "JR"))
+			
+		}
+
+		/// <summary>
+		/// Interaction with a Tree in the map
+		/// </summary>
+		/// <param name="map"></param>
+		private void InteractTree(Map map)
+		{
+			if(CheckUpFor(map, Symbols.Tree))
 			{
-				var jewel = map.Jewels.First(jewel => jewel.X == X + 1 && jewel.Y == Y);
-				Bag.AddItem(jewel.Value);
-				map.RemoveJewel(jewel);
+				RechargeEnergy(3);
 			}
-			else if (CheckLeftFor(map, "JB") || CheckLeftFor(map, "JG") || CheckLeftFor(map, "JR"))
+			
+			if(CheckDownFor(map, Symbols.Tree))
 			{
-				var jewel = map.Jewels.First(jewel => jewel.X == X && jewel.Y == Y - 1);
-				Bag.AddItem(jewel.Value);
-				map.RemoveJewel(jewel);
+				RechargeEnergy(3);
 			}
-			else if (CheckRightFor(map, "JB") || CheckRightFor(map, "JG") || CheckRightFor(map, "JR"))
+			
+			if(CheckLeftFor(map, Symbols.Tree))
 			{
-				var jewel = map.Jewels.First(jewel => jewel.X == X && jewel.Y == Y + 1);
-				Bag.AddItem(jewel.Value);
-				map.RemoveJewel(jewel);
+				RechargeEnergy(3);
+			}
+			
+			if(CheckRightFor(map, Symbols.Tree))
+			{
+				RechargeEnergy(3);
 			}
 		}
 
@@ -201,6 +263,9 @@ namespace JewelCollector.Bot
         public void Interact(Map map)
         {
 			CollectJewel(map);
+			InteractTree(map);
+
+			OnInteraction(EventArgs.Empty);
         }
 
         #endregion [Interaction]
@@ -268,6 +333,34 @@ namespace JewelCollector.Bot
         {
             Bag.PrintBag();
         }
+
+		/// <summary>
+		/// Event Trigger when Robot moves
+		/// </summary>
+		/// <param name="e"></param>
+		protected virtual void OnRobotMoved(EventArgs e)
+		{
+			var raiseEvent = RobotMoved;
+
+			if(raiseEvent != null)
+			{
+				raiseEvent(this, e);
+			}
+		}
+
+		/// <summary>
+		/// Event Trigger when Robot interacts with Environment
+		/// </summary>
+		/// <param name="e"></param>
+		protected virtual void OnInteraction(EventArgs e)
+		{
+			var raiseEvent = RobotInteracted;
+
+			if(raiseEvent != null)
+			{
+				raiseEvent(this, e);
+			}
+		}
 
         #endregion [Utils]
 

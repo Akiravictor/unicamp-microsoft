@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JewelCollector.Consts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace JewelCollector.Obstacles
         /// </summary>
         public string Symbol { get; set; } = "";
 
+        public EnumObstacle Type { get; private set; }
+
         /// <summary>
         /// Constructor for <typeparamref name="Obstacle" />.
         /// </summary>
@@ -33,15 +36,16 @@ namespace JewelCollector.Obstacles
 		{
 			X = x;
 			Y = y;
+            Type = obstacle;
 
 			switch (obstacle)
 			{
 				case EnumObstacle.Tree:
-					Symbol = "$$";
+					Symbol = Symbols.Tree;
 					break;
 
 				case EnumObstacle.Water:
-					Symbol = "##";
+					Symbol = Symbols.Water;
 					break;
 			}
 		}

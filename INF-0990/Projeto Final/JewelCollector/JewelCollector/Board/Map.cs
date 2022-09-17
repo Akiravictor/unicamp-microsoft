@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JewelCollector.Consts;
 
 namespace JewelCollector.Board
 {
@@ -33,6 +34,17 @@ namespace JewelCollector.Board
 		public List<Obstacle> Obstacles { get; private set; }
 
 		/// <summary>
+		/// Stores the current level
+		/// </summary>
+		public int Level { get; private set; }
+
+		/// <summary>
+		/// EventHandler for collecting a Jewel
+		/// </summary>
+		public event EventHandler? JewelCollected;
+
+
+		/// <summary>
 		/// Constructor for <typeparamref name="Map" />.
 		/// Intializes an empty <paramref name="Grid"/> with the given <paramref name="height"/> and <paramref name="width"/>.
 		/// </summary>
@@ -49,12 +61,20 @@ namespace JewelCollector.Board
 			{
 				for(int j = 0; j < width; j++)
 				{
-					Grid[i, j] = "--";
+					Grid[i, j] = Symbols.Empty;
 				}
 			}
 
 			Jewels = new List<Jewel>();
 			Obstacles = new List<Obstacle>();
+
+			Level = 1;
+
+			Grid = MapGenerator.GenerateMap(height, width);
+
+			PrintMap();
+
+			Console.WriteLine();
 		}
 
 		/// <summary>
@@ -73,8 +93,13 @@ namespace JewelCollector.Board
         /// <param name="jewel"></param>
         public void RemoveJewel(Jewel jewel)
 		{
+			if(jewel.Color == EnumColor.Blue)
+			{
+				OnBlueJewelCollect(EventArgs.Empty);
+			}
+			 
 			Jewels.Remove(jewel);
-			Grid[jewel.X, jewel.Y] = "--";
+			Grid[jewel.X, jewel.Y] = Symbols.Empty;
 		}
 
         /// <summary>
@@ -94,7 +119,7 @@ namespace JewelCollector.Board
         public void RemoveObstacle(Obstacle obstacle)
 		{
 			Obstacles.Remove(obstacle);
-			Grid[obstacle.X, obstacle.Y] = "--";
+			Grid[obstacle.X, obstacle.Y] = Symbols.Empty;
 		}
 
 		/// <summary>
@@ -130,6 +155,20 @@ namespace JewelCollector.Board
             }
 
             return sb.ToString();
+		}
+
+		/// <summary>
+		/// Event for Collecting a BlueJewel
+		/// </summary>
+		/// <param name="e"></param>
+		protected virtual void OnBlueJewelCollect(EventArgs e)
+		{
+			var raiseEvent = JewelCollected;
+
+			if(raiseEvent != null)
+			{
+				raiseEvent(this, e);
+			}
 		}
 	}
 }

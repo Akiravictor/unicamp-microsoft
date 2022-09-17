@@ -8,13 +8,16 @@ namespace JewelCollector
 {
     public class JewelCollector
     {
+        private static Map map;
+        private static Robot robot;
+
 
         public static void Main()
         {
-            var map = new Map(10, 10);
-            var robot = new Robot(map);
+			map = new Map(10, 10);
+			robot = new Robot(map);
 
-            map.AddJewel(new Red(1,9));
+			map.AddJewel(new Red(1,9));
 			map.AddJewel(new Red(8,8));
 			map.AddJewel(new Green(9,1));
 			map.AddJewel(new Green(7,6));
@@ -34,16 +37,16 @@ namespace JewelCollector
 			map.AddObstacle(new Tree(2,5));
 			map.AddObstacle(new Tree(1,4));
 
+            robot.RobotMoved += Robot_RobotMoved;
+            robot.RobotInteracted += Robot_RobotMoved;
+
 			bool running = true;
+
+            PrintMap();
 
             do
             {
-                Console.WriteLine(map.ToString());
-                Console.WriteLine(robot.Bag.ToString());
-                Console.WriteLine(robot.ToString());
-
-                Console.WriteLine("Commands:");
-                Console.WriteLine("W - Up | A - Left | S - Down | D - Right | G - Use/Collect | Esc - Quit");
+                
                 //string command = Console.ReadLine() ?? "";
 
                 var command = Console.ReadKey(true);
@@ -78,9 +81,31 @@ namespace JewelCollector
                     Thread.Sleep(1500);
                 }
 
-                Console.Clear();
-
             } while (running);
         }
+
+        /// <summary>
+        /// Event Handling when Robot Moves or Interacts with Environment
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void Robot_RobotMoved(object? sender, EventArgs e)
+        {
+			Console.Clear();
+			PrintMap();
+		}
+
+        /// <summary>
+        /// Prints on Console the Map and Status
+        /// </summary>
+        private static void PrintMap()
+        {
+			Console.WriteLine(map.ToString());
+			Console.WriteLine(robot.Bag.ToString());
+			Console.WriteLine(robot.ToString());
+
+			Console.WriteLine("Commands:");
+			Console.WriteLine("W - Up | A - Left | S - Down | D - Right | G - Use/Collect | Esc - Quit");
+		}
     }
 }

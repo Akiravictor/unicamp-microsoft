@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JewelCollector.Consts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,15 +48,15 @@ namespace JewelCollector.Jewels
 			switch (color)
 			{
 				case EnumColor.Red:
-					Symbol = "JR";
+					Symbol = Symbols.RedJewel;
 					break;
 
 				case EnumColor.Blue:
-					Symbol = "JB";
+					Symbol = Symbols.BlueJewel;
 					break;
 
 				case EnumColor.Green:
-					Symbol = "JG";
+					Symbol = Symbols.GreenJewel;
 					break;
 			}
 		}
