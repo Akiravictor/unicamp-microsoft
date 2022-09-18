@@ -11,7 +11,6 @@ namespace JewelCollector
         private static Map map;
         private static Robot robot;
 
-
         public static void Main()
         {
 			map = new Map(10, 10);

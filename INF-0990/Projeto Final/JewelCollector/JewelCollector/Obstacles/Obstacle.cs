@@ -47,6 +47,10 @@ namespace JewelCollector.Obstacles
 				case EnumObstacle.Water:
 					Symbol = Symbols.Water;
 					break;
+
+                case EnumObstacle.Radiation:
+                    Symbol = Symbols.Radiation;
+                    break;
 			}
 		}
 	}

@@ -12,6 +12,7 @@ namespace JewelCollector.Obstacles
     public enum EnumObstacle
 	{
 		Tree,
-		Water
+		Water,
+        Radiation
 	}
 }

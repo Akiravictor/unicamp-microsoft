@@ -69,12 +69,6 @@ namespace JewelCollector.Board
 			Obstacles = new List<Obstacle>();
 
 			Level = 1;
-
-			Grid = MapGenerator.GenerateMap(height, width);
-
-			PrintMap();
-
-			Console.WriteLine();
 		}
 
 		/// <summary>

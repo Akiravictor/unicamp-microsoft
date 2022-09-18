@@ -1,0 +1,1 @@
+New-Item "C:\DadosApp" -itemType Directory
