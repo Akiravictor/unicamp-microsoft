@@ -41,6 +41,11 @@ namespace JewelCollector.Bot
 		/// </summary>
 		public event EventHandler RobotInteracted;
 
+		/// <summary>
+		/// Event for Energy depleted
+		/// </summary>
+		public event EventHandler EnergyDepleted;
+
         /// <summary>
         /// Constructor for <typeparamref name="Robot" />
 		/// Sets the robot in position (0,0) in the Grid.
@@ -53,6 +58,17 @@ namespace JewelCollector.Bot
 			Energy = 5;
 
 			map.JewelCollected += Map_BlueJewelCollected;
+		}
+
+		public void ResetRobot(Map map)
+		{
+			Bag.ResetBag();
+			map.Grid[0, 0] = Symbols.Robot;
+
+			X = 0;
+			Y = 0;
+			Energy = 5;
+
 		}
 
 		/// <summary>
@@ -95,14 +111,14 @@ namespace JewelCollector.Bot
 						break;
 				}
 
-				Energy -= 1;
-
+				
 				OnRobotMoved(EventArgs.Empty);
 			}
 			else
 			{
 				Console.WriteLine("Not more Energy available...");
-				Thread.Sleep(1000);
+
+				OnEnergyDepleted();
 			}
 
 		}
@@ -118,11 +134,12 @@ namespace JewelCollector.Bot
 				map.Grid[X, Y] = Symbols.Empty;
 				X--;
 				map.Grid[X, Y] = Symbols.Robot;
+				Energy -= 1;
 			}
 			else
 			{
 				Console.WriteLine("Can't move to there...");
-				Thread.Sleep(1500);
+				Thread.Sleep(300);
 			}
 		}
 
@@ -137,11 +154,12 @@ namespace JewelCollector.Bot
 				map.Grid[X, Y] = Symbols.Empty;
 				X++;
 				map.Grid[X, Y] = Symbols.Robot;
+				Energy -= 1;
 			}
 			else
 			{
 				Console.WriteLine("Can't move to there...");
-				Thread.Sleep(1500);
+				Thread.Sleep(300);
 			}
 		}
 
@@ -156,11 +174,12 @@ namespace JewelCollector.Bot
 				map.Grid[X, Y] = Symbols.Empty;
 				Y++;
 				map.Grid[X, Y] = Symbols.Robot;
+				Energy -= 1;
 			}
 			else
 			{
 				Console.WriteLine("Can't move to there...");
-				Thread.Sleep(1500);
+				Thread.Sleep(300);
 			}
 		}
 
@@ -175,11 +194,12 @@ namespace JewelCollector.Bot
 				map.Grid[X, Y] = Symbols.Empty;
 				Y--;
 				map.Grid[X, Y] = Symbols.Robot;
+				Energy -= 1;
 			}
 			else
 			{
 				Console.WriteLine("Can't move to there...");
-				Thread.Sleep(1500);
+				Thread.Sleep(300);
 			}
 		}
 
@@ -359,6 +379,16 @@ namespace JewelCollector.Bot
 			if(raiseEvent != null)
 			{
 				raiseEvent(this, e);
+			}
+		}
+
+		protected virtual void OnEnergyDepleted()
+		{
+			var raiseEvent = EnergyDepleted;
+
+			if(raiseEvent != null)
+			{
+				raiseEvent(this, EventArgs.Empty);
 			}
 		}
 

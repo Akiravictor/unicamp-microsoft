@@ -39,6 +39,12 @@ namespace JewelCollector.Bot
 			TotalValue += value;
 		}
 
+		public void ResetBag()
+		{
+			TotalValue = 0;
+			TotalItems = 0;
+		}
+
         /// <summary>
         /// Shows in console the value stored in <paramref name="TotalItems" /> and <paramref name="TotalValue" />.
         /// </summary>

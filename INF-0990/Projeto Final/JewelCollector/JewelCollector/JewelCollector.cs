@@ -16,28 +16,12 @@ namespace JewelCollector
 			map = new Map(10, 10);
 			robot = new Robot(map);
 
-			map.AddJewel(new Red(1,9));
-			map.AddJewel(new Red(8,8));
-			map.AddJewel(new Green(9,1));
-			map.AddJewel(new Green(7,6));
-			map.AddJewel(new Blue(3,4));
-			map.AddJewel(new Blue(2,1));
-
-            map.AddObstacle(new Water(5,0));
-			map.AddObstacle(new Water(5,1));
-			map.AddObstacle(new Water(5,2));
-			map.AddObstacle(new Water(5,3));
-			map.AddObstacle(new Water(5,4));
-			map.AddObstacle(new Water(5,5));
-			map.AddObstacle(new Water(5,6));
-			map.AddObstacle(new Tree(5,9));
-			map.AddObstacle(new Tree(3,9));
-			map.AddObstacle(new Tree(8,3));
-			map.AddObstacle(new Tree(2,5));
-			map.AddObstacle(new Tree(1,4));
+            map.LevelCleared += Map_LevelCleared;
+            map.GameCleared += Map_GameCleared;
 
             robot.RobotMoved += Robot_RobotMoved;
             robot.RobotInteracted += Robot_RobotMoved;
+            robot.EnergyDepleted += Robot_EnergyDepleted;
 
 			bool running = true;
 
@@ -46,8 +30,6 @@ namespace JewelCollector
             do
             {
                 
-                //string command = Console.ReadLine() ?? "";
-
                 var command = Console.ReadKey(true);
 
                 if (command.Key == ConsoleKey.Escape)
@@ -83,6 +65,67 @@ namespace JewelCollector
             } while (running);
         }
 
+        private static void Map_GameCleared(object? sender, EventArgs e)
+        {
+            Console.Clear();
+            Console.WriteLine("Congratulations you Cleared all levels!");
+            Console.WriteLine("Press ENTER to restart the game.");
+
+            ConsoleKeyInfo cmd;
+
+            do
+            {
+                cmd = Console.ReadKey();
+            } while (cmd.Key != ConsoleKey.Enter);
+
+            map.ResetLevel();
+            map.GenerateMap();
+
+            robot.ResetRobot(map);
+
+            Console.Clear();
+            PrintMap();
+        }
+
+        private static void Robot_EnergyDepleted(object? sender, EventArgs e)
+        {
+            Console.WriteLine("Game Over! Press ENTER to reset.");
+
+            ConsoleKeyInfo cmd;
+            do
+            {
+				cmd = Console.ReadKey(true);
+			}
+            while (cmd.Key != ConsoleKey.Enter);
+
+            map.ResetLevel();
+            map.GenerateMap();
+
+            robot.ResetRobot(map);
+
+			Console.Clear();
+			PrintMap();
+		}
+
+        private static void Map_LevelCleared(object? sender, EventArgs e)
+        {
+            Console.WriteLine("All Jewels collected! Press ENTER to next level.");
+			ConsoleKeyInfo cmd;
+			do
+			{
+				cmd = Console.ReadKey(true);
+			}
+			while (cmd.Key != ConsoleKey.Enter);
+
+			map.LevelUp();
+            map.GenerateMap();
+
+            robot.ResetRobot(map);
+
+            Console.Clear();
+            PrintMap();
+        }
+
         /// <summary>
         /// Event Handling when Robot Moves or Interacts with Environment
         /// </summary>
@@ -99,12 +142,32 @@ namespace JewelCollector
         /// </summary>
         private static void PrintMap()
         {
+            Console.WriteLine($"Level: {map.Level}");
 			Console.WriteLine(map.ToString());
 			Console.WriteLine(robot.Bag.ToString());
 			Console.WriteLine(robot.ToString());
+            Console.WriteLine($"Jewels Remaining: {map.Jewels.Count}");
 
 			Console.WriteLine("Commands:");
 			Console.WriteLine("W - Up | A - Left | S - Down | D - Right | G - Use/Collect | Esc - Quit");
-		}
-    }
+
+#if DEBUG
+            Console.WriteLine();
+            Console.WriteLine($"Map Height: {map.Height} Width: {map.Width}");
+            Console.WriteLine($"Robot: [{robot.X},{robot.Y}]");
+            Console.Write("Jewel List: ");
+            foreach(var j in map.Jewels)
+            {
+                Console.Write($"[{j.X},{j.Y}] ");
+            }
+			Console.WriteLine();
+			Console.Write("Obstacles List: ");
+			foreach (var j in map.Obstacles)
+			{
+				Console.Write($"[{j.X},{j.Y}] ");
+			}
+			Console.WriteLine();
+#endif
+        }
+	}
 }

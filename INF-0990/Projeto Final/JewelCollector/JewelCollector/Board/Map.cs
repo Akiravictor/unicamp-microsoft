@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using JewelCollector.Consts;
+using System.Net.Http.Headers;
 
 namespace JewelCollector.Board
 {
@@ -38,11 +39,19 @@ namespace JewelCollector.Board
 		/// </summary>
 		public int Level { get; private set; }
 
+		private MapGenerator MapGen { get; set; }
+
 		/// <summary>
 		/// EventHandler for collecting a Jewel
 		/// </summary>
 		public event EventHandler? JewelCollected;
 
+		/// <summary>
+		/// EventHandler for clearing the level
+		/// </summary>
+		public event EventHandler? LevelCleared;
+
+		public event EventHandler? GameCleared;
 
 		/// <summary>
 		/// Constructor for <typeparamref name="Map" />.
@@ -55,20 +64,56 @@ namespace JewelCollector.Board
 			Height = height;
 			Width = width;
 
-			Grid = new string[height, width];
+			Level = 1;
+			MapGen = new MapGenerator();
 
-			for(int i = 0; i < height; i++)
+			Grid = MapGen.GenerateMap(Height, Width, Level);
+			Jewels = MapGen.Jewels.ToList();
+			Obstacles = MapGen.Obstacles.ToList();
+		}
+
+		public void LevelUp()
+		{
+			Level += 1;
+
+			Height += 1;
+			Width += 1;
+
+			if(Height > 30 || Width > 30)
 			{
-				for(int j = 0; j < width; j++)
-				{
-					Grid[i, j] = Symbols.Empty;
-				}
+				OnGameClear();
 			}
 
-			Jewels = new List<Jewel>();
-			Obstacles = new List<Obstacle>();
+			MapGen.Reset();
+		}
 
+		public void ResetLevel()
+		{
 			Level = 1;
+
+			Height = 10;
+			Width = 10;
+
+			MapGen.Reset();
+		}
+
+		public void GenerateMap()
+		{
+			Grid = MapGen.GenerateMap(Height, Width, Level);
+
+			if(Jewels != null)
+			{
+				Jewels.Clear();
+			}
+
+			if(Obstacles != null)
+			{
+				Obstacles.Clear();
+			}
+
+			Jewels = MapGen.Jewels.ToList();
+			Obstacles = MapGen.Obstacles.ToList();
+			
 		}
 
 		/// <summary>
@@ -91,9 +136,14 @@ namespace JewelCollector.Board
 			{
 				OnBlueJewelCollect(EventArgs.Empty);
 			}
-			 
+ 
 			Jewels.Remove(jewel);
 			Grid[jewel.X, jewel.Y] = Symbols.Empty;
+			
+			if(Jewels.Count == 0)
+			{
+				OnClearLevel();
+			}
 		}
 
         /// <summary>
@@ -162,6 +212,26 @@ namespace JewelCollector.Board
 			if(raiseEvent != null)
 			{
 				raiseEvent(this, e);
+			}
+		}
+
+		protected virtual void OnClearLevel()
+		{
+			var raiseEvent = LevelCleared;
+
+			if(raiseEvent != null)
+			{
+				raiseEvent(this, EventArgs.Empty);
+			}
+		}
+
+		protected virtual void OnGameClear()
+		{
+			var raiseEvent = GameCleared;
+
+			if(raiseEvent != null)
+			{
+				raiseEvent(this, EventArgs.Empty);
 			}
 		}
 	}
