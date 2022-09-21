@@ -138,7 +138,6 @@ namespace JewelCollector.Board
 			}
  
 			Jewels.Remove(jewel);
-			Grid[jewel.X, jewel.Y] = Symbols.Empty;
 			
 			if(Jewels.Count == 0)
 			{
@@ -199,6 +198,30 @@ namespace JewelCollector.Board
             }
 
             return sb.ToString();
+		}
+
+		public void RefreshMap(int robotX, int robotY)
+		{
+			for(int i = 0; i < Height; i++)
+			{
+				for(int j = 0; j < Width; j++)
+				{
+					Grid[i, j] = Symbols.Empty;
+				}
+			}
+
+			foreach (var jewel in Jewels)
+			{
+				Grid[jewel.X, jewel.Y] = jewel.Symbol;
+			}
+
+			foreach (var obstacle in Obstacles)
+			{
+				Grid[obstacle.X, obstacle.Y] = obstacle.Symbol;
+			}
+
+			Grid[robotX, robotY] = Symbols.Robot;
+
 		}
 
 		/// <summary>

@@ -53,7 +53,7 @@ namespace JewelCollector.Board
 
             do
             {
-                for (int i = 0; i < (NumTrees * Level); i++)
+                for (int i = 0; i < (NumTrees + Level); i++)
                 {
                     int x;
                     int y;
@@ -69,7 +69,7 @@ namespace JewelCollector.Board
                     grid[x, y] = Symbols.Tree;
                 }
 
-                for (int i = 0; i < (NumWater * Level); i++)
+                for (int i = 0; i < (NumWater + Level); i++)
                 {
                     int x;
                     int y;
@@ -85,23 +85,26 @@ namespace JewelCollector.Board
                     grid[x, y] = Symbols.Water;
                 }
 
-                for (int i = 0; i < (NumRadiation * (Level - 1)); i++)
+                if(Level > 1)
                 {
-					int x;
-					int y;
-
-                    do
+                    for (int i = 0; i < (NumRadiation + Level); i++)
                     {
-					    x = random.Next(Height);
-                        y = random.Next(Width);
+					    int x;
+					    int y;
 
-                    } while (!string.IsNullOrEmpty(grid[x, y]));
+                        do
+                        {
+					        x = random.Next(Height);
+                            y = random.Next(Width);
 
-                    Obstacles.Add(new Radiation(x, y));
-                    grid[x, y] = Symbols.Radiation;
+                        } while (!string.IsNullOrEmpty(grid[x, y]));
+
+                        Obstacles.Add(new Radiation(x, y));
+                        grid[x, y] = Symbols.Radiation;
+                    }
                 }
 
-                for (int i = 0; i < (NumBlueJewel * Level) - 3; i++)
+                for (int i = 0; i < (NumBlueJewel + Level); i++)
                 {
 					int x;
 					int y;
@@ -117,7 +120,7 @@ namespace JewelCollector.Board
                     grid[x, y] = Symbols.BlueJewel;
                 }
 
-                for (int i = 0; i < (NumGreenJewel * Level) - 3; i++)
+                for (int i = 0; i < (NumGreenJewel + Level); i++)
                 {
 					int x;
 					int y;
@@ -133,7 +136,7 @@ namespace JewelCollector.Board
                     grid[x, y] = Symbols.GreenJewel;
                 }
 
-                for (int i = 0; i < (NumRedJewel * Level) - 3; i++)
+                for (int i = 0; i < (NumRedJewel + Level); i++)
                 {
 					int x;
 					int y;

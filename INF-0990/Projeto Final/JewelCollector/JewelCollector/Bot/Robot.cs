@@ -1,4 +1,5 @@
 ﻿using JewelCollector.Board;
+using JewelCollector.Bot.Exceptions;
 using JewelCollector.Consts;
 using JewelCollector.Jewels;
 using System;
@@ -34,17 +35,17 @@ namespace JewelCollector.Bot
 		/// <summary>
 		/// Robot's Moved event
 		/// </summary>
-		public event EventHandler RobotMoved;
+		public event EventHandler? RobotMoved;
 
 		/// <summary>
 		/// Robot's Interaction event
 		/// </summary>
-		public event EventHandler RobotInteracted;
+		public event EventHandler? RobotInteracted;
 
 		/// <summary>
 		/// Event for Energy depleted
 		/// </summary>
-		public event EventHandler EnergyDepleted;
+		public event EventHandler? EnergyDepleted;
 
         /// <summary>
         /// Constructor for <typeparamref name="Robot" />
@@ -88,118 +89,158 @@ namespace JewelCollector.Bot
 		/// </summary>
 		/// <param name="map"></param>
 		/// <param name="moveTo"></param>
+		/// <exception cref="CantMoveRobotException"></exception>
 		public void Move(Map map, EnumMove moveTo)
 		{
-			if(Energy > 0)
+			try
 			{
-				switch (moveTo)
+				if (Energy > 0)
 				{
-					case EnumMove.Up:
-						MoveUp(map);
-						break;
+					switch (moveTo)
+					{
+						case EnumMove.Up:
+							MoveUp(map);
+							break;
 
-					case EnumMove.Down:
-						MoveDown(map);
-						break;
+						case EnumMove.Down:
+							MoveDown(map);
+							break;
 
-					case EnumMove.Right:
-						MoveRight(map);
-						break;
+						case EnumMove.Right:
+							MoveRight(map);
+							break;
 
-					case EnumMove.Left:
-						MoveLeft(map);
-						break;
+						case EnumMove.Left:
+							MoveLeft(map);
+							break;
+					}
 				}
+				else
+				{
+					Console.WriteLine("Not more Energy available...");
 
-				
-				OnRobotMoved(EventArgs.Empty);
+					OnEnergyDepleted();
+				}
 			}
-			else
+			catch(Exception)
 			{
-				Console.WriteLine("Not more Energy available...");
-
-				OnEnergyDepleted();
+				throw;
 			}
-
 		}
 
 		/// <summary>
 		/// Moves the robot 1 position Up in the Grid.
 		/// </summary>
 		/// <param name="map"></param>
+		/// <exception cref="CantMoveRobotException"></exception>
 		private void MoveUp(Map map)
 		{
-			if(CheckUpFor(map, Symbols.Empty))
+			if(CheckUpFor(map, Symbols.Empty) || CheckUpFor(map, Symbols.Radiation))
 			{
-				map.Grid[X, Y] = Symbols.Empty;
 				X--;
-				map.Grid[X, Y] = Symbols.Robot;
-				Energy -= 1;
+				ConsumeEnergy(1);
+
+				if (map.Grid[X, Y] == Symbols.Radiation)
+				{
+					ConsumeEnergy(30);
+				}
+				if (CheckForRadiation(map))
+				{
+					ConsumeEnergy(10);
+				}
+
+				OnRobotMoved(EventArgs.Empty);
 			}
 			else
 			{
-				Console.WriteLine("Can't move to there...");
-				Thread.Sleep(300);
+				throw new CantMoveRobotException($"Can't move robot to position [{X -1},{Y}]");
 			}
 		}
 
-        /// <summary>
-        /// Moves the robot 1 position Down in the Grid.
-        /// </summary>
-        /// <param name="map"></param>
-        private void MoveDown(Map map)
+		/// <summary>
+		/// Moves the robot 1 position Down in the Grid.
+		/// </summary>
+		/// <param name="map"></param>
+		/// <exception cref="CantMoveRobotException"></exception>
+		private void MoveDown(Map map)
 		{
-			if(CheckDownFor(map, Symbols.Empty))
+			if(CheckDownFor(map, Symbols.Empty) || CheckDownFor(map, Symbols.Radiation))
 			{
-				map.Grid[X, Y] = Symbols.Empty;
 				X++;
-				map.Grid[X, Y] = Symbols.Robot;
-				Energy -= 1;
+				ConsumeEnergy(1);
+
+				if (map.Grid[X, Y] == Symbols.Radiation)
+				{
+					ConsumeEnergy(30);
+				}
+				if (CheckForRadiation(map))
+				{
+					ConsumeEnergy(10);
+				}
+
+				OnRobotMoved(EventArgs.Empty);
 			}
 			else
 			{
-				Console.WriteLine("Can't move to there...");
-				Thread.Sleep(300);
+				throw new CantMoveRobotException($"Can't move robot to position [{X + 1},{Y}]");
 			}
 		}
 
-        /// <summary>
-        /// Moves the robot 1 position Right in the Grid.
-        /// </summary>
-        /// <param name="map"></param>
-        private void MoveRight(Map map)
+		/// <summary>
+		/// Moves the robot 1 position Right in the Grid.
+		/// </summary>
+		/// <param name="map"></param>
+		/// <exception cref="CantMoveRobotException"></exception>
+		private void MoveRight(Map map)
 		{
-			if(CheckRightFor(map, Symbols.Empty))
+			if(CheckRightFor(map, Symbols.Empty) || CheckRightFor(map, Symbols.Radiation))
 			{
-				map.Grid[X, Y] = Symbols.Empty;
 				Y++;
-				map.Grid[X, Y] = Symbols.Robot;
-				Energy -= 1;
+				ConsumeEnergy(1);
+
+				if (map.Grid[X, Y] == Symbols.Radiation)
+				{
+					ConsumeEnergy(30);
+				}
+				if (CheckForRadiation(map))
+				{
+					ConsumeEnergy(10);
+				}
+
+				OnRobotMoved(EventArgs.Empty);
 			}
 			else
 			{
-				Console.WriteLine("Can't move to there...");
-				Thread.Sleep(300);
+				throw new CantMoveRobotException($"Can't move robot to position [{X},{Y + 1}]");
 			}
 		}
 
-        /// <summary>
-        /// Moves the robot 1 position Left in the Grid.
-        /// </summary>
-        /// <param name="map"></param>
-        private void MoveLeft(Map map)
+		/// <summary>
+		/// Moves the robot 1 position Left in the Grid.
+		/// </summary>
+		/// <param name="map"></param>
+		/// <exception cref="CantMoveRobotException"></exception>
+		private void MoveLeft(Map map)
 		{
-			if(CheckLeftFor(map, Symbols.Empty))
+			if(CheckLeftFor(map, Symbols.Empty) || CheckLeftFor(map, Symbols.Radiation))
 			{
-				map.Grid[X, Y] = Symbols.Empty;
 				Y--;
-				map.Grid[X, Y] = Symbols.Robot;
-				Energy -= 1;
+				ConsumeEnergy(1);
+
+				if (map.Grid[X, Y] == Symbols.Radiation)
+				{
+					ConsumeEnergy(30);
+				}
+				if (CheckForRadiation(map))
+				{
+					ConsumeEnergy(10);
+				}
+
+				OnRobotMoved(EventArgs.Empty);
 			}
 			else
 			{
-				Console.WriteLine("Can't move to there...");
-				Thread.Sleep(300);
+				throw new CantMoveRobotException($"Can't move robot to position [{X},{Y - 1}]");
 			}
 		}
 
@@ -211,23 +252,23 @@ namespace JewelCollector.Bot
 		/// Collect a <typeparamref name="Jewel" /> that is adjacent to the robot.
 		/// </summary>
 		/// <param name="map"></param>
-		private void CollectJewel(Map map)
+		private bool CollectJewel(Map map)
 		{
 			Jewel? jewel = null;
 
-			if(CheckUpFor(map, Symbols.BlueJewel) || CheckUpFor(map, Symbols.GreenJewel) || CheckUpFor(map, Symbols.RedJewel))
+			if (JewelUp(map))
 			{
 				jewel = map.Jewels.First(jewel => jewel.X == X - 1 && jewel.Y == Y);
 			}
-			else if (CheckDownFor(map, Symbols.BlueJewel) || CheckDownFor(map, Symbols.GreenJewel) || CheckDownFor(map, Symbols.RedJewel))
+			else if (JewelDown(map))
 			{
 				jewel = map.Jewels.First(jewel => jewel.X == X + 1 && jewel.Y == Y);
 			}
-			else if (CheckLeftFor(map, Symbols.BlueJewel) || CheckLeftFor(map, Symbols.GreenJewel) || CheckLeftFor(map, Symbols.RedJewel))
+			else if (JewelLeft(map))
 			{
 				jewel = map.Jewels.First(jewel => jewel.X == X && jewel.Y == Y - 1);
 			}
-			else if (CheckRightFor(map, Symbols.BlueJewel) || CheckRightFor(map, Symbols.GreenJewel) || CheckRightFor(map, Symbols.RedJewel))
+			else if (JewelRight(map))
 			{
 				jewel = map.Jewels.First(jewel => jewel.X == X && jewel.Y == Y + 1);
 			}
@@ -236,35 +277,26 @@ namespace JewelCollector.Bot
 			{
 				Bag.AddItem(jewel.Value);
 				map.RemoveJewel(jewel);
+
+				return true;
 			}
-			
+
+			return false;
 		}
 
 		/// <summary>
 		/// Interaction with a Tree in the map
 		/// </summary>
 		/// <param name="map"></param>
-		private void InteractTree(Map map)
+		private bool InteractTree(Map map)
 		{
-			if(CheckUpFor(map, Symbols.Tree))
+			if(CheckForTree(map))
 			{
 				RechargeEnergy(3);
+				return true;
 			}
-			
-			if(CheckDownFor(map, Symbols.Tree))
-			{
-				RechargeEnergy(3);
-			}
-			
-			if(CheckLeftFor(map, Symbols.Tree))
-			{
-				RechargeEnergy(3);
-			}
-			
-			if(CheckRightFor(map, Symbols.Tree))
-			{
-				RechargeEnergy(3);
-			}
+
+			return false;
 		}
 
         /// <summary>
@@ -276,29 +308,77 @@ namespace JewelCollector.Bot
             Energy += value;
         }
 
+		private void ConsumeEnergy(int value)
+		{
+			Energy -= value;
+		}
+
         /// <summary>
-        /// Interacts with the surroundings
-        /// </summary>
-        /// <param name="map"></param>
+		/// Interacts with the surroundings
+		/// </summary>
+		/// <param name="map"></param>
+		/// <exception cref="NothingToInteractException"></exception>
         public void Interact(Map map)
         {
-			CollectJewel(map);
-			InteractTree(map);
+			var hasInteracted = CollectJewel(map) || InteractTree(map);
 
-			OnInteraction(EventArgs.Empty);
+			if (CheckForRadiation(map))
+			{
+				ConsumeEnergy(10);
+			}
+
+			if (hasInteracted)
+			{
+				OnInteraction(EventArgs.Empty);
+			}
+			else
+			{
+				throw new NothingToInteractException($"Nothing to interact with in the surroundings.");
+			}
+
         }
 
-        #endregion [Interaction]
+		private bool CheckForRadiation(Map map)
+		{
+			return CheckUpFor(map, Symbols.Radiation) || CheckDownFor(map, Symbols.Radiation) || CheckLeftFor(map, Symbols.Radiation) || CheckRightFor(map, Symbols.Radiation);
+		}
 
-        #region [Utils]
+		private bool CheckForTree(Map map)
+		{
+			return CheckUpFor(map, Symbols.Tree) || CheckDownFor(map, Symbols.Tree) || CheckLeftFor(map, Symbols.Tree) || CheckRightFor(map, Symbols.Tree);
+		}
 
-        /// <summary>
-        /// Verifies the Up cell, relative to the robot, if it contains <paramref name="str"/>.
-        /// </summary>
-        /// <param name="map"></param>
-        /// <param name="str"></param>
-        /// <returns>Returns true if <paramref name="str"/> is found in the cell, else false.</returns>
-        private bool CheckUpFor(Map map, string str)
+		private bool JewelUp(Map map)
+		{
+			return CheckUpFor(map, Symbols.BlueJewel) || CheckUpFor(map, Symbols.GreenJewel) || CheckUpFor(map, Symbols.RedJewel);
+		}
+
+		private bool JewelDown(Map map)
+		{
+			return CheckDownFor(map, Symbols.BlueJewel) || CheckDownFor(map, Symbols.GreenJewel) || CheckDownFor(map, Symbols.RedJewel);
+		}
+
+		private bool JewelLeft(Map map)
+		{
+			return CheckLeftFor(map, Symbols.BlueJewel) || CheckLeftFor(map, Symbols.GreenJewel) || CheckLeftFor(map, Symbols.RedJewel);
+		}
+
+		private bool JewelRight(Map map)
+		{
+			return CheckRightFor(map, Symbols.BlueJewel) || CheckRightFor(map, Symbols.GreenJewel) || CheckRightFor(map, Symbols.RedJewel);
+		}
+
+		#endregion [Interaction]
+
+		#region [Utils]
+
+		/// <summary>
+		/// Verifies the Up cell, relative to the robot, if it contains <paramref name="str"/>.
+		/// </summary>
+		/// <param name="map"></param>
+		/// <param name="str"></param>
+		/// <returns>Returns true if <paramref name="str"/> is found in the cell, else false.</returns>
+		private bool CheckUpFor(Map map, string str)
 		{
 			return X - 1 > -1 && map.Grid[X - 1, Y].Equals(str);
 		}

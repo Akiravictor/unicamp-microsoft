@@ -1,5 +1,6 @@
 ﻿using JewelCollector.Board;
 using JewelCollector.Bot;
+using JewelCollector.Bot.Exceptions;
 using JewelCollector.Jewels;
 using JewelCollector.Obstacles;
 using System.Data;
@@ -32,35 +33,52 @@ namespace JewelCollector
                 
                 var command = Console.ReadKey(true);
 
-                if (command.Key == ConsoleKey.Escape)
+                try
                 {
-                    running = false;
-                }
-                else if (command.KeyChar.ToString().ToUpper().Equals("W"))
+					if (command.Key == ConsoleKey.Escape)
+					{
+						running = false;
+					}
+					else if (command.KeyChar.ToString().ToUpper().Equals("W"))
+					{
+						robot.Move(map, EnumMove.Up);
+					}
+					else if (command.KeyChar.ToString().ToUpper().Equals("S"))
+					{
+						robot.Move(map, EnumMove.Down);
+					}
+					else if (command.KeyChar.ToString().ToUpper().Equals("A"))
+					{
+						robot.Move(map, EnumMove.Left);
+					}
+					else if (command.KeyChar.ToString().ToUpper().Equals("D"))
+					{
+						robot.Move(map, EnumMove.Right);
+					}
+					else if (command.KeyChar.ToString().ToUpper().Equals("G"))
+					{
+						robot.Interact(map);
+					}
+					else
+					{
+						Console.WriteLine("Invalid Command");
+						Thread.Sleep(1500);
+					}
+				}
+                catch(CantMoveRobotException e)
                 {
-                    robot.Move(map, EnumMove.Up);
-                }
-                else if (command.KeyChar.ToString().ToUpper().Equals("S"))
+					Console.WriteLine(e.Message);
+				}
+                catch(NothingToInteractException e)
                 {
-                    robot.Move(map, EnumMove.Down);
-                }
-                else if (command.KeyChar.ToString().ToUpper().Equals("A"))
+					Console.WriteLine(e.Message);
+				}
+                catch(Exception e)
                 {
-                    robot.Move(map, EnumMove.Left);
+                    Console.WriteLine(e.ToString());
                 }
-                else if (command.KeyChar.ToString().ToUpper().Equals("D"))
-                {
-                    robot.Move(map, EnumMove.Right);
-                }
-                else if (command.KeyChar.ToString().ToUpper().Equals("G"))
-                {
-                    robot.Interact(map);
-                }
-                else
-                {
-                    Console.WriteLine("Invalid Command");
-                    Thread.Sleep(1500);
-                }
+
+                
 
             } while (running);
         }
@@ -133,6 +151,7 @@ namespace JewelCollector
         /// <param name="e"></param>
         private static void Robot_RobotMoved(object? sender, EventArgs e)
         {
+            map.RefreshMap(robot.X, robot.Y);
 			Console.Clear();
 			PrintMap();
 		}
@@ -155,13 +174,13 @@ namespace JewelCollector
             Console.WriteLine();
             Console.WriteLine($"Map Height: {map.Height} Width: {map.Width}");
             Console.WriteLine($"Robot: [{robot.X},{robot.Y}]");
-            Console.Write("Jewel List: ");
+            Console.Write($"Jewels: {map.Jewels.Count} Jewel List: ");
             foreach(var j in map.Jewels)
             {
                 Console.Write($"[{j.X},{j.Y}] ");
             }
 			Console.WriteLine();
-			Console.Write("Obstacles List: ");
+			Console.Write($"Obstacles: {map.Obstacles.Count} Obstacles List: ");
 			foreach (var j in map.Obstacles)
 			{
 				Console.Write($"[{j.X},{j.Y}] ");
