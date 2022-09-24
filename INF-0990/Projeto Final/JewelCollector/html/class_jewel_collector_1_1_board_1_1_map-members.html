@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +50,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_jewel_collector_1_1_board_1_1_map.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,11 +88,6 @@ $(function() {
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_jewel_collector.html">JewelCollector</a></li><li class="navelem"><a class="el" href="namespace_jewel_collector_1_1_board.html">Board</a></li><li class="navelem"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">JewelCollector.Board.Map Member List</div></div>
 </div><!--header-->
@@ -81,19 +97,33 @@ $(function() {
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#a67ae2074756482f0ddd68014e29b3e21">AddJewel</a>(Jewel jewel)</td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#a90100f8898797530bc0d674f453d1d69">AddObstacle</a>(Obstacle obstacle)</td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Grid</b> (defined in <a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a>)</td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>Height</b> (defined in <a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a>)</td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Jewels</b> (defined in <a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a>)</td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#a43508b9a6402fb1d6c58feb42c876c3a">Map</a>(int height, int width)</td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Obstacles</b> (defined in <a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a>)</td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#a9c7ffc0e7ac26159c16cc8904e4e6af1">GameCleared</a></td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#afb53c3fbc2db220d3bbe75c266d843c7">GenerateMap</a>()</td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#a75b49c157c385445879e6fc26d7e2ff1">Grid</a></td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#a5df100b0da3744b08d7535cdd3d6bfc5">Height</a></td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#a1a6da2d155af2f51f1190e47b206c8fe">Jewels</a></td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#a30ce6fadcc4fb17d96b1648c28c94234">Level</a></td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#ac1eda1f75233e173027e1a784e664318">LevelCleared</a></td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#a87235a50a7c4ebf95e45eedf9dcc2b34">LevelUp</a>()</td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#a43508b9a6402fb1d6c58feb42c876c3a">Map</a>(int height, int width)</td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#a8fe09b0ac9280d7d9d0c5758742265e8">MapGen</a></td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#ac3a0b1fd16597ae74b7f5ee28909ccdd">Obstacles</a></td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#abf7eb45afed0362cfb339c80732eb4e8">OnClearLevel</a>()</td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#a70817b483b9ee6ccf1b747d30d5e2842">OnGameClear</a>()</td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#ac1931cf10e883e78270f75ef37962d2f">PrintMap</a>()</td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#a15c13a578302e1ebe3ea93f6ee3790c0">RemoveJewel</a>(Jewel jewel)</td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#ae8bc611040e025726b20077636de1a1d">RemoveObstacle</a>(Obstacle obstacle)</td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Width</b> (defined in <a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a>)</td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#a8f4973029c148ffa24adaf0ca1f1f7ae">RefreshMap</a>(int robotX, int robotY)</td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#a15c13a578302e1ebe3ea93f6ee3790c0">RemoveJewel</a>(Jewel jewel)</td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#ae8bc611040e025726b20077636de1a1d">RemoveObstacle</a>(Obstacle obstacle)</td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#a9d5bd89159af9837039db5b8bdd0ee8b">ResetLevel</a>()</td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#adfd4acc3239d0b8e4e24e02c2004a7e7">ToString</a>()</td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html#ade47b33b2e170c286fe52a6501a435f4">Width</a></td><td class="entry"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">JewelCollector.Board.Map</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['map_0',['Map',['../df/d28/class_jewel_collector_1_1_board_1_1_map.html',1,'JewelCollector::Board']]]
+  ['idamageable_0',['IDamageable',['../interface_jewel_collector_1_1_interfaces_1_1_i_damageable.html',1,'JewelCollector::Interfaces']]],
+  ['iinteraction_1',['IInteraction',['../interface_jewel_collector_1_1_interfaces_1_1_i_interaction.html',1,'JewelCollector::Interfaces']]],
+  ['irechargeable_2',['IRechargeable',['../interface_jewel_collector_1_1_interfaces_1_1_i_rechargeable.html',1,'JewelCollector::Interfaces']]]
 ];

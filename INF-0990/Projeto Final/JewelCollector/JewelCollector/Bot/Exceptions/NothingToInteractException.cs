@@ -8,7 +8,11 @@ namespace JewelCollector.Bot.Exceptions
 {
 	public class NothingToInteractException : Exception
 	{
-		public NothingToInteractException(string msg) : base(msg)
+        /// <summary>
+        /// Constructor for <typeparamref name="NothingToInteractException" />.
+        /// </summary>
+        /// <param name="msg"></param>
+        public NothingToInteractException(string msg) : base(msg)
 		{
 
 		}

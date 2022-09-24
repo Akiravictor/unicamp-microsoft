@@ -8,6 +8,10 @@ namespace JewelCollector.Interfaces
 {
 	public interface IRechargeable
 	{
+		/// <summary>
+		/// Interface method for recharging Energy.
+		/// </summary>
+		/// <returns></returns>
 		public int RechargeEnergy();
 	}
 }

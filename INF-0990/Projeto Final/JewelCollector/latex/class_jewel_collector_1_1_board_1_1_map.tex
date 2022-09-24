@@ -1,0 +1,427 @@
+\hypertarget{class_jewel_collector_1_1_board_1_1_map}{}\doxysection{Jewel\+Collector.\+Board.\+Map Class Reference}
+\label{class_jewel_collector_1_1_board_1_1_map}\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a43508b9a6402fb1d6c58feb42c876c3a}{Map}} (int height, int width)
+\begin{DoxyCompactList}\small\item\em Constructor for {\itshape Map} . Intializes an empty {\itshape Grid}  with the given {\itshape height}  and {\itshape width} .  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a87235a50a7c4ebf95e45eedf9dcc2b34}{Level\+Up}} ()
+\begin{DoxyCompactList}\small\item\em Increase the \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}\textquotesingle{}s Level.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a9d5bd89159af9837039db5b8bdd0ee8b}{Reset\+Level}} ()
+\begin{DoxyCompactList}\small\item\em Resets \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}\textquotesingle{}s properties.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_afb53c3fbc2db220d3bbe75c266d843c7}{Generate\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Generates a new \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a67ae2074756482f0ddd68014e29b3e21}{Add\+Jewel}} (\mbox{\hyperlink{class_jewel_collector_1_1_jewels_1_1_jewel}{Jewel}} jewel)
+\begin{DoxyCompactList}\small\item\em Add a {\itshape Jewel}  to Collection {\itshape Jewels} .  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a15c13a578302e1ebe3ea93f6ee3790c0}{Remove\+Jewel}} (\mbox{\hyperlink{class_jewel_collector_1_1_jewels_1_1_jewel}{Jewel}} jewel)
+\begin{DoxyCompactList}\small\item\em Remove a {\itshape Jewel}  from Collection {\itshape Jewels} .  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a90100f8898797530bc0d674f453d1d69}{Add\+Obstacle}} (\mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle}{Obstacle}} obstacle)
+\begin{DoxyCompactList}\small\item\em Add an {\itshape Obstacle}  to Collection {\itshape Obstacles} .  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ae8bc611040e025726b20077636de1a1d}{Remove\+Obstacle}} (\mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle}{Obstacle}} obstacle)
+\begin{DoxyCompactList}\small\item\em Remove an {\itshape Obstacle}  from Collection {\itshape Obstacles} .  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ac1931cf10e883e78270f75ef37962d2f}{Print\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Shows the {\itshape Grid}  in Console.  \end{DoxyCompactList}\item 
+override string \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_adfd4acc3239d0b8e4e24e02c2004a7e7}{To\+String}} ()
+\begin{DoxyCompactList}\small\item\em Overrides To\+String for showing Grid.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a8f4973029c148ffa24adaf0ca1f1f7ae}{Refresh\+Map}} (int robotX, int robotY)
+\begin{DoxyCompactList}\small\item\em Refreshes Grid.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_abf7eb45afed0362cfb339c80732eb4e8}{On\+Clear\+Level}} ()
+\begin{DoxyCompactList}\small\item\em Event Trigger when Level is Cleared.  \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a70817b483b9ee6ccf1b747d30d5e2842}{On\+Game\+Clear}} ()
+\begin{DoxyCompactList}\small\item\em Event Trigger when all Levels are Cleared.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string\mbox{[},\mbox{]} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a75b49c157c385445879e6fc26d7e2ff1}{Grid}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Stores the state of the grid.  \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a5df100b0da3744b08d7535cdd3d6bfc5}{Height}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Stores the Height of the grid.  \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ade47b33b2e170c286fe52a6501a435f4}{Width}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Stores the Width of the grid.  \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_jewel_collector_1_1_jewels_1_1_jewel}{Jewel}} $>$ \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a1a6da2d155af2f51f1190e47b206c8fe}{Jewels}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Stores a collection of {\itshape Jewel} .  \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle}{Obstacle}} $>$ \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ac3a0b1fd16597ae74b7f5ee28909ccdd}{Obstacles}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Stores a collection of {\itshape Obstacle} .  \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a30ce6fadcc4fb17d96b1648c28c94234}{Level}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Stores the current level.  \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator}{Map\+Generator}} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a8fe09b0ac9280d7d9d0c5758742265e8}{Map\+Gen}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Reference for {\itshape Map\+Generator} .  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+Event\+Handler? \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ac1eda1f75233e173027e1a784e664318}{Level\+Cleared}}
+\begin{DoxyCompactList}\small\item\em Event\+Handler for clearing the level.  \end{DoxyCompactList}\item 
+Event\+Handler? \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a9c7ffc0e7ac26159c16cc8904e4e6af1}{Game\+Cleared}}
+\begin{DoxyCompactList}\small\item\em Event\+Handler for clearing the game.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00014}{14}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_a43508b9a6402fb1d6c58feb42c876c3a}\label{class_jewel_collector_1_1_board_1_1_map_a43508b9a6402fb1d6c58feb42c876c3a}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!Map@{Map}}
+\index{Map@{Map}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{Map()}{Map()}}
+{\footnotesize\ttfamily Jewel\+Collector.\+Board.\+Map.\+Map (\begin{DoxyParamCaption}\item[{int}]{height,  }\item[{int}]{width }\end{DoxyParamCaption})}
+
+
+
+Constructor for {\itshape Map} . Intializes an empty {\itshape Grid}  with the given {\itshape height}  and {\itshape width} .  
+
+
+\begin{DoxyParams}{Parameters}
+{\em height} & Grid Height\\
+\hline
+{\em width} & Grid Width\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00067}{67}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_a67ae2074756482f0ddd68014e29b3e21}\label{class_jewel_collector_1_1_board_1_1_map_a67ae2074756482f0ddd68014e29b3e21}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!AddJewel@{AddJewel}}
+\index{AddJewel@{AddJewel}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{AddJewel()}{AddJewel()}}
+{\footnotesize\ttfamily void Jewel\+Collector.\+Board.\+Map.\+Add\+Jewel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_jewels_1_1_jewel}{Jewel}}}]{jewel }\end{DoxyParamCaption})}
+
+
+
+Add a {\itshape Jewel}  to Collection {\itshape Jewels} .  
+
+
+\begin{DoxyParams}{Parameters}
+{\em jewel} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00139}{139}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_a90100f8898797530bc0d674f453d1d69}\label{class_jewel_collector_1_1_board_1_1_map_a90100f8898797530bc0d674f453d1d69}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!AddObstacle@{AddObstacle}}
+\index{AddObstacle@{AddObstacle}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{AddObstacle()}{AddObstacle()}}
+{\footnotesize\ttfamily void Jewel\+Collector.\+Board.\+Map.\+Add\+Obstacle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle}{Obstacle}}}]{obstacle }\end{DoxyParamCaption})}
+
+
+
+Add an {\itshape Obstacle}  to Collection {\itshape Obstacles} .  
+
+
+\begin{DoxyParams}{Parameters}
+{\em obstacle} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00163}{163}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_afb53c3fbc2db220d3bbe75c266d843c7}\label{class_jewel_collector_1_1_board_1_1_map_afb53c3fbc2db220d3bbe75c266d843c7}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!GenerateMap@{GenerateMap}}
+\index{GenerateMap@{GenerateMap}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{GenerateMap()}{GenerateMap()}}
+{\footnotesize\ttfamily void Jewel\+Collector.\+Board.\+Map.\+Generate\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Generates a new \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00114}{114}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_a87235a50a7c4ebf95e45eedf9dcc2b34}\label{class_jewel_collector_1_1_board_1_1_map_a87235a50a7c4ebf95e45eedf9dcc2b34}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!LevelUp@{LevelUp}}
+\index{LevelUp@{LevelUp}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{LevelUp()}{LevelUp()}}
+{\footnotesize\ttfamily void Jewel\+Collector.\+Board.\+Map.\+Level\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Increase the \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}\textquotesingle{}s Level.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00083}{83}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_abf7eb45afed0362cfb339c80732eb4e8}\label{class_jewel_collector_1_1_board_1_1_map_abf7eb45afed0362cfb339c80732eb4e8}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!OnClearLevel@{OnClearLevel}}
+\index{OnClearLevel@{OnClearLevel}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{OnClearLevel()}{OnClearLevel()}}
+{\footnotesize\ttfamily virtual void Jewel\+Collector.\+Board.\+Map.\+On\+Clear\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Event Trigger when Level is Cleared.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00254}{254}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_a70817b483b9ee6ccf1b747d30d5e2842}\label{class_jewel_collector_1_1_board_1_1_map_a70817b483b9ee6ccf1b747d30d5e2842}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!OnGameClear@{OnGameClear}}
+\index{OnGameClear@{OnGameClear}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{OnGameClear()}{OnGameClear()}}
+{\footnotesize\ttfamily virtual void Jewel\+Collector.\+Board.\+Map.\+On\+Game\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Event Trigger when all Levels are Cleared.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00267}{267}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_ac1931cf10e883e78270f75ef37962d2f}\label{class_jewel_collector_1_1_board_1_1_map_ac1931cf10e883e78270f75ef37962d2f}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!PrintMap@{PrintMap}}
+\index{PrintMap@{PrintMap}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{PrintMap()}{PrintMap()}}
+{\footnotesize\ttfamily void Jewel\+Collector.\+Board.\+Map.\+Print\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Shows the {\itshape Grid}  in Console.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00186}{186}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_a8f4973029c148ffa24adaf0ca1f1f7ae}\label{class_jewel_collector_1_1_board_1_1_map_a8f4973029c148ffa24adaf0ca1f1f7ae}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!RefreshMap@{RefreshMap}}
+\index{RefreshMap@{RefreshMap}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{RefreshMap()}{RefreshMap()}}
+{\footnotesize\ttfamily void Jewel\+Collector.\+Board.\+Map.\+Refresh\+Map (\begin{DoxyParamCaption}\item[{int}]{robotX,  }\item[{int}]{robotY }\end{DoxyParamCaption})}
+
+
+
+Refreshes Grid.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em robotX} & \\
+\hline
+{\em robotY} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00223}{223}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_a15c13a578302e1ebe3ea93f6ee3790c0}\label{class_jewel_collector_1_1_board_1_1_map_a15c13a578302e1ebe3ea93f6ee3790c0}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!RemoveJewel@{RemoveJewel}}
+\index{RemoveJewel@{RemoveJewel}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{RemoveJewel()}{RemoveJewel()}}
+{\footnotesize\ttfamily void Jewel\+Collector.\+Board.\+Map.\+Remove\+Jewel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_jewels_1_1_jewel}{Jewel}}}]{jewel }\end{DoxyParamCaption})}
+
+
+
+Remove a {\itshape Jewel}  from Collection {\itshape Jewels} .  
+
+
+\begin{DoxyParams}{Parameters}
+{\em jewel} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00149}{149}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_ae8bc611040e025726b20077636de1a1d}\label{class_jewel_collector_1_1_board_1_1_map_ae8bc611040e025726b20077636de1a1d}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!RemoveObstacle@{RemoveObstacle}}
+\index{RemoveObstacle@{RemoveObstacle}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{RemoveObstacle()}{RemoveObstacle()}}
+{\footnotesize\ttfamily void Jewel\+Collector.\+Board.\+Map.\+Remove\+Obstacle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle}{Obstacle}}}]{obstacle }\end{DoxyParamCaption})}
+
+
+
+Remove an {\itshape Obstacle}  from Collection {\itshape Obstacles} .  
+
+
+\begin{DoxyParams}{Parameters}
+{\em obstacle} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00173}{173}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_a9d5bd89159af9837039db5b8bdd0ee8b}\label{class_jewel_collector_1_1_board_1_1_map_a9d5bd89159af9837039db5b8bdd0ee8b}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!ResetLevel@{ResetLevel}}
+\index{ResetLevel@{ResetLevel}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{ResetLevel()}{ResetLevel()}}
+{\footnotesize\ttfamily void Jewel\+Collector.\+Board.\+Map.\+Reset\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Resets \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}\textquotesingle{}s properties.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00101}{101}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_adfd4acc3239d0b8e4e24e02c2004a7e7}\label{class_jewel_collector_1_1_board_1_1_map_adfd4acc3239d0b8e4e24e02c2004a7e7}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!ToString@{ToString}}
+\index{ToString@{ToString}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily override string Jewel\+Collector.\+Board.\+Map.\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Overrides To\+String for showing Grid.  
+
+\begin{DoxyReturn}{Returns}
+Returns a string containing the Grid.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00202}{202}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_a75b49c157c385445879e6fc26d7e2ff1}\label{class_jewel_collector_1_1_board_1_1_map_a75b49c157c385445879e6fc26d7e2ff1}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!Grid@{Grid}}
+\index{Grid@{Grid}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{Grid}{Grid}}
+{\footnotesize\ttfamily string \mbox{[},\mbox{]} Jewel\+Collector.\+Board.\+Map.\+Grid\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Stores the state of the grid.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00019}{19}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_a5df100b0da3744b08d7535cdd3d6bfc5}\label{class_jewel_collector_1_1_board_1_1_map_a5df100b0da3744b08d7535cdd3d6bfc5}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!Height@{Height}}
+\index{Height@{Height}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{Height}{Height}}
+{\footnotesize\ttfamily int Jewel\+Collector.\+Board.\+Map.\+Height\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Stores the Height of the grid.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00024}{24}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_a1a6da2d155af2f51f1190e47b206c8fe}\label{class_jewel_collector_1_1_board_1_1_map_a1a6da2d155af2f51f1190e47b206c8fe}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!Jewels@{Jewels}}
+\index{Jewels@{Jewels}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{Jewels}{Jewels}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_jewel_collector_1_1_jewels_1_1_jewel}{Jewel}}$>$ Jewel\+Collector.\+Board.\+Map.\+Jewels\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Stores a collection of {\itshape Jewel} .  
+
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00034}{34}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_a30ce6fadcc4fb17d96b1648c28c94234}\label{class_jewel_collector_1_1_board_1_1_map_a30ce6fadcc4fb17d96b1648c28c94234}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!Level@{Level}}
+\index{Level@{Level}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{Level}{Level}}
+{\footnotesize\ttfamily int Jewel\+Collector.\+Board.\+Map.\+Level\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Stores the current level.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00044}{44}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_a8fe09b0ac9280d7d9d0c5758742265e8}\label{class_jewel_collector_1_1_board_1_1_map_a8fe09b0ac9280d7d9d0c5758742265e8}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!MapGen@{MapGen}}
+\index{MapGen@{MapGen}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{MapGen}{MapGen}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator}{Map\+Generator}} Jewel\+Collector.\+Board.\+Map.\+Map\+Gen\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}, {\ttfamily [private]}}
+
+
+
+Reference for {\itshape Map\+Generator} .  
+
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00049}{49}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_ac3a0b1fd16597ae74b7f5ee28909ccdd}\label{class_jewel_collector_1_1_board_1_1_map_ac3a0b1fd16597ae74b7f5ee28909ccdd}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!Obstacles@{Obstacles}}
+\index{Obstacles@{Obstacles}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{Obstacles}{Obstacles}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle}{Obstacle}}$>$ Jewel\+Collector.\+Board.\+Map.\+Obstacles\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Stores a collection of {\itshape Obstacle} .  
+
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00039}{39}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_ade47b33b2e170c286fe52a6501a435f4}\label{class_jewel_collector_1_1_board_1_1_map_ade47b33b2e170c286fe52a6501a435f4}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!Width@{Width}}
+\index{Width@{Width}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{Width}{Width}}
+{\footnotesize\ttfamily int Jewel\+Collector.\+Board.\+Map.\+Width\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Stores the Width of the grid.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00029}{29}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+
+
+\doxysubsection{Event Documentation}
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_a9c7ffc0e7ac26159c16cc8904e4e6af1}\label{class_jewel_collector_1_1_board_1_1_map_a9c7ffc0e7ac26159c16cc8904e4e6af1}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!GameCleared@{GameCleared}}
+\index{GameCleared@{GameCleared}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{GameCleared}{GameCleared}}
+{\footnotesize\ttfamily Event\+Handler? Jewel\+Collector.\+Board.\+Map.\+Game\+Cleared}
+
+
+
+Event\+Handler for clearing the game.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00059}{59}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_ac1eda1f75233e173027e1a784e664318}\label{class_jewel_collector_1_1_board_1_1_map_ac1eda1f75233e173027e1a784e664318}} 
+\index{JewelCollector.Board.Map@{JewelCollector.Board.Map}!LevelCleared@{LevelCleared}}
+\index{LevelCleared@{LevelCleared}!JewelCollector.Board.Map@{JewelCollector.Board.Map}}
+\doxysubsubsection{\texorpdfstring{LevelCleared}{LevelCleared}}
+{\footnotesize\ttfamily Event\+Handler? Jewel\+Collector.\+Board.\+Map.\+Level\+Cleared}
+
+
+
+Event\+Handler for clearing the level.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_8cs_source_l00054}{54}} of file \mbox{\hyperlink{_map_8cs_source}{Map.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Jewel\+Collector/\+Board/\mbox{\hyperlink{_map_8cs}{Map.\+cs}}\end{DoxyCompactItemize}

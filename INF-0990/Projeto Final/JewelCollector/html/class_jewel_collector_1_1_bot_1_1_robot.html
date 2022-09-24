@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +50,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('class_jewel_collector_1_1_bot_1_1_robot.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,37 +88,163 @@ $(function() {
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespace_jewel_collector.html">JewelCollector</a></li><li class="navelem"><a class="el" href="namespace_jewel_collector_1_1_bot.html">Bot</a></li><li class="navelem"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#properties">Properties</a> &#124;
+<a href="#events">Events</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="class_jewel_collector_1_1_bot_1_1_robot-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">JewelCollector.Bot.Robot Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+<div class="dynheader">
+Inheritance diagram for JewelCollector.Bot.Robot:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_jewel_collector_1_1_bot_1_1_robot.png" usemap="#JewelCollector.Bot.Robot_map" alt=""/>
+  <map id="JewelCollector.Bot.Robot_map" name="JewelCollector.Bot.Robot_map">
+<area href="interface_jewel_collector_1_1_interfaces_1_1_i_interaction.html" alt="JewelCollector.Interfaces.IInteraction" shape="rect" coords="0,0,222,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5928c8ab74c15929f1d991bf4742244c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#a5928c8ab74c15929f1d991bf4742244c">Robot</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map)</td></tr>
+<tr class="memdesc:a5928c8ab74c15929f1d991bf4742244c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <em>Robot</em>  Sets the robot in position (0,0) in the Grid.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#a5928c8ab74c15929f1d991bf4742244c">More...</a><br /></td></tr>
 <tr class="separator:a5928c8ab74c15929f1d991bf4742244c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5ddbbaa870d43d9bd7def19d2b271ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#ac5ddbbaa870d43d9bd7def19d2b271ae">ResetRobot</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map)</td></tr>
+<tr class="memdesc:ac5ddbbaa870d43d9bd7def19d2b271ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s properties   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#ac5ddbbaa870d43d9bd7def19d2b271ae">More...</a><br /></td></tr>
+<tr class="separator:ac5ddbbaa870d43d9bd7def19d2b271ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1332130c139bd319110edeeaf46c84b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#aa1332130c139bd319110edeeaf46c84b">Move</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map, <a class="el" href="namespace_jewel_collector_1_1_bot.html#a301f23cafc0eabeaf8c341ecebfee534">EnumMove</a> moveTo)</td></tr>
+<tr class="memdesc:aa1332130c139bd319110edeeaf46c84b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move robot accordingly to <em>moveTo</em> .   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#aa1332130c139bd319110edeeaf46c84b">More...</a><br /></td></tr>
+<tr class="separator:aa1332130c139bd319110edeeaf46c84b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71ab599f3840ae56f449f0280cafc7f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#a71ab599f3840ae56f449f0280cafc7f7">Interact</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map)</td></tr>
+<tr class="memdesc:a71ab599f3840ae56f449f0280cafc7f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interacts with the surroundings   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#a71ab599f3840ae56f449f0280cafc7f7">More...</a><br /></td></tr>
+<tr class="separator:a71ab599f3840ae56f449f0280cafc7f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab65f38137c22f47fcec8b94392c323e2"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#ab65f38137c22f47fcec8b94392c323e2">ToString</a> ()</td></tr>
+<tr class="memdesc:ab65f38137c22f47fcec8b94392c323e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overrides ToString for showing <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s status.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#ab65f38137c22f47fcec8b94392c323e2">More...</a><br /></td></tr>
+<tr class="separator:ab65f38137c22f47fcec8b94392c323e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af77234f733560b43a840f74eec966afd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#af77234f733560b43a840f74eec966afd">PrintBag</a> ()</td></tr>
+<tr class="memdesc:af77234f733560b43a840f74eec966afd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows in Console the values in <em>Bag</em> .   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#af77234f733560b43a840f74eec966afd">More...</a><br /></td></tr>
+<tr class="separator:af77234f733560b43a840f74eec966afd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1adc0a922efb8825d158753564ab918a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_jewel_collector_1_1_interfaces_1_1_i_interaction.html#a1adc0a922efb8825d158753564ab918a">Move</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map, <a class="el" href="namespace_jewel_collector_1_1_bot.html#a301f23cafc0eabeaf8c341ecebfee534">EnumMove</a> moveTo)</td></tr>
+<tr class="memdesc:a1adc0a922efb8825d158753564ab918a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface method for Moving.   <a href="interface_jewel_collector_1_1_interfaces_1_1_i_interaction.html#a1adc0a922efb8825d158753564ab918a">More...</a><br /></td></tr>
+<tr class="separator:a1adc0a922efb8825d158753564ab918a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8af40c850d3db029366800e83d987b36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_jewel_collector_1_1_interfaces_1_1_i_interaction.html#a8af40c850d3db029366800e83d987b36">Interact</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map)</td></tr>
+<tr class="memdesc:a8af40c850d3db029366800e83d987b36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface method for Interacting with Map.   <a href="interface_jewel_collector_1_1_interfaces_1_1_i_interaction.html#a8af40c850d3db029366800e83d987b36">More...</a><br /></td></tr>
+<tr class="separator:a8af40c850d3db029366800e83d987b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:aafa3a6ca0070654888c41cae1b83c3e1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#aafa3a6ca0070654888c41cae1b83c3e1">OnRobotMoved</a> (EventArgs e)</td></tr>
+<tr class="memdesc:aafa3a6ca0070654888c41cae1b83c3e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event Trigger when <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a> moves.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#aafa3a6ca0070654888c41cae1b83c3e1">More...</a><br /></td></tr>
+<tr class="separator:aafa3a6ca0070654888c41cae1b83c3e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7d94bb5ab39b63b18e6ad45eec6551c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#ae7d94bb5ab39b63b18e6ad45eec6551c">OnInteraction</a> (EventArgs e)</td></tr>
+<tr class="memdesc:ae7d94bb5ab39b63b18e6ad45eec6551c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event Trigger when <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a> interacts with Environment.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#ae7d94bb5ab39b63b18e6ad45eec6551c">More...</a><br /></td></tr>
+<tr class="separator:ae7d94bb5ab39b63b18e6ad45eec6551c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a699c98e26f7f06f0ecd683d2985c297b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#a699c98e26f7f06f0ecd683d2985c297b">OnEnergyDepleted</a> ()</td></tr>
+<tr class="memdesc:a699c98e26f7f06f0ecd683d2985c297b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event Trigger when <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s Energy is depleted.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#a699c98e26f7f06f0ecd683d2985c297b">More...</a><br /></td></tr>
+<tr class="separator:a699c98e26f7f06f0ecd683d2985c297b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
+Properties</h2></td></tr>
+<tr class="memitem:a6da5c2f1b1fd8382ea9a0d9bfc039177"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#a6da5c2f1b1fd8382ea9a0d9bfc039177">X</a><code> [get, private set]</code></td></tr>
+<tr class="memdesc:a6da5c2f1b1fd8382ea9a0d9bfc039177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the X position of the <em>Robot</em>  in the Grid.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#a6da5c2f1b1fd8382ea9a0d9bfc039177">More...</a><br /></td></tr>
+<tr class="separator:a6da5c2f1b1fd8382ea9a0d9bfc039177"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7edb52e1be1efe4f4d2684b1292c714d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#a7edb52e1be1efe4f4d2684b1292c714d">Y</a><code> [get, private set]</code></td></tr>
+<tr class="memdesc:a7edb52e1be1efe4f4d2684b1292c714d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the Y position of the <em>Robot</em>  in the Grid.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#a7edb52e1be1efe4f4d2684b1292c714d">More...</a><br /></td></tr>
+<tr class="separator:a7edb52e1be1efe4f4d2684b1292c714d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea9c5ef1e9638b2ad06fdfa8bc43ab04"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_jewel_collector_1_1_bot_1_1_bag.html">Bag</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#aea9c5ef1e9638b2ad06fdfa8bc43ab04">Bag</a><code> [get, private set]</code></td></tr>
+<tr class="memdesc:aea9c5ef1e9638b2ad06fdfa8bc43ab04"><td class="mdescLeft">&#160;</td><td class="mdescRight"><em>Bag</em>  for storing the collected items.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#aea9c5ef1e9638b2ad06fdfa8bc43ab04">More...</a><br /></td></tr>
+<tr class="separator:aea9c5ef1e9638b2ad06fdfa8bc43ab04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50d4784c81ba5b731649427bd20a723e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#a50d4784c81ba5b731649427bd20a723e">Energy</a><code> [get, private set]</code></td></tr>
+<tr class="memdesc:a50d4784c81ba5b731649427bd20a723e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s energy   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#a50d4784c81ba5b731649427bd20a723e">More...</a><br /></td></tr>
+<tr class="separator:a50d4784c81ba5b731649427bd20a723e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="events" name="events"></a>
+Events</h2></td></tr>
+<tr class="memitem:a80d5427358b3a5ddc557c9af69753b94"><td class="memItemLeft" align="right" valign="top">EventHandler?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#a80d5427358b3a5ddc557c9af69753b94">RobotMoved</a></td></tr>
+<tr class="memdesc:a80d5427358b3a5ddc557c9af69753b94"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s Moved event   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#a80d5427358b3a5ddc557c9af69753b94">More...</a><br /></td></tr>
+<tr class="separator:a80d5427358b3a5ddc557c9af69753b94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a993ab1e4cb5e2a2fff31b01fc8bf5125"><td class="memItemLeft" align="right" valign="top">EventHandler?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#a993ab1e4cb5e2a2fff31b01fc8bf5125">RobotInteracted</a></td></tr>
+<tr class="memdesc:a993ab1e4cb5e2a2fff31b01fc8bf5125"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s Interaction event   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#a993ab1e4cb5e2a2fff31b01fc8bf5125">More...</a><br /></td></tr>
+<tr class="separator:a993ab1e4cb5e2a2fff31b01fc8bf5125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae87f44f8bf1b5d4dda2c7044c464cc24"><td class="memItemLeft" align="right" valign="top">EventHandler?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#ae87f44f8bf1b5d4dda2c7044c464cc24">EnergyDepleted</a></td></tr>
+<tr class="memdesc:ae87f44f8bf1b5d4dda2c7044c464cc24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event for Energy depleted   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#ae87f44f8bf1b5d4dda2c7044c464cc24">More...</a><br /></td></tr>
+<tr class="separator:ae87f44f8bf1b5d4dda2c7044c464cc24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
 <tr class="memitem:af4696d173b36e17053a3d985f5f1d44e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#af4696d173b36e17053a3d985f5f1d44e">MoveUp</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map)</td></tr>
+<tr class="memdesc:af4696d173b36e17053a3d985f5f1d44e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the robot 1 position Up in the Grid.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#af4696d173b36e17053a3d985f5f1d44e">More...</a><br /></td></tr>
 <tr class="separator:af4696d173b36e17053a3d985f5f1d44e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acab761f760f66bacc193bfa9251bbe4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#acab761f760f66bacc193bfa9251bbe4e">MoveDown</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map)</td></tr>
+<tr class="memdesc:acab761f760f66bacc193bfa9251bbe4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the robot 1 position Down in the Grid.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#acab761f760f66bacc193bfa9251bbe4e">More...</a><br /></td></tr>
 <tr class="separator:acab761f760f66bacc193bfa9251bbe4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5a982ffff84affada787597d601a8ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#af5a982ffff84affada787597d601a8ea">MoveRight</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map)</td></tr>
+<tr class="memdesc:af5a982ffff84affada787597d601a8ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the robot 1 position Right in the Grid.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#af5a982ffff84affada787597d601a8ea">More...</a><br /></td></tr>
 <tr class="separator:af5a982ffff84affada787597d601a8ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41c15fcfb1dc70708a19d5fb2e609809"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#a41c15fcfb1dc70708a19d5fb2e609809">MoveLeft</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map)</td></tr>
+<tr class="memdesc:a41c15fcfb1dc70708a19d5fb2e609809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the robot 1 position Left in the Grid.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#a41c15fcfb1dc70708a19d5fb2e609809">More...</a><br /></td></tr>
 <tr class="separator:a41c15fcfb1dc70708a19d5fb2e609809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c8e5cc8f4ac39aff92bf175ef0e795e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#a3c8e5cc8f4ac39aff92bf175ef0e795e">CollectJewel</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map)</td></tr>
-<tr class="separator:a3c8e5cc8f4ac39aff92bf175ef0e795e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af77234f733560b43a840f74eec966afd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#af77234f733560b43a840f74eec966afd">PrintBag</a> ()</td></tr>
-<tr class="separator:af77234f733560b43a840f74eec966afd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8c813a012c034c1190e46789e5832cd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#aa8c813a012c034c1190e46789e5832cd">CollectJewel</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map)</td></tr>
+<tr class="memdesc:aa8c813a012c034c1190e46789e5832cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collect a <em>Jewel</em>  that is adjacent to the robot.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#aa8c813a012c034c1190e46789e5832cd">More...</a><br /></td></tr>
+<tr class="separator:aa8c813a012c034c1190e46789e5832cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc2a3ad7e0e052a31b1a96bce57e5672"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#acc2a3ad7e0e052a31b1a96bce57e5672">InteractTree</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map)</td></tr>
+<tr class="memdesc:acc2a3ad7e0e052a31b1a96bce57e5672"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interaction with a Tree in the map   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#acc2a3ad7e0e052a31b1a96bce57e5672">More...</a><br /></td></tr>
+<tr class="separator:acc2a3ad7e0e052a31b1a96bce57e5672"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3587125cc61ec090436b9eedf11364d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#a3587125cc61ec090436b9eedf11364d4">RechargeEnergy</a> (int value)</td></tr>
+<tr class="memdesc:a3587125cc61ec090436b9eedf11364d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recharges <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s energy by the given <em>value</em>  amount.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#a3587125cc61ec090436b9eedf11364d4">More...</a><br /></td></tr>
+<tr class="separator:a3587125cc61ec090436b9eedf11364d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40cdeab7b0bccfd960c80d1a56944249"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#a40cdeab7b0bccfd960c80d1a56944249">ConsumeEnergy</a> (int value)</td></tr>
+<tr class="memdesc:a40cdeab7b0bccfd960c80d1a56944249"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consumes <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s energy by the given <em>value</em>  amount.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#a40cdeab7b0bccfd960c80d1a56944249">More...</a><br /></td></tr>
+<tr class="separator:a40cdeab7b0bccfd960c80d1a56944249"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a934ecda1525dec4f6417e173f4e7daf3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#a934ecda1525dec4f6417e173f4e7daf3">CheckForRadiation</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map)</td></tr>
+<tr class="memdesc:a934ecda1525dec4f6417e173f4e7daf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if there is a Radiation near <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s position.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#a934ecda1525dec4f6417e173f4e7daf3">More...</a><br /></td></tr>
+<tr class="separator:a934ecda1525dec4f6417e173f4e7daf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa206ad728c565326f810e29155cd9619"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_jewel_collector_1_1_obstacles_1_1_obstacle.html">Obstacle</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#aa206ad728c565326f810e29155cd9619">GetRadiation</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map)</td></tr>
+<tr class="memdesc:aa206ad728c565326f810e29155cd9619"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all Radiation nearby <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s position.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#aa206ad728c565326f810e29155cd9619">More...</a><br /></td></tr>
+<tr class="separator:aa206ad728c565326f810e29155cd9619"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebc4b30eb2b6a2fa080d27108d91046f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#aebc4b30eb2b6a2fa080d27108d91046f">RadiationDamage</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map)</td></tr>
+<tr class="memdesc:aebc4b30eb2b6a2fa080d27108d91046f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies damage for all Radiation found nearby.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#aebc4b30eb2b6a2fa080d27108d91046f">More...</a><br /></td></tr>
+<tr class="separator:aebc4b30eb2b6a2fa080d27108d91046f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a602f0a4fa149ffc23157ab253b036031"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#a602f0a4fa149ffc23157ab253b036031">CheckForTree</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map)</td></tr>
+<tr class="memdesc:a602f0a4fa149ffc23157ab253b036031"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if there is a Tree near <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s position.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#a602f0a4fa149ffc23157ab253b036031">More...</a><br /></td></tr>
+<tr class="separator:a602f0a4fa149ffc23157ab253b036031"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebcd37618e9d350119352637f8af73be"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_jewel_collector_1_1_obstacles_1_1_obstacle.html">Obstacle</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#aebcd37618e9d350119352637f8af73be">GetTrees</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map)</td></tr>
+<tr class="memdesc:aebcd37618e9d350119352637f8af73be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all Radiation nearby <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s position.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#aebcd37618e9d350119352637f8af73be">More...</a><br /></td></tr>
+<tr class="separator:aebcd37618e9d350119352637f8af73be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e0470f480ce70347323646390fed8c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#a7e0470f480ce70347323646390fed8c5">JewelUp</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map)</td></tr>
+<tr class="memdesc:a7e0470f480ce70347323646390fed8c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if there is a Jewel Above <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s position.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#a7e0470f480ce70347323646390fed8c5">More...</a><br /></td></tr>
+<tr class="separator:a7e0470f480ce70347323646390fed8c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a822b1a7df3ceebf2d3790ce4e2428f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#a2a822b1a7df3ceebf2d3790ce4e2428f">JewelDown</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map)</td></tr>
+<tr class="memdesc:a2a822b1a7df3ceebf2d3790ce4e2428f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if there is a Jewel Below <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s position.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#a2a822b1a7df3ceebf2d3790ce4e2428f">More...</a><br /></td></tr>
+<tr class="separator:a2a822b1a7df3ceebf2d3790ce4e2428f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae198e1d478b9c4d7c4487913eb35cdb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#aae198e1d478b9c4d7c4487913eb35cdb">JewelLeft</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map)</td></tr>
+<tr class="memdesc:aae198e1d478b9c4d7c4487913eb35cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if there is a Jewel to the Left of <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s position.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#aae198e1d478b9c4d7c4487913eb35cdb">More...</a><br /></td></tr>
+<tr class="separator:aae198e1d478b9c4d7c4487913eb35cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4cdc4f8d422db13d850b97c6199a90b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#ae4cdc4f8d422db13d850b97c6199a90b">JewelRight</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map)</td></tr>
+<tr class="memdesc:ae4cdc4f8d422db13d850b97c6199a90b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if there is a Jewel to the Right of <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s position.   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#ae4cdc4f8d422db13d850b97c6199a90b">More...</a><br /></td></tr>
+<tr class="separator:ae4cdc4f8d422db13d850b97c6199a90b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0566eb3d6b227f7902e8fc6a903ee45"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#af0566eb3d6b227f7902e8fc6a903ee45">CheckUpFor</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map, string str)</td></tr>
+<tr class="memdesc:af0566eb3d6b227f7902e8fc6a903ee45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies the Up cell, relative to the robot, if it contains <em>str</em> .   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#af0566eb3d6b227f7902e8fc6a903ee45">More...</a><br /></td></tr>
+<tr class="separator:af0566eb3d6b227f7902e8fc6a903ee45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8260ded02e4ed69161393c475a5650b7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#a8260ded02e4ed69161393c475a5650b7">CheckDownFor</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map, string str)</td></tr>
+<tr class="memdesc:a8260ded02e4ed69161393c475a5650b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies the Down cell, relative to the robot, if it contains <em>str</em> .   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#a8260ded02e4ed69161393c475a5650b7">More...</a><br /></td></tr>
+<tr class="separator:a8260ded02e4ed69161393c475a5650b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4eb8457fed911bb385a1830946413558"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#a4eb8457fed911bb385a1830946413558">CheckLeftFor</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map, string str)</td></tr>
+<tr class="memdesc:a4eb8457fed911bb385a1830946413558"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies the Left cell, relative to the robot, if it contains <em>str</em> .   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#a4eb8457fed911bb385a1830946413558">More...</a><br /></td></tr>
+<tr class="separator:a4eb8457fed911bb385a1830946413558"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ff914b32f25ce294920ceb8abcee3c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html#a9ff914b32f25ce294920ceb8abcee3c5">CheckRightFor</a> (<a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a> map, string str)</td></tr>
+<tr class="memdesc:a9ff914b32f25ce294920ceb8abcee3c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies the Right cell, relative to the robot, if it contains <em>str</em> .   <a href="class_jewel_collector_1_1_bot_1_1_robot.html#a9ff914b32f25ce294920ceb8abcee3c5">More...</a><br /></td></tr>
+<tr class="separator:a9ff914b32f25ce294920ceb8abcee3c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00015">15</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5928c8ab74c15929f1d991bf4742244c" name="a5928c8ab74c15929f1d991bf4742244c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5928c8ab74c15929f1d991bf4742244c">&#9670;&#160;</a></span>Robot()</h2>
 
@@ -114,7 +261,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p></p>
+<p>Constructor for <em>Robot</em>  Sets the robot in position (0,0) in the Grid.  </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">map</td><td></td></tr>
@@ -122,17 +269,431 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00057">57</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a3c8e5cc8f4ac39aff92bf175ef0e795e" name="a3c8e5cc8f4ac39aff92bf175ef0e795e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c8e5cc8f4ac39aff92bf175ef0e795e">&#9670;&#160;</a></span>CollectJewel()</h2>
+<a id="a8260ded02e4ed69161393c475a5650b7" name="a8260ded02e4ed69161393c475a5650b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8260ded02e4ed69161393c475a5650b7">&#9670;&#160;</a></span>CheckDownFor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool JewelCollector.Bot.Robot.CheckDownFor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a>&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Verifies the Down cell, relative to the robot, if it contains <em>str</em> .  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+    <tr><td class="paramname">str</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if <em>str</em>  is found in the cell, else false.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00460">460</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="a934ecda1525dec4f6417e173f4e7daf3" name="a934ecda1525dec4f6417e173f4e7daf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a934ecda1525dec4f6417e173f4e7daf3">&#9670;&#160;</a></span>CheckForRadiation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool JewelCollector.Bot.Robot.CheckForRadiation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a>&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if there is a Radiation near <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s position.  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns <em>True</em>  if there is a Radiation nearby. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00343">343</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="a602f0a4fa149ffc23157ab253b036031" name="a602f0a4fa149ffc23157ab253b036031"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a602f0a4fa149ffc23157ab253b036031">&#9670;&#160;</a></span>CheckForTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool JewelCollector.Bot.Robot.CheckForTree </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a>&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if there is a Tree near <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s position.  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns <em>True</em>  if there is a Tree nearby. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00385">385</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="a4eb8457fed911bb385a1830946413558" name="a4eb8457fed911bb385a1830946413558"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4eb8457fed911bb385a1830946413558">&#9670;&#160;</a></span>CheckLeftFor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool JewelCollector.Bot.Robot.CheckLeftFor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a>&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Verifies the Left cell, relative to the robot, if it contains <em>str</em> .  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+    <tr><td class="paramname">str</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if <em>str</em>  is found in the cell, else false.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00471">471</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="a9ff914b32f25ce294920ceb8abcee3c5" name="a9ff914b32f25ce294920ceb8abcee3c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ff914b32f25ce294920ceb8abcee3c5">&#9670;&#160;</a></span>CheckRightFor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool JewelCollector.Bot.Robot.CheckRightFor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a>&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Verifies the Right cell, relative to the robot, if it contains <em>str</em> .  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+    <tr><td class="paramname">str</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if <em>str</em>  is found in the cell, else false.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00482">482</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="af0566eb3d6b227f7902e8fc6a903ee45" name="af0566eb3d6b227f7902e8fc6a903ee45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0566eb3d6b227f7902e8fc6a903ee45">&#9670;&#160;</a></span>CheckUpFor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool JewelCollector.Bot.Robot.CheckUpFor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a>&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Verifies the Up cell, relative to the robot, if it contains <em>str</em> .  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+    <tr><td class="paramname">str</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if <em>str</em>  is found in the cell, else false.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00449">449</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="aa8c813a012c034c1190e46789e5832cd" name="aa8c813a012c034c1190e46789e5832cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8c813a012c034c1190e46789e5832cd">&#9670;&#160;</a></span>CollectJewel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool JewelCollector.Bot.Robot.CollectJewel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a>&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Collect a <em>Jewel</em>  that is adjacent to the robot.  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00234">234</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="a40cdeab7b0bccfd960c80d1a56944249" name="a40cdeab7b0bccfd960c80d1a56944249"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40cdeab7b0bccfd960c80d1a56944249">&#9670;&#160;</a></span>ConsumeEnergy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JewelCollector.Bot.Robot.ConsumeEnergy </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Consumes <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s energy by the given <em>value</em>  amount.  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00333">333</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="aa206ad728c565326f810e29155cd9619" name="aa206ad728c565326f810e29155cd9619"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa206ad728c565326f810e29155cd9619">&#9670;&#160;</a></span>GetRadiation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt; <a class="el" href="class_jewel_collector_1_1_obstacles_1_1_obstacle.html">Obstacle</a> &gt; JewelCollector.Bot.Robot.GetRadiation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a>&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get all Radiation nearby <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s position.  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a <em>List</em>  of <em>Obstacle</em>  with all Radiation nearby.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00353">353</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="aebcd37618e9d350119352637f8af73be" name="aebcd37618e9d350119352637f8af73be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebcd37618e9d350119352637f8af73be">&#9670;&#160;</a></span>GetTrees()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt; <a class="el" href="class_jewel_collector_1_1_obstacles_1_1_obstacle.html">Obstacle</a> &gt; JewelCollector.Bot.Robot.GetTrees </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a>&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get all Radiation nearby <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s position.  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a <em>List</em>  of <em>Obstacle</em>  with all Radiation nearby.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00395">395</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="a71ab599f3840ae56f449f0280cafc7f7" name="a71ab599f3840ae56f449f0280cafc7f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71ab599f3840ae56f449f0280cafc7f7">&#9670;&#160;</a></span>Interact()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void JewelCollector.Bot.Robot.CollectJewel </td>
+          <td class="memname">void JewelCollector.Bot.Robot.Interact </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a>&#160;</td>
           <td class="paramname"><em>map</em></td><td>)</td>
@@ -141,13 +702,254 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p></p>
+<p>Interacts with the surroundings  </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">map</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">NothingToInteractException</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="interface_jewel_collector_1_1_interfaces_1_1_i_interaction.html#a8af40c850d3db029366800e83d987b36">JewelCollector.Interfaces.IInteraction</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00298">298</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="acc2a3ad7e0e052a31b1a96bce57e5672" name="acc2a3ad7e0e052a31b1a96bce57e5672"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc2a3ad7e0e052a31b1a96bce57e5672">&#9670;&#160;</a></span>InteractTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool JewelCollector.Bot.Robot.InteractTree </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a>&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Interaction with a Tree in the map  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00276">276</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="a2a822b1a7df3ceebf2d3790ce4e2428f" name="a2a822b1a7df3ceebf2d3790ce4e2428f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a822b1a7df3ceebf2d3790ce4e2428f">&#9670;&#160;</a></span>JewelDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool JewelCollector.Bot.Robot.JewelDown </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a>&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if there is a Jewel Below <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s position.  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns <em>True</em>  if there is any Jewel nearby. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00415">415</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="aae198e1d478b9c4d7c4487913eb35cdb" name="aae198e1d478b9c4d7c4487913eb35cdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae198e1d478b9c4d7c4487913eb35cdb">&#9670;&#160;</a></span>JewelLeft()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool JewelCollector.Bot.Robot.JewelLeft </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a>&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if there is a Jewel to the Left of <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s position.  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns <em>True</em>  if there is any Jewel nearby. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00425">425</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="ae4cdc4f8d422db13d850b97c6199a90b" name="ae4cdc4f8d422db13d850b97c6199a90b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4cdc4f8d422db13d850b97c6199a90b">&#9670;&#160;</a></span>JewelRight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool JewelCollector.Bot.Robot.JewelRight </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a>&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if there is a Jewel to the Right of <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s position.  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns <em>True</em>  if there is any Jewel nearby. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00435">435</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="a7e0470f480ce70347323646390fed8c5" name="a7e0470f480ce70347323646390fed8c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e0470f480ce70347323646390fed8c5">&#9670;&#160;</a></span>JewelUp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool JewelCollector.Bot.Robot.JewelUp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a>&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if there is a Jewel Above <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s position.  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns <em>True</em>  if there is any Jewel nearby. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00405">405</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="aa1332130c139bd319110edeeaf46c84b" name="aa1332130c139bd319110edeeaf46c84b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1332130c139bd319110edeeaf46c84b">&#9670;&#160;</a></span>Move()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JewelCollector.Bot.Robot.Move </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a>&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_jewel_collector_1_1_bot.html#a301f23cafc0eabeaf8c341ecebfee534">EnumMove</a>&#160;</td>
+          <td class="paramname"><em>moveTo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Move robot accordingly to <em>moveTo</em> .  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+    <tr><td class="paramname">moveTo</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">CantMoveRobotException</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="interface_jewel_collector_1_1_interfaces_1_1_i_interaction.html#a1adc0a922efb8825d158753564ab918a">JewelCollector.Interfaces.IInteraction</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00088">88</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
 
 </div>
 </div>
@@ -156,6 +958,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void JewelCollector.Bot.Robot.MoveDown </td>
@@ -165,15 +970,28 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p></p>
+<p>Moves the robot 1 position Down in the Grid.  </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">map</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">CantMoveRobotException</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00156">156</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
 
 </div>
 </div>
@@ -182,6 +1000,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void JewelCollector.Bot.Robot.MoveLeft </td>
@@ -191,15 +1012,28 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p></p>
+<p>Moves the robot 1 position Left in the Grid.  </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">map</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">CantMoveRobotException</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00206">206</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
 
 </div>
 </div>
@@ -208,6 +1042,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void JewelCollector.Bot.Robot.MoveRight </td>
@@ -217,15 +1054,28 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p></p>
+<p>Moves the robot 1 position Right in the Grid.  </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">map</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">CantMoveRobotException</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00181">181</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
 
 </div>
 </div>
@@ -234,6 +1084,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void JewelCollector.Bot.Robot.MoveUp </td>
@@ -243,15 +1096,135 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p></p>
+<p>Moves the robot 1 position Up in the Grid.  </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">map</td><td></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">CantMoveRobotException</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00131">131</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="a699c98e26f7f06f0ecd683d2985c297b" name="a699c98e26f7f06f0ecd683d2985c297b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a699c98e26f7f06f0ecd683d2985c297b">&#9670;&#160;</a></span>OnEnergyDepleted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void JewelCollector.Bot.Robot.OnEnergyDepleted </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Event Trigger when <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s Energy is depleted.  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00540">540</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="ae7d94bb5ab39b63b18e6ad45eec6551c" name="ae7d94bb5ab39b63b18e6ad45eec6551c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7d94bb5ab39b63b18e6ad45eec6551c">&#9670;&#160;</a></span>OnInteraction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void JewelCollector.Bot.Robot.OnInteraction </td>
+          <td>(</td>
+          <td class="paramtype">EventArgs&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Event Trigger when <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a> interacts with Environment.  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00526">526</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="aafa3a6ca0070654888c41cae1b83c3e1" name="aafa3a6ca0070654888c41cae1b83c3e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafa3a6ca0070654888c41cae1b83c3e1">&#9670;&#160;</a></span>OnRobotMoved()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void JewelCollector.Bot.Robot.OnRobotMoved </td>
+          <td>(</td>
+          <td class="paramtype">EventArgs&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Event Trigger when <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a> moves.  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00512">512</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
 
 </div>
 </div>
@@ -270,17 +1243,305 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p></p>
+<p>Shows in Console the values in <em>Bag</em> .  </p>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00499">499</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="aebc4b30eb2b6a2fa080d27108d91046f" name="aebc4b30eb2b6a2fa080d27108d91046f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebc4b30eb2b6a2fa080d27108d91046f">&#9670;&#160;</a></span>RadiationDamage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JewelCollector.Bot.Robot.RadiationDamage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a>&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applies damage for all Radiation found nearby.  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00362">362</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="a3587125cc61ec090436b9eedf11364d4" name="a3587125cc61ec090436b9eedf11364d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3587125cc61ec090436b9eedf11364d4">&#9670;&#160;</a></span>RechargeEnergy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JewelCollector.Bot.Robot.RechargeEnergy </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Recharges <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s energy by the given <em>value</em>  amount.  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00324">324</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="ac5ddbbaa870d43d9bd7def19d2b271ae" name="ac5ddbbaa870d43d9bd7def19d2b271ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5ddbbaa870d43d9bd7def19d2b271ae">&#9670;&#160;</a></span>ResetRobot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JewelCollector.Bot.Robot.ResetRobot </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_jewel_collector_1_1_board_1_1_map.html">Map</a>&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resets <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s properties  </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00069">69</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="ab65f38137c22f47fcec8b94392c323e2" name="ab65f38137c22f47fcec8b94392c323e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab65f38137c22f47fcec8b94392c323e2">&#9670;&#160;</a></span>ToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">override string JewelCollector.Bot.Robot.ToString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Overrides ToString for showing <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s status.  </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns a string containing the <a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s status.</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00491">491</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Property Documentation</h2>
+<a id="aea9c5ef1e9638b2ad06fdfa8bc43ab04" name="aea9c5ef1e9638b2ad06fdfa8bc43ab04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea9c5ef1e9638b2ad06fdfa8bc43ab04">&#9670;&#160;</a></span>Bag</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_jewel_collector_1_1_bot_1_1_bag.html">Bag</a> JewelCollector.Bot.Robot.Bag</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><em>Bag</em>  for storing the collected items.  </p>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00030">30</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="a50d4784c81ba5b731649427bd20a723e" name="a50d4784c81ba5b731649427bd20a723e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50d4784c81ba5b731649427bd20a723e">&#9670;&#160;</a></span>Energy</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int JewelCollector.Bot.Robot.Energy</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s energy  </p>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00035">35</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="a6da5c2f1b1fd8382ea9a0d9bfc039177" name="a6da5c2f1b1fd8382ea9a0d9bfc039177"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6da5c2f1b1fd8382ea9a0d9bfc039177">&#9670;&#160;</a></span>X</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int JewelCollector.Bot.Robot.X</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stores the X position of the <em>Robot</em>  in the Grid.  </p>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00020">20</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="a7edb52e1be1efe4f4d2684b1292c714d" name="a7edb52e1be1efe4f4d2684b1292c714d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7edb52e1be1efe4f4d2684b1292c714d">&#9670;&#160;</a></span>Y</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int JewelCollector.Bot.Robot.Y</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span><span class="mlabel">private set</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stores the Y position of the <em>Robot</em>  in the Grid.  </p>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00025">25</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Event Documentation</h2>
+<a id="ae87f44f8bf1b5d4dda2c7044c464cc24" name="ae87f44f8bf1b5d4dda2c7044c464cc24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae87f44f8bf1b5d4dda2c7044c464cc24">&#9670;&#160;</a></span>EnergyDepleted</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventHandler? JewelCollector.Bot.Robot.EnergyDepleted</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Event for Energy depleted  </p>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00050">50</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="a993ab1e4cb5e2a2fff31b01fc8bf5125" name="a993ab1e4cb5e2a2fff31b01fc8bf5125"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a993ab1e4cb5e2a2fff31b01fc8bf5125">&#9670;&#160;</a></span>RobotInteracted</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventHandler? JewelCollector.Bot.Robot.RobotInteracted</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s Interaction event  </p>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00045">45</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
+
+</div>
+</div>
+<a id="a80d5427358b3a5ddc557c9af69753b94" name="a80d5427358b3a5ddc557c9af69753b94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80d5427358b3a5ddc557c9af69753b94">&#9670;&#160;</a></span>RobotMoved</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventHandler? JewelCollector.Bot.Robot.RobotMoved</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a>'s Moved event  </p>
+
+<p class="definition">Definition at line <a class="el" href="_robot_8cs_source.html#l00040">40</a> of file <a class="el" href="_robot_8cs_source.html">Robot.cs</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>JewelCollector/Bot/Robot.cs</li>
+<li>JewelCollector/Bot/<a class="el" href="_robot_8cs_source.html">Robot.cs</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_jewel_collector.html">JewelCollector</a></li><li class="navelem"><a class="el" href="namespace_jewel_collector_1_1_bot.html">Bot</a></li><li class="navelem"><a class="el" href="class_jewel_collector_1_1_bot_1_1_robot.html">Robot</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
+  </ul>
+</div>
 </body>
 </html>

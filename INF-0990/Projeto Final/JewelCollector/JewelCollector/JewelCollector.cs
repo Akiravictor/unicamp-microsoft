@@ -9,8 +9,8 @@ namespace JewelCollector
 {
     public class JewelCollector
     {
-        private static Map map;
-        private static Robot robot;
+        private static Map? map;
+        private static Robot? robot;
 
         public static void Main()
         {
@@ -83,8 +83,17 @@ namespace JewelCollector
             } while (running);
         }
 
+        /// <summary>
+        /// Event Handling whem Game is Cleared.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="NullReferenceException"></exception>
         private static void Map_GameCleared(object? sender, EventArgs e)
         {
+            _ = map ?? throw new NullReferenceException();
+            _ = robot ?? throw new NullReferenceException();
+
             Console.Clear();
             Console.WriteLine("Congratulations you Cleared all levels!");
             Console.WriteLine("Press ENTER to restart the game.");
@@ -105,8 +114,17 @@ namespace JewelCollector
             PrintMap();
         }
 
+        /// <summary>
+        /// Event Handling when Robot's Energy is depleted.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="NullReferenceException"></exception>
         private static void Robot_EnergyDepleted(object? sender, EventArgs e)
         {
+            _ = map ?? throw new NullReferenceException(nameof(map));
+            _ = robot ?? throw new NullReferenceException(nameof(robot));
+
             Console.WriteLine("Game Over! Press ENTER to reset.");
 
             ConsoleKeyInfo cmd;
@@ -125,8 +143,17 @@ namespace JewelCollector
 			PrintMap();
 		}
 
+        /// <summary>
+        /// Event Handling when Level is Cleared.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="NullReferenceException"></exception>
         private static void Map_LevelCleared(object? sender, EventArgs e)
         {
+            _ = map ?? throw new NullReferenceException(nameof(map));
+            _ = robot ?? throw new NullReferenceException(nameof(robot));
+
             Console.WriteLine("All Jewels collected! Press ENTER to next level.");
 			ConsoleKeyInfo cmd;
 			do
@@ -145,22 +172,30 @@ namespace JewelCollector
         }
 
         /// <summary>
-        /// Event Handling when Robot Moves or Interacts with Environment
+        /// Event Handling when Robot Moves or Interacts with Environment.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// <exception cref="NullReferenceException"></exception>
         private static void Robot_RobotMoved(object? sender, EventArgs e)
         {
+            _ = map ?? throw new NullReferenceException(nameof(map));
+            _ = robot ?? throw new NullReferenceException(nameof(robot));
+
             map.RefreshMap(robot.X, robot.Y);
 			Console.Clear();
 			PrintMap();
 		}
 
         /// <summary>
-        /// Prints on Console the Map and Status
+        /// Prints on Console the Map and Status.
         /// </summary>
+        /// <exception cref="NullReferenceException"></exception>
         private static void PrintMap()
         {
+            _ = map ?? throw new NullReferenceException(nameof(map));
+            _ = robot ?? throw new NullReferenceException(nameof(robot));
+
             Console.WriteLine($"Level: {map.Level}");
 			Console.WriteLine(map.ToString());
 			Console.WriteLine(robot.Bag.ToString());

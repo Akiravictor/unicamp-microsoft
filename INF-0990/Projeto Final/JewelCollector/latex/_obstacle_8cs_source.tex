@@ -1,0 +1,48 @@
+\hypertarget{_obstacle_8cs_source}{}\doxysection{Obstacle.\+cs}
+\label{_obstacle_8cs_source}\index{JewelCollector/Obstacles/Obstacle.cs@{JewelCollector/Obstacles/Obstacle.cs}}
+\mbox{\hyperlink{_obstacle_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00001}00001 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_jewel_collector_1_1_consts}{JewelCollector.Consts}};}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00002}00002 \textcolor{keyword}{using }System;}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00003}00003 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00004}00004 \textcolor{keyword}{using }System.Linq;}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00005}00005 \textcolor{keyword}{using }System.Text;}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00006}00006 \textcolor{keyword}{using }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00008}00008 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_jewel_collector_1_1_obstacles}{JewelCollector.Obstacles}}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00009}00009 \{}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00010}\mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle}{00010}}     \textcolor{keyword}{public} \textcolor{keyword}{abstract} \textcolor{keyword}{class }\mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle}{Obstacle}}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00011}00011     \{}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00015}\mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle_a51e7e9d1c733dd1d26eef19c4fb12b76}{00015}}         \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle_a51e7e9d1c733dd1d26eef19c4fb12b76}{X}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00020}\mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle_ad18002ca9d032ab6d16aa6db60593833}{00020}}         \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle_ad18002ca9d032ab6d16aa6db60593833}{Y}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00025}\mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle_a7b54f444d3469c38f486e8e4dc1029b0}{00025}}         \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle_a7b54f444d3469c38f486e8e4dc1029b0}{Symbol}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00027}\mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle_ac5c49a2af2d4d24cf797f9218c247384}{00027}}         \textcolor{keyword}{public} \mbox{\hyperlink{namespace_jewel_collector_1_1_obstacles_a3b45d2ea52644a5fdd5829a3d26f0481}{EnumObstacle}} \mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle_ac5c49a2af2d4d24cf797f9218c247384}{Type}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00035}\mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle_a85acd38cb86fe2c790842adad067ded9}{00035}}         \textcolor{keyword}{public} \mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle_a85acd38cb86fe2c790842adad067ded9}{Obstacle}}(\textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y, \mbox{\hyperlink{namespace_jewel_collector_1_1_obstacles_a3b45d2ea52644a5fdd5829a3d26f0481}{EnumObstacle}} obstacle)}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00036}00036         \{}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00037}00037             \mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle_a51e7e9d1c733dd1d26eef19c4fb12b76}{X}} = x;}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00038}00038             \mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle_ad18002ca9d032ab6d16aa6db60593833}{Y}} = y;}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00039}00039             \mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle_ac5c49a2af2d4d24cf797f9218c247384}{Type}} = obstacle;}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00041}00041             \textcolor{keywordflow}{switch} (obstacle)}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00042}00042             \{}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00043}00043                 \textcolor{keywordflow}{case} \mbox{\hyperlink{namespace_jewel_collector_1_1_obstacles_a3b45d2ea52644a5fdd5829a3d26f0481}{EnumObstacle}}.Tree:}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00044}00044                     \mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle_a7b54f444d3469c38f486e8e4dc1029b0}{Symbol}} = Symbols.Tree;}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00045}00045                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00047}00047                 \textcolor{keywordflow}{case} \mbox{\hyperlink{namespace_jewel_collector_1_1_obstacles_a3b45d2ea52644a5fdd5829a3d26f0481}{EnumObstacle}}.Water:}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00048}00048                     \mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle_a7b54f444d3469c38f486e8e4dc1029b0}{Symbol}} = Symbols.Water;}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00049}00049                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00051}00051                 \textcolor{keywordflow}{case} \mbox{\hyperlink{namespace_jewel_collector_1_1_obstacles_a3b45d2ea52644a5fdd5829a3d26f0481}{EnumObstacle}}.Radiation:}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00052}00052                     \mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle_a7b54f444d3469c38f486e8e4dc1029b0}{Symbol}} = Symbols.Radiation;}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00053}00053                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00054}00054             \}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00055}00055         \}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00056}00056     \}}
+\DoxyCodeLine{\Hypertarget{_obstacle_8cs_source_l00057}00057 \}}
+
+\end{DoxyCode}

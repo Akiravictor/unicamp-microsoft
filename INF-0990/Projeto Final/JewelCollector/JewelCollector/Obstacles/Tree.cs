@@ -20,6 +20,10 @@ namespace JewelCollector.Obstacles
 
 		}
 
+        /// <summary>
+        /// Returns the amount of energy given by a Tree.
+        /// </summary>
+        /// <returns>Returns an <typeparamref name="int" /> representing the amount of energy given by a Tree.</returns>
         public int RechargeEnergy()
         {
             return EnergyAmount.TreeEnergy;

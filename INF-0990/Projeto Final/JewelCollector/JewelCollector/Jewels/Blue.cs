@@ -21,7 +21,11 @@ namespace JewelCollector.Jewels
 		
 		}
 
-		public int RechargeEnergy()
+        /// <summary>
+        /// Returns the amount of energy given by a Blue Jewel.
+        /// </summary>
+        /// <returns>Returns an <typeparamref name="int" /> representing the amount of energy given by a Blue Jewel.</returns>
+        public int RechargeEnergy()
 		{
 			return EnergyAmount.BlueEnergy;
 		}

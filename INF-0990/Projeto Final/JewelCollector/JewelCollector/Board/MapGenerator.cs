@@ -13,20 +13,64 @@ namespace JewelCollector.Board
 {
     public class MapGenerator
     {
+        /// <summary>
+		/// Stores a collection of <typeparamref name="Obstacle" />.
+		/// </summary>
         public List<Obstacle> Obstacles { get; private set;}
+
+        /// <summary>
+		/// Stores a collection of <typeparamref name="Jewel" />.
+		/// </summary>
         public List<Jewel> Jewels { get; private set; }
 
+        /// <summary>
+        /// Stores the Map's Height.
+        /// </summary>
         private int Height;
+
+        /// <summary>
+        /// Stores the Map's Width.
+        /// </summary>
 		private int Width;
+
+        /// <summary>
+        /// Stores the Map's Level.
+        /// </summary>
 		private int Level;
 
+        /// <summary>
+        /// Constant for the base number of Trees.
+        /// </summary>
         private const int NumTrees = 5;
+
+        /// <summary>
+        /// Constant for the base number of Water.
+        /// </summary>
         private const int NumWater = 5;
+
+        /// <summary>
+        /// Constant for the base number of Radiation.
+        /// </summary>
         private const int NumRadiation = 3;
+
+        /// <summary>
+        /// Constant for the base number of Blue Jewels.
+        /// </summary>
         private const int NumBlueJewel = 5;
+
+        /// <summary>
+        /// Constant for the base number of Green Jewels.
+        /// </summary>
         private const int NumGreenJewel = 5;
+
+        /// <summary>
+        /// Constant for the base number of Red Jewels.
+        /// </summary>
         private const int NumRedJewel = 5;
 
+        /// <summary>
+        /// Constructor for <typeparamref name="MapGenerator" />.
+        /// </summary>
         public MapGenerator()
         {
             Jewels = new List<Jewel>();
@@ -34,12 +78,22 @@ namespace JewelCollector.Board
 
         }
 
+        /// <summary>
+        /// Resets MapGenerator's properties.
+        /// </summary>
         public void Reset()
         {
             Jewels.Clear();
             Obstacles.Clear();
         }
 
+        /// <summary>
+        /// Generates a playable Map given its <paramref name="height"/>, <paramref name="width"/> and <paramref name="level"/>.
+        /// </summary>
+        /// <param name="height"></param>
+        /// <param name="width"></param>
+        /// <param name="level"></param>
+        /// <returns>Returns a matrix with size of <paramref name="height"/> by <paramref name="width"/> increased by <paramref name="level"/>.</returns>
         public string[,] GenerateMap(int height, int width, int level)
         {
             Level = level;
@@ -53,6 +107,7 @@ namespace JewelCollector.Board
 
             do
             {
+                // Randomly adds Trees
                 for (int i = 0; i < (NumTrees + Level); i++)
                 {
                     int x;
@@ -69,6 +124,7 @@ namespace JewelCollector.Board
                     grid[x, y] = Symbols.Tree;
                 }
 
+                //Randomly adds Water on empty positions
                 for (int i = 0; i < (NumWater + Level); i++)
                 {
                     int x;
@@ -87,6 +143,7 @@ namespace JewelCollector.Board
 
                 if(Level > 1)
                 {
+                    //Randomly adds Radiation on empty positions
                     for (int i = 0; i < (NumRadiation + Level); i++)
                     {
 					    int x;
@@ -104,6 +161,7 @@ namespace JewelCollector.Board
                     }
                 }
 
+                //Randomly adds Blue Jewels on empty positions
                 for (int i = 0; i < (NumBlueJewel + Level); i++)
                 {
 					int x;
@@ -120,6 +178,7 @@ namespace JewelCollector.Board
                     grid[x, y] = Symbols.BlueJewel;
                 }
 
+                //Randomly adds Green Jewels on empty positions
                 for (int i = 0; i < (NumGreenJewel + Level); i++)
                 {
 					int x;
@@ -136,6 +195,7 @@ namespace JewelCollector.Board
                     grid[x, y] = Symbols.GreenJewel;
                 }
 
+                //Randomly adds Red Jewels on empty positions
                 for (int i = 0; i < (NumRedJewel + Level); i++)
                 {
 					int x;
@@ -152,6 +212,7 @@ namespace JewelCollector.Board
                     grid[x, y] = Symbols.RedJewel;
                 }
 
+                //Fill all empty positions with Empty Symbol
                 for (int i = 0; i < Height; i++)
                 {
                     for (int j = 0; j < Width; j++)
@@ -163,6 +224,7 @@ namespace JewelCollector.Board
                     }
                 }
 
+                //Verify if the map is playable
                 if (MapIsPlayeble(grid))
                 {
                     IsPlayable = true;
@@ -183,16 +245,19 @@ namespace JewelCollector.Board
 				}
             } while (!IsPlayable);
 
+            //Resets Jewels positions
             foreach(var jewel in Jewels)
             {
                 grid[jewel.X, jewel.Y] = jewel.Symbol;
             }
 
+            //Resets Obstacles positions
 			foreach (var obstacle in Obstacles)
 			{
 				grid[obstacle.X, obstacle.Y] = obstacle.Symbol;
 			}
 
+            //Resets empty positions
 			for (int i = 0; i < Height; i++)
 			{
 				for (int j = 0; j < Width; j++)
@@ -208,16 +273,23 @@ namespace JewelCollector.Board
 			return grid;
         }
 
+        /// <summary>
+        /// Uses Breadth-First Search (BFS) algorithm to verify if all Jewels are reachable. 
+        /// </summary>
+        /// <param name="grid"></param>
+        /// <returns>Returns <typeparamref name="True" /> if the all Jewels in the map are reachable.</returns>
         private bool MapIsPlayeble(string[,] grid)
         {
             var queue = new Queue<Axis>();
             var jewelsLocal = new List<Jewel>();
 
+            //Locally creates a jewel list
             foreach(var j in Jewels)
             {
                 jewelsLocal.Add(j);
             }
 
+            //BFS Algorithm
             queue.Enqueue(new Axis(0,0));
             grid[0, 0] = "xx";
 
@@ -253,6 +325,13 @@ namespace JewelCollector.Board
             return false;
         }
 
+        /// <summary>
+        /// Get all valid neighbors for the given position.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="grid"></param>
+        /// <returns>Returns a <typeparamref name="List" /> of <typeparamref name="Axis" /> with all valid neighbors.</returns>
         private List<Axis> Neighbors(int x, int y, string[,] grid)
         {
             var axes = new List<Axis>();
@@ -283,10 +362,21 @@ namespace JewelCollector.Board
 
     internal class Axis
     {
+        /// <summary>
+        /// Stores the X value in the map.
+        /// </summary>
         public int X { get; set; }
 
+        /// <summary>
+        /// Stores the Y value in the map.
+        /// </summary>
         public int Y { get; set; }
 
+        /// <summary>
+        /// Constructor for <typeparamref name="Axis" />
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
         public Axis(int x, int y)
         {
             X = x;

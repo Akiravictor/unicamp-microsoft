@@ -8,6 +8,10 @@ namespace JewelCollector.Bot.Exceptions
 {
     public class CantMoveRobotException : Exception
     {
+        /// <summary>
+        /// Constructor for <typeparamref name="CantMoveRobotException" />.
+        /// </summary>
+        /// <param name="msg"></param>
         public CantMoveRobotException(string msg) : base(msg)
         {
 

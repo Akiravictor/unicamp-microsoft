@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['height_0',['Height',['../df/d28/class_jewel_collector_1_1_board_1_1_map.html#a5df100b0da3744b08d7535cdd3d6bfc5',1,'JewelCollector::Board::Map']]]
+  ['energy_0',['Energy',['../class_jewel_collector_1_1_bot_1_1_robot.html#a50d4784c81ba5b731649427bd20a723e',1,'JewelCollector::Bot::Robot']]]
 ];

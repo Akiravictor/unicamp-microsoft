@@ -1,0 +1,329 @@
+\hypertarget{class_jewel_collector_1_1_board_1_1_map_generator}{}\doxysection{Jewel\+Collector.\+Board.\+Map\+Generator Class Reference}
+\label{class_jewel_collector_1_1_board_1_1_map_generator}\index{JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_ab185fcb2005b1d184e02bf05820f7806}{Map\+Generator}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for {\itshape Map\+Generator} .  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_a642b1de55ac4d591fe8ca545df77b4c4}{Reset}} ()
+\begin{DoxyCompactList}\small\item\em Resets \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator}{Map\+Generator}}\textquotesingle{}s properties.  \end{DoxyCompactList}\item 
+string\mbox{[},\mbox{]} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_aca59310055eae352fc97d22cc3100184}{Generate\+Map}} (int height, int width, int level)
+\begin{DoxyCompactList}\small\item\em Generates a playable \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} given its {\itshape height} , {\itshape width}  and {\itshape level} .  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle}{Obstacle}} $>$ \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_a4c5fe1b7681c0fd3db89ddab87d84a28}{Obstacles}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Stores a collection of {\itshape Obstacle} .  \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_jewel_collector_1_1_jewels_1_1_jewel}{Jewel}} $>$ \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_aa89cebd7cc4d2fc073d5a9ea5d26582b}{Jewels}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Stores a collection of {\itshape Jewel} .  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_a44df1aa0d8d7eafbb6368d775ee79e89}{Map\+Is\+Playeble}} (string\mbox{[},\mbox{]} grid)
+\begin{DoxyCompactList}\small\item\em Uses Breadth-\/\+First Search (BFS) algorithm to verify if all \mbox{\hyperlink{namespace_jewel_collector_1_1_jewels}{Jewels}} are reachable.  \end{DoxyCompactList}\item 
+List$<$ Axis $>$ \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_a5f83f5668293f760317fc3c5152ff0ca}{Neighbors}} (int x, int y, string\mbox{[},\mbox{]} grid)
+\begin{DoxyCompactList}\small\item\em Get all valid neighbors for the given position.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_ab1131386a0ba2494d3d1159f5792b247}{Height}}
+\begin{DoxyCompactList}\small\item\em Stores the \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}\textquotesingle{}s Height.  \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_a18a61e9a751df1bb0ebf80da04b88005}{Width}}
+\begin{DoxyCompactList}\small\item\em Stores the \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}\textquotesingle{}s Width.  \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_ae102142a75b299176df93057a88babc2}{Level}}
+\begin{DoxyCompactList}\small\item\em Stores the \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}\textquotesingle{}s Level.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_a511bb3e323f5e5cbdf71865cff989a76}{Num\+Trees}} = 5
+\begin{DoxyCompactList}\small\item\em Constant for the base number of Trees.  \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_aa2a4b1afaea1df6e748451f709cfb0a3}{Num\+Water}} = 5
+\begin{DoxyCompactList}\small\item\em Constant for the base number of Water.  \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_aa594cbc477f31f0d6bcfa078e94be29f}{Num\+Radiation}} = 3
+\begin{DoxyCompactList}\small\item\em Constant for the base number of Radiation.  \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_ad639087697024e61cf140b0437b80548}{Num\+Blue\+Jewel}} = 5
+\begin{DoxyCompactList}\small\item\em Constant for the base number of Blue \mbox{\hyperlink{namespace_jewel_collector_1_1_jewels}{Jewels}}.  \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_a195202fb2f4d63b0bb7a16a7e4701235}{Num\+Green\+Jewel}} = 5
+\begin{DoxyCompactList}\small\item\em Constant for the base number of Green \mbox{\hyperlink{namespace_jewel_collector_1_1_jewels}{Jewels}}.  \end{DoxyCompactList}\item 
+const int \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_a505ffc0bc0ee847c075b8146c69bb6da}{Num\+Red\+Jewel}} = 5
+\begin{DoxyCompactList}\small\item\em Constant for the base number of Red \mbox{\hyperlink{namespace_jewel_collector_1_1_jewels}{Jewels}}.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_map_generator_8cs_source_l00014}{14}} of file \mbox{\hyperlink{_map_generator_8cs_source}{Map\+Generator.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_generator_ab185fcb2005b1d184e02bf05820f7806}\label{class_jewel_collector_1_1_board_1_1_map_generator_ab185fcb2005b1d184e02bf05820f7806}} 
+\index{JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}!MapGenerator@{MapGenerator}}
+\index{MapGenerator@{MapGenerator}!JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}}
+\doxysubsubsection{\texorpdfstring{MapGenerator()}{MapGenerator()}}
+{\footnotesize\ttfamily Jewel\+Collector.\+Board.\+Map\+Generator.\+Map\+Generator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor for {\itshape Map\+Generator} .  
+
+
+
+Definition at line \mbox{\hyperlink{_map_generator_8cs_source_l00074}{74}} of file \mbox{\hyperlink{_map_generator_8cs_source}{Map\+Generator.\+cs}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_generator_aca59310055eae352fc97d22cc3100184}\label{class_jewel_collector_1_1_board_1_1_map_generator_aca59310055eae352fc97d22cc3100184}} 
+\index{JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}!GenerateMap@{GenerateMap}}
+\index{GenerateMap@{GenerateMap}!JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}}
+\doxysubsubsection{\texorpdfstring{GenerateMap()}{GenerateMap()}}
+{\footnotesize\ttfamily string\mbox{[},\mbox{]} Jewel\+Collector.\+Board.\+Map\+Generator.\+Generate\+Map (\begin{DoxyParamCaption}\item[{int}]{height,  }\item[{int}]{width,  }\item[{int}]{level }\end{DoxyParamCaption})}
+
+
+
+Generates a playable \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} given its {\itshape height} , {\itshape width}  and {\itshape level} .  
+
+
+\begin{DoxyParams}{Parameters}
+{\em height} & \\
+\hline
+{\em width} & \\
+\hline
+{\em level} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a matrix with size of {\itshape height}  by {\itshape width}  increased by {\itshape level} .
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_map_generator_8cs_source_l00097}{97}} of file \mbox{\hyperlink{_map_generator_8cs_source}{Map\+Generator.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_generator_a44df1aa0d8d7eafbb6368d775ee79e89}\label{class_jewel_collector_1_1_board_1_1_map_generator_a44df1aa0d8d7eafbb6368d775ee79e89}} 
+\index{JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}!MapIsPlayeble@{MapIsPlayeble}}
+\index{MapIsPlayeble@{MapIsPlayeble}!JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}}
+\doxysubsubsection{\texorpdfstring{MapIsPlayeble()}{MapIsPlayeble()}}
+{\footnotesize\ttfamily bool Jewel\+Collector.\+Board.\+Map\+Generator.\+Map\+Is\+Playeble (\begin{DoxyParamCaption}\item[{string}]{grid\mbox{[},\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Uses Breadth-\/\+First Search (BFS) algorithm to verify if all \mbox{\hyperlink{namespace_jewel_collector_1_1_jewels}{Jewels}} are reachable.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns {\itshape True}  if the all \mbox{\hyperlink{namespace_jewel_collector_1_1_jewels}{Jewels}} in the map are reachable.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_map_generator_8cs_source_l00281}{281}} of file \mbox{\hyperlink{_map_generator_8cs_source}{Map\+Generator.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_generator_a5f83f5668293f760317fc3c5152ff0ca}\label{class_jewel_collector_1_1_board_1_1_map_generator_a5f83f5668293f760317fc3c5152ff0ca}} 
+\index{JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}!Neighbors@{Neighbors}}
+\index{Neighbors@{Neighbors}!JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}}
+\doxysubsubsection{\texorpdfstring{Neighbors()}{Neighbors()}}
+{\footnotesize\ttfamily List$<$ Axis $>$ Jewel\+Collector.\+Board.\+Map\+Generator.\+Neighbors (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{string}]{grid\mbox{[},\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get all valid neighbors for the given position.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em grid} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a {\itshape List}  of {\itshape Axis}  with all valid neighbors.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_map_generator_8cs_source_l00335}{335}} of file \mbox{\hyperlink{_map_generator_8cs_source}{Map\+Generator.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_generator_a642b1de55ac4d591fe8ca545df77b4c4}\label{class_jewel_collector_1_1_board_1_1_map_generator_a642b1de55ac4d591fe8ca545df77b4c4}} 
+\index{JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}!Reset@{Reset}}
+\index{Reset@{Reset}!JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}}
+\doxysubsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily void Jewel\+Collector.\+Board.\+Map\+Generator.\+Reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Resets \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator}{Map\+Generator}}\textquotesingle{}s properties.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_generator_8cs_source_l00084}{84}} of file \mbox{\hyperlink{_map_generator_8cs_source}{Map\+Generator.\+cs}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_generator_ab1131386a0ba2494d3d1159f5792b247}\label{class_jewel_collector_1_1_board_1_1_map_generator_ab1131386a0ba2494d3d1159f5792b247}} 
+\index{JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}!Height@{Height}}
+\index{Height@{Height}!JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}}
+\doxysubsubsection{\texorpdfstring{Height}{Height}}
+{\footnotesize\ttfamily int Jewel\+Collector.\+Board.\+Map\+Generator.\+Height\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Stores the \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}\textquotesingle{}s Height.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_generator_8cs_source_l00029}{29}} of file \mbox{\hyperlink{_map_generator_8cs_source}{Map\+Generator.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_generator_ae102142a75b299176df93057a88babc2}\label{class_jewel_collector_1_1_board_1_1_map_generator_ae102142a75b299176df93057a88babc2}} 
+\index{JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}!Level@{Level}}
+\index{Level@{Level}!JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}}
+\doxysubsubsection{\texorpdfstring{Level}{Level}}
+{\footnotesize\ttfamily int Jewel\+Collector.\+Board.\+Map\+Generator.\+Level\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Stores the \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}\textquotesingle{}s Level.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_generator_8cs_source_l00039}{39}} of file \mbox{\hyperlink{_map_generator_8cs_source}{Map\+Generator.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_generator_ad639087697024e61cf140b0437b80548}\label{class_jewel_collector_1_1_board_1_1_map_generator_ad639087697024e61cf140b0437b80548}} 
+\index{JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}!NumBlueJewel@{NumBlueJewel}}
+\index{NumBlueJewel@{NumBlueJewel}!JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}}
+\doxysubsubsection{\texorpdfstring{NumBlueJewel}{NumBlueJewel}}
+{\footnotesize\ttfamily const int Jewel\+Collector.\+Board.\+Map\+Generator.\+Num\+Blue\+Jewel = 5\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Constant for the base number of Blue \mbox{\hyperlink{namespace_jewel_collector_1_1_jewels}{Jewels}}.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_generator_8cs_source_l00059}{59}} of file \mbox{\hyperlink{_map_generator_8cs_source}{Map\+Generator.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_generator_a195202fb2f4d63b0bb7a16a7e4701235}\label{class_jewel_collector_1_1_board_1_1_map_generator_a195202fb2f4d63b0bb7a16a7e4701235}} 
+\index{JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}!NumGreenJewel@{NumGreenJewel}}
+\index{NumGreenJewel@{NumGreenJewel}!JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}}
+\doxysubsubsection{\texorpdfstring{NumGreenJewel}{NumGreenJewel}}
+{\footnotesize\ttfamily const int Jewel\+Collector.\+Board.\+Map\+Generator.\+Num\+Green\+Jewel = 5\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Constant for the base number of Green \mbox{\hyperlink{namespace_jewel_collector_1_1_jewels}{Jewels}}.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_generator_8cs_source_l00064}{64}} of file \mbox{\hyperlink{_map_generator_8cs_source}{Map\+Generator.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_generator_aa594cbc477f31f0d6bcfa078e94be29f}\label{class_jewel_collector_1_1_board_1_1_map_generator_aa594cbc477f31f0d6bcfa078e94be29f}} 
+\index{JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}!NumRadiation@{NumRadiation}}
+\index{NumRadiation@{NumRadiation}!JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}}
+\doxysubsubsection{\texorpdfstring{NumRadiation}{NumRadiation}}
+{\footnotesize\ttfamily const int Jewel\+Collector.\+Board.\+Map\+Generator.\+Num\+Radiation = 3\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Constant for the base number of Radiation.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_generator_8cs_source_l00054}{54}} of file \mbox{\hyperlink{_map_generator_8cs_source}{Map\+Generator.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_generator_a505ffc0bc0ee847c075b8146c69bb6da}\label{class_jewel_collector_1_1_board_1_1_map_generator_a505ffc0bc0ee847c075b8146c69bb6da}} 
+\index{JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}!NumRedJewel@{NumRedJewel}}
+\index{NumRedJewel@{NumRedJewel}!JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}}
+\doxysubsubsection{\texorpdfstring{NumRedJewel}{NumRedJewel}}
+{\footnotesize\ttfamily const int Jewel\+Collector.\+Board.\+Map\+Generator.\+Num\+Red\+Jewel = 5\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Constant for the base number of Red \mbox{\hyperlink{namespace_jewel_collector_1_1_jewels}{Jewels}}.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_generator_8cs_source_l00069}{69}} of file \mbox{\hyperlink{_map_generator_8cs_source}{Map\+Generator.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_generator_a511bb3e323f5e5cbdf71865cff989a76}\label{class_jewel_collector_1_1_board_1_1_map_generator_a511bb3e323f5e5cbdf71865cff989a76}} 
+\index{JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}!NumTrees@{NumTrees}}
+\index{NumTrees@{NumTrees}!JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}}
+\doxysubsubsection{\texorpdfstring{NumTrees}{NumTrees}}
+{\footnotesize\ttfamily const int Jewel\+Collector.\+Board.\+Map\+Generator.\+Num\+Trees = 5\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Constant for the base number of Trees.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_generator_8cs_source_l00044}{44}} of file \mbox{\hyperlink{_map_generator_8cs_source}{Map\+Generator.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_generator_aa2a4b1afaea1df6e748451f709cfb0a3}\label{class_jewel_collector_1_1_board_1_1_map_generator_aa2a4b1afaea1df6e748451f709cfb0a3}} 
+\index{JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}!NumWater@{NumWater}}
+\index{NumWater@{NumWater}!JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}}
+\doxysubsubsection{\texorpdfstring{NumWater}{NumWater}}
+{\footnotesize\ttfamily const int Jewel\+Collector.\+Board.\+Map\+Generator.\+Num\+Water = 5\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Constant for the base number of Water.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_generator_8cs_source_l00049}{49}} of file \mbox{\hyperlink{_map_generator_8cs_source}{Map\+Generator.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_generator_a18a61e9a751df1bb0ebf80da04b88005}\label{class_jewel_collector_1_1_board_1_1_map_generator_a18a61e9a751df1bb0ebf80da04b88005}} 
+\index{JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}!Width@{Width}}
+\index{Width@{Width}!JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}}
+\doxysubsubsection{\texorpdfstring{Width}{Width}}
+{\footnotesize\ttfamily int Jewel\+Collector.\+Board.\+Map\+Generator.\+Width\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Stores the \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}\textquotesingle{}s Width.  
+
+
+
+Definition at line \mbox{\hyperlink{_map_generator_8cs_source_l00034}{34}} of file \mbox{\hyperlink{_map_generator_8cs_source}{Map\+Generator.\+cs}}.
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_generator_aa89cebd7cc4d2fc073d5a9ea5d26582b}\label{class_jewel_collector_1_1_board_1_1_map_generator_aa89cebd7cc4d2fc073d5a9ea5d26582b}} 
+\index{JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}!Jewels@{Jewels}}
+\index{Jewels@{Jewels}!JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}}
+\doxysubsubsection{\texorpdfstring{Jewels}{Jewels}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_jewel_collector_1_1_jewels_1_1_jewel}{Jewel}}$>$ Jewel\+Collector.\+Board.\+Map\+Generator.\+Jewels\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Stores a collection of {\itshape Jewel} .  
+
+
+
+Definition at line \mbox{\hyperlink{_map_generator_8cs_source_l00024}{24}} of file \mbox{\hyperlink{_map_generator_8cs_source}{Map\+Generator.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_board_1_1_map_generator_a4c5fe1b7681c0fd3db89ddab87d84a28}\label{class_jewel_collector_1_1_board_1_1_map_generator_a4c5fe1b7681c0fd3db89ddab87d84a28}} 
+\index{JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}!Obstacles@{Obstacles}}
+\index{Obstacles@{Obstacles}!JewelCollector.Board.MapGenerator@{JewelCollector.Board.MapGenerator}}
+\doxysubsubsection{\texorpdfstring{Obstacles}{Obstacles}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle}{Obstacle}}$>$ Jewel\+Collector.\+Board.\+Map\+Generator.\+Obstacles\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Stores a collection of {\itshape Obstacle} .  
+
+
+
+Definition at line \mbox{\hyperlink{_map_generator_8cs_source_l00019}{19}} of file \mbox{\hyperlink{_map_generator_8cs_source}{Map\+Generator.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Jewel\+Collector/\+Board/\mbox{\hyperlink{_map_generator_8cs}{Map\+Generator.\+cs}}\end{DoxyCompactItemize}

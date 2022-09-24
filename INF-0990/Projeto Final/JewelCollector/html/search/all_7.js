@@ -1,13 +1,11 @@
 var searchData=
 [
-  ['board_0',['Board',['../da/d30/namespace_jewel_collector_1_1_board.html',1,'JewelCollector']]],
-  ['bot_1',['Bot',['../d4/d13/namespace_jewel_collector_1_1_bot.html',1,'JewelCollector']]],
-  ['jewel_2',['Jewel',['../d5/d1f/class_jewel_collector_1_1_jewels_1_1_jewel.html#a98dc2e64dcbb92e556571807f24d4861',1,'JewelCollector.Jewels.Jewel.Jewel()'],['../d5/d1f/class_jewel_collector_1_1_jewels_1_1_jewel.html',1,'JewelCollector.Jewels.Jewel']]],
-  ['jewel_2ecs_3',['Jewel.cs',['../db/d2c/_jewel_8cs.html',1,'']]],
-  ['jewelcollector_4',['JewelCollector',['../dd/d16/namespace_jewel_collector.html',1,'JewelCollector'],['../d3/d25/class_jewel_collector_1_1_jewel_collector.html',1,'JewelCollector.JewelCollector']]],
-  ['jewelcollector_2eassemblyinfo_2ecs_5',['JewelCollector.AssemblyInfo.cs',['../d1/d7c/_debug_2net6_80_2_jewel_collector_8_assembly_info_8cs.html',1,'(Global Namespace)'],['../da/df4/_release_2net6_80_2_jewel_collector_8_assembly_info_8cs.html',1,'(Global Namespace)']]],
-  ['jewelcollector_2ecs_6',['JewelCollector.cs',['../dc/d99/_jewel_collector_8cs.html',1,'']]],
-  ['jewelcollector_2eglobalusings_2eg_2ecs_7',['JewelCollector.GlobalUsings.g.cs',['../d1/d5d/_debug_2net6_80_2_jewel_collector_8_global_usings_8g_8cs.html',1,'(Global Namespace)'],['../d0/d47/_release_2net6_80_2_jewel_collector_8_global_usings_8g_8cs.html',1,'(Global Namespace)']]],
-  ['jewels_8',['Jewels',['../df/d5a/namespace_jewel_collector_1_1_jewels.html',1,'JewelCollector.Jewels'],['../df/d28/class_jewel_collector_1_1_board_1_1_map.html#a1a6da2d155af2f51f1190e47b206c8fe',1,'JewelCollector.Board.Map.Jewels()']]],
-  ['obstacles_9',['Obstacles',['../d0/dd2/namespace_jewel_collector_1_1_obstacles.html',1,'JewelCollector']]]
+  ['idamageable_0',['IDamageable',['../interface_jewel_collector_1_1_interfaces_1_1_i_damageable.html',1,'JewelCollector::Interfaces']]],
+  ['idamageable_2ecs_1',['IDamageable.cs',['../_i_damageable_8cs.html',1,'']]],
+  ['iinteraction_2',['IInteraction',['../interface_jewel_collector_1_1_interfaces_1_1_i_interaction.html',1,'JewelCollector::Interfaces']]],
+  ['iinteraction_2ecs_3',['IInteraction.cs',['../_i_interaction_8cs.html',1,'']]],
+  ['interact_4',['Interact',['../class_jewel_collector_1_1_bot_1_1_robot.html#a71ab599f3840ae56f449f0280cafc7f7',1,'JewelCollector.Bot.Robot.Interact()'],['../interface_jewel_collector_1_1_interfaces_1_1_i_interaction.html#a8af40c850d3db029366800e83d987b36',1,'JewelCollector.Interfaces.IInteraction.Interact()']]],
+  ['interacttree_5',['InteractTree',['../class_jewel_collector_1_1_bot_1_1_robot.html#acc2a3ad7e0e052a31b1a96bce57e5672',1,'JewelCollector::Bot::Robot']]],
+  ['irechargeable_6',['IRechargeable',['../interface_jewel_collector_1_1_interfaces_1_1_i_rechargeable.html',1,'JewelCollector::Interfaces']]],
+  ['irechargeable_2ecs_7',['IRechargeable.cs',['../_i_rechargeable_8cs.html',1,'']]]
 ];

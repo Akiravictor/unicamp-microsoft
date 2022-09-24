@@ -39,6 +39,9 @@ namespace JewelCollector.Bot
 			TotalValue += value;
 		}
 
+		/// <summary>
+		/// Resets Bag's properties.
+		/// </summary>
 		public void ResetBag()
 		{
 			TotalValue = 0;

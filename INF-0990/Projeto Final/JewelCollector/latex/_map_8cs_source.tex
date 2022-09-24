@@ -1,0 +1,209 @@
+\hypertarget{_map_8cs_source}{}\doxysection{Map.\+cs}
+\label{_map_8cs_source}\index{JewelCollector/Board/Map.cs@{JewelCollector/Board/Map.cs}}
+\mbox{\hyperlink{_map_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00001}00001 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_jewel_collector_1_1_jewels}{JewelCollector.Jewels}};}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00002}00002 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_jewel_collector_1_1_obstacles}{JewelCollector.Obstacles}};}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00003}00003 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_jewel_collector_1_1_bot}{JewelCollector.Bot}};}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00004}00004 \textcolor{keyword}{using }System;}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00005}00005 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00006}00006 \textcolor{keyword}{using }System.Linq;}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00007}00007 \textcolor{keyword}{using }System.Text;}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00008}00008 \textcolor{keyword}{using }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00009}00009 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_jewel_collector_1_1_consts}{JewelCollector.Consts}};}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00010}00010 \textcolor{keyword}{using }System.Net.Http.Headers;}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00012}\mbox{\hyperlink{namespace_jewel_collector}{00012}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_jewel_collector_1_1_board}{JewelCollector.Board}}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00013}00013 \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00014}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{00014}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00015}00015     \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00019}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a75b49c157c385445879e6fc26d7e2ff1}{00019}}         \textcolor{keyword}{public} \textcolor{keywordtype}{string}[,] \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a75b49c157c385445879e6fc26d7e2ff1}{Grid}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00024}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a5df100b0da3744b08d7535cdd3d6bfc5}{00024}}         \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a5df100b0da3744b08d7535cdd3d6bfc5}{Height}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00029}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ade47b33b2e170c286fe52a6501a435f4}{00029}}         \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ade47b33b2e170c286fe52a6501a435f4}{Width}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00034}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a1a6da2d155af2f51f1190e47b206c8fe}{00034}}         \textcolor{keyword}{public} List<Jewel> \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a1a6da2d155af2f51f1190e47b206c8fe}{Jewels}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00039}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ac3a0b1fd16597ae74b7f5ee28909ccdd}{00039}}         \textcolor{keyword}{public} List<Obstacle> \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ac3a0b1fd16597ae74b7f5ee28909ccdd}{Obstacles}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00044}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a30ce6fadcc4fb17d96b1648c28c94234}{00044}}         \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a30ce6fadcc4fb17d96b1648c28c94234}{Level}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00049}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a8fe09b0ac9280d7d9d0c5758742265e8}{00049}}         \textcolor{keyword}{private} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator}{MapGenerator}} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a8fe09b0ac9280d7d9d0c5758742265e8}{MapGen}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00054}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ac1eda1f75233e173027e1a784e664318}{00054}}         \textcolor{keyword}{public} \textcolor{keyword}{event} EventHandler? \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ac1eda1f75233e173027e1a784e664318}{LevelCleared}};}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00059}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a9c7ffc0e7ac26159c16cc8904e4e6af1}{00059}}         \textcolor{keyword}{public} \textcolor{keyword}{event} EventHandler? \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a9c7ffc0e7ac26159c16cc8904e4e6af1}{GameCleared}};}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00067}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a43508b9a6402fb1d6c58feb42c876c3a}{00067}}         \textcolor{keyword}{public} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a43508b9a6402fb1d6c58feb42c876c3a}{Map}}(\textcolor{keywordtype}{int} height, \textcolor{keywordtype}{int} width)}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00068}00068         \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00069}00069             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a5df100b0da3744b08d7535cdd3d6bfc5}{Height}} = height;}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00070}00070             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ade47b33b2e170c286fe52a6501a435f4}{Width}} = width;}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00072}00072             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a30ce6fadcc4fb17d96b1648c28c94234}{Level}} = 1;}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00073}00073             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a8fe09b0ac9280d7d9d0c5758742265e8}{MapGen}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator}{MapGenerator}}();}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00074}00074 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00075}00075             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a75b49c157c385445879e6fc26d7e2ff1}{Grid}} = \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a8fe09b0ac9280d7d9d0c5758742265e8}{MapGen}}.\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_aca59310055eae352fc97d22cc3100184}{GenerateMap}}(\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a5df100b0da3744b08d7535cdd3d6bfc5}{Height}}, \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ade47b33b2e170c286fe52a6501a435f4}{Width}}, \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a30ce6fadcc4fb17d96b1648c28c94234}{Level}});}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00076}00076             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a1a6da2d155af2f51f1190e47b206c8fe}{Jewels}} = \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a8fe09b0ac9280d7d9d0c5758742265e8}{MapGen}}.\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_aa89cebd7cc4d2fc073d5a9ea5d26582b}{Jewels}}.ToList();}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00077}00077             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ac3a0b1fd16597ae74b7f5ee28909ccdd}{Obstacles}} = \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a8fe09b0ac9280d7d9d0c5758742265e8}{MapGen}}.\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_a4c5fe1b7681c0fd3db89ddab87d84a28}{Obstacles}}.ToList();}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00078}00078         \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00079}00079 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00083}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a87235a50a7c4ebf95e45eedf9dcc2b34}{00083}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a87235a50a7c4ebf95e45eedf9dcc2b34}{LevelUp}}()}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00084}00084         \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00085}00085             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a30ce6fadcc4fb17d96b1648c28c94234}{Level}} += 1;}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00086}00086 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00087}00087             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a5df100b0da3744b08d7535cdd3d6bfc5}{Height}} += 1;}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00088}00088             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ade47b33b2e170c286fe52a6501a435f4}{Width}} += 1;}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00090}00090             \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a5df100b0da3744b08d7535cdd3d6bfc5}{Height}} > 30 || \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ade47b33b2e170c286fe52a6501a435f4}{Width}} > 30)}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00091}00091             \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00092}00092                 \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a70817b483b9ee6ccf1b747d30d5e2842}{OnGameClear}}();}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00093}00093             \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00094}00094 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00095}00095             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a8fe09b0ac9280d7d9d0c5758742265e8}{MapGen}}.\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_a642b1de55ac4d591fe8ca545df77b4c4}{Reset}}();}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00096}00096         \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00097}00097 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00101}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a9d5bd89159af9837039db5b8bdd0ee8b}{00101}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a9d5bd89159af9837039db5b8bdd0ee8b}{ResetLevel}}()}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00102}00102         \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00103}00103             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a30ce6fadcc4fb17d96b1648c28c94234}{Level}} = 1;}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00105}00105             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a5df100b0da3744b08d7535cdd3d6bfc5}{Height}} = 10;}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00106}00106             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ade47b33b2e170c286fe52a6501a435f4}{Width}} = 10;}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00107}00107 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00108}00108             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a8fe09b0ac9280d7d9d0c5758742265e8}{MapGen}}.\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_a642b1de55ac4d591fe8ca545df77b4c4}{Reset}}();}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00109}00109         \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00110}00110 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00114}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_afb53c3fbc2db220d3bbe75c266d843c7}{00114}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_afb53c3fbc2db220d3bbe75c266d843c7}{GenerateMap}}()}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00115}00115         \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00116}00116             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a75b49c157c385445879e6fc26d7e2ff1}{Grid}} = \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a8fe09b0ac9280d7d9d0c5758742265e8}{MapGen}}.\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_aca59310055eae352fc97d22cc3100184}{GenerateMap}}(\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a5df100b0da3744b08d7535cdd3d6bfc5}{Height}}, \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ade47b33b2e170c286fe52a6501a435f4}{Width}}, \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a30ce6fadcc4fb17d96b1648c28c94234}{Level}});}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00117}00117 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00118}00118             \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a1a6da2d155af2f51f1190e47b206c8fe}{Jewels}} != \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00119}00119             \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00120}00120                 \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a1a6da2d155af2f51f1190e47b206c8fe}{Jewels}}.Clear();}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00121}00121             \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00122}00122 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00123}00123             \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ac3a0b1fd16597ae74b7f5ee28909ccdd}{Obstacles}} != \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00124}00124             \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00125}00125                 \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ac3a0b1fd16597ae74b7f5ee28909ccdd}{Obstacles}}.Clear();}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00126}00126             \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00127}00127 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00128}00128             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a1a6da2d155af2f51f1190e47b206c8fe}{Jewels}} = \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a8fe09b0ac9280d7d9d0c5758742265e8}{MapGen}}.\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_aa89cebd7cc4d2fc073d5a9ea5d26582b}{Jewels}}.ToList();}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00129}00129             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ac3a0b1fd16597ae74b7f5ee28909ccdd}{Obstacles}} = \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a8fe09b0ac9280d7d9d0c5758742265e8}{MapGen}}.\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_generator_a4c5fe1b7681c0fd3db89ddab87d84a28}{Obstacles}}.ToList();}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00130}00130             }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00131}00131         \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00132}00132 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00133}00133 \textcolor{preprocessor}{        \#region [Add/Remove]}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00134}00134 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00139}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a67ae2074756482f0ddd68014e29b3e21}{00139}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a67ae2074756482f0ddd68014e29b3e21}{AddJewel}}(\mbox{\hyperlink{class_jewel_collector_1_1_jewels_1_1_jewel}{Jewel}} jewel)}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00140}00140         \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00141}00141             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a1a6da2d155af2f51f1190e47b206c8fe}{Jewels}}.Add(jewel);}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00142}00142             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a75b49c157c385445879e6fc26d7e2ff1}{Grid}}[jewel.\mbox{\hyperlink{class_jewel_collector_1_1_jewels_1_1_jewel_abbdc44d64c7d10f0fe80733bcdf7b054}{X}}, jewel.\mbox{\hyperlink{class_jewel_collector_1_1_jewels_1_1_jewel_aa509b99d7ac56057e35588dba4f62f6a}{Y}}] = jewel.\mbox{\hyperlink{class_jewel_collector_1_1_jewels_1_1_jewel_a5a2cb6d3df5350a3f5f64e539599f153}{Symbol}};}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00143}00143         \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00144}00144 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00149}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a15c13a578302e1ebe3ea93f6ee3790c0}{00149}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a15c13a578302e1ebe3ea93f6ee3790c0}{RemoveJewel}}(\mbox{\hyperlink{class_jewel_collector_1_1_jewels_1_1_jewel}{Jewel}} jewel)}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00150}00150         \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00151}00151             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a1a6da2d155af2f51f1190e47b206c8fe}{Jewels}}.Remove(jewel);}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00152}00152             }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00153}00153             \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a1a6da2d155af2f51f1190e47b206c8fe}{Jewels}}.Count == 0)}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00154}00154             \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00155}00155                 \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_abf7eb45afed0362cfb339c80732eb4e8}{OnClearLevel}}();}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00156}00156             \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00157}00157         \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00158}00158 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00163}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a90100f8898797530bc0d674f453d1d69}{00163}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a90100f8898797530bc0d674f453d1d69}{AddObstacle}}(\mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle}{Obstacle}} obstacle)}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00164}00164         \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00165}00165             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ac3a0b1fd16597ae74b7f5ee28909ccdd}{Obstacles}}.Add(obstacle);}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00166}00166             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a75b49c157c385445879e6fc26d7e2ff1}{Grid}}[obstacle.\mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle_a51e7e9d1c733dd1d26eef19c4fb12b76}{X}}, obstacle.\mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle_ad18002ca9d032ab6d16aa6db60593833}{Y}}] = obstacle.\mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle_a7b54f444d3469c38f486e8e4dc1029b0}{Symbol}};}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00167}00167         \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00168}00168 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00173}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ae8bc611040e025726b20077636de1a1d}{00173}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ae8bc611040e025726b20077636de1a1d}{RemoveObstacle}}(\mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle}{Obstacle}} obstacle)}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00174}00174         \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00175}00175             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ac3a0b1fd16597ae74b7f5ee28909ccdd}{Obstacles}}.Remove(obstacle);}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00176}00176             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a75b49c157c385445879e6fc26d7e2ff1}{Grid}}[obstacle.\mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle_a51e7e9d1c733dd1d26eef19c4fb12b76}{X}}, obstacle.\mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle_ad18002ca9d032ab6d16aa6db60593833}{Y}}] = Symbols.Empty;}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00177}00177         \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00178}00178 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00179}00179 \textcolor{preprocessor}{        \#endregion [Add/Remove]}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00180}00180 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00181}00181 \textcolor{preprocessor}{        \#region [Grid Utils]}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00182}00182 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00186}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ac1931cf10e883e78270f75ef37962d2f}{00186}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ac1931cf10e883e78270f75ef37962d2f}{PrintMap}}()}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00187}00187         \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00188}00188             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a5df100b0da3744b08d7535cdd3d6bfc5}{Height}}; i++)}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00189}00189             \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00190}00190                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ade47b33b2e170c286fe52a6501a435f4}{Width}}; j++)}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00191}00191                 \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00192}00192                     Console.Write(\$\textcolor{stringliteral}{"{}\{Grid[i, j]\}  "{}});}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00193}00193                 \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00194}00194                 Console.WriteLine();}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00195}00195             \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00196}00196         \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00197}00197 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00202}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_adfd4acc3239d0b8e4e24e02c2004a7e7}{00202}}         \textcolor{keyword}{public} \textcolor{keyword}{override} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_adfd4acc3239d0b8e4e24e02c2004a7e7}{ToString}}()}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00203}00203         \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00204}00204             StringBuilder sb = \textcolor{keyword}{new}();}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00205}00205 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00206}00206             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a5df100b0da3744b08d7535cdd3d6bfc5}{Height}}; i++)}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00207}00207             \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00208}00208                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ade47b33b2e170c286fe52a6501a435f4}{Width}}; j++)}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00209}00209                 \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00210}00210                     sb.Append(\$\textcolor{stringliteral}{"{}\{Grid[i, j]\}  "{}});}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00211}00211                 \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00212}00212                 sb.Append(\textcolor{charliteral}{'\(\backslash\)n'});}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00213}00213             \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00214}00214 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00215}00215             \textcolor{keywordflow}{return} sb.ToString();}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00216}00216         \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00217}00217 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00223}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a8f4973029c148ffa24adaf0ca1f1f7ae}{00223}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a8f4973029c148ffa24adaf0ca1f1f7ae}{RefreshMap}}(\textcolor{keywordtype}{int} robotX, \textcolor{keywordtype}{int} robotY)}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00224}00224         \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00225}00225             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a5df100b0da3744b08d7535cdd3d6bfc5}{Height}}; i++)}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00226}00226             \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00227}00227                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ade47b33b2e170c286fe52a6501a435f4}{Width}}; j++)}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00228}00228                 \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00229}00229                     \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a75b49c157c385445879e6fc26d7e2ff1}{Grid}}[i, j] = Symbols.Empty;}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00230}00230                 \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00231}00231             \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00232}00232 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00233}00233             \textcolor{keywordflow}{foreach} (var jewel \textcolor{keywordflow}{in} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a1a6da2d155af2f51f1190e47b206c8fe}{Jewels}})}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00234}00234             \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00235}00235                 \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a75b49c157c385445879e6fc26d7e2ff1}{Grid}}[jewel.X, jewel.Y] = jewel.Symbol;}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00236}00236             \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00237}00237 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00238}00238             \textcolor{keywordflow}{foreach} (var obstacle \textcolor{keywordflow}{in} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ac3a0b1fd16597ae74b7f5ee28909ccdd}{Obstacles}})}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00239}00239             \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00240}00240                 \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a75b49c157c385445879e6fc26d7e2ff1}{Grid}}[obstacle.X, obstacle.Y] = obstacle.Symbol;}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00241}00241             \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00242}00242 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00243}00243             \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a75b49c157c385445879e6fc26d7e2ff1}{Grid}}[robotX, robotY] = Symbols.Robot;}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00244}00244 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00245}00245         \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00246}00246 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00247}00247 \textcolor{preprocessor}{        \#endregion [Grid Utils]}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00248}00248 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00249}00249 \textcolor{preprocessor}{        \#region [Events]}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00250}00250 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00254}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_abf7eb45afed0362cfb339c80732eb4e8}{00254}}         \textcolor{keyword}{protected} \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_abf7eb45afed0362cfb339c80732eb4e8}{OnClearLevel}}()}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00255}00255         \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00256}00256             var raiseEvent = \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_ac1eda1f75233e173027e1a784e664318}{LevelCleared}};}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00257}00257 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00258}00258             \textcolor{keywordflow}{if}(raiseEvent != \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00259}00259             \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00260}00260                 raiseEvent(\textcolor{keyword}{this}, EventArgs.Empty);}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00261}00261             \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00262}00262         \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00263}00263 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00267}\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a70817b483b9ee6ccf1b747d30d5e2842}{00267}}         \textcolor{keyword}{protected} \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a70817b483b9ee6ccf1b747d30d5e2842}{OnGameClear}}()}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00268}00268         \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00269}00269             var raiseEvent = \mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map_a9c7ffc0e7ac26159c16cc8904e4e6af1}{GameCleared}};}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00270}00270 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00271}00271             \textcolor{keywordflow}{if}(raiseEvent != \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00272}00272             \{}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00273}00273                 raiseEvent(\textcolor{keyword}{this}, EventArgs.Empty);}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00274}00274             \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00275}00275         \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00276}00276 }
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00277}00277 \textcolor{preprocessor}{        \#endregion [Events]}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00278}00278     \}}
+\DoxyCodeLine{\Hypertarget{_map_8cs_source_l00279}00279 \}}
+
+\end{DoxyCode}

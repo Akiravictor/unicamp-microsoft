@@ -62,6 +62,10 @@ namespace JewelCollector.Bot
 
 		}
 
+		/// <summary>
+		/// Resets Robot's properties
+		/// </summary>
+		/// <param name="map"></param>
 		public void ResetRobot(Map map)
 		{
 			Bag.ResetBag();
@@ -131,16 +135,12 @@ namespace JewelCollector.Bot
 				X--;
 				ConsumeEnergy(EnergyAmount.MovementEnergy);
 
-				if (map.Grid[X, Y] == Symbols.Radiation)
-				{
-					ConsumeEnergy(EnergyAmount.StepRadiation);
-				}
-				if (CheckForRadiation(map))
-				{
-					ConsumeEnergy(EnergyAmount.NearRadiation);
-				}
+                if (CheckForRadiation(map))
+                {
+                    RadiationDamage(map);
+                }
 
-				OnRobotMoved(EventArgs.Empty);
+                OnRobotMoved(EventArgs.Empty);
 			}
 			else
 			{
@@ -160,16 +160,12 @@ namespace JewelCollector.Bot
 				X++;
 				ConsumeEnergy(EnergyAmount.MovementEnergy);
 
-				if (map.Grid[X, Y] == Symbols.Radiation)
-				{
-					ConsumeEnergy(EnergyAmount.StepRadiation);
-				}
-				if (CheckForRadiation(map))
-				{
-					ConsumeEnergy(EnergyAmount.NearRadiation);
-				}
+                if (CheckForRadiation(map))
+                {
+                    RadiationDamage(map);
+                }
 
-				OnRobotMoved(EventArgs.Empty);
+                OnRobotMoved(EventArgs.Empty);
 			}
 			else
 			{
@@ -189,16 +185,12 @@ namespace JewelCollector.Bot
 				Y++;
 				ConsumeEnergy(EnergyAmount.MovementEnergy);
 
-				if (map.Grid[X, Y] == Symbols.Radiation)
-				{
-					ConsumeEnergy(EnergyAmount.StepRadiation);
-				}
-				if (CheckForRadiation(map))
-				{
-					ConsumeEnergy(EnergyAmount.NearRadiation);
-				}
+                if (CheckForRadiation(map))
+                {
+                    RadiationDamage(map);
+                }
 
-				OnRobotMoved(EventArgs.Empty);
+                OnRobotMoved(EventArgs.Empty);
 			}
 			else
 			{
@@ -218,13 +210,9 @@ namespace JewelCollector.Bot
 				Y--;
 				ConsumeEnergy(EnergyAmount.MovementEnergy);
 
-				if (map.Grid[X, Y] == Symbols.Radiation)
-				{
-					ConsumeEnergy(EnergyAmount.StepRadiation);
-				}
 				if (CheckForRadiation(map))
 				{
-					ConsumeEnergy(EnergyAmount.NearRadiation);
+					RadiationDamage(map);
 				}
 
 				OnRobotMoved(EventArgs.Empty);
@@ -289,26 +277,17 @@ namespace JewelCollector.Bot
 		{
 			if(CheckForTree(map))
 			{
-				RechargeEnergy(EnergyAmount.TreeEnergy);
+				var trees = GetTrees(map);
+
+				foreach(Tree tree in trees)
+				{
+					RechargeEnergy(tree.RechargeEnergy());					
+				}
 
 				return true;
 			}
 
 			return false;
-		}
-
-        /// <summary>
-        /// Recharges Robot's energy by the given <paramref name="value"/> amount.
-        /// </summary>
-        /// <param name="value"></param>
-        private void RechargeEnergy(int value)
-        {
-            Energy += value;
-        }
-
-		private void ConsumeEnergy(int value)
-		{
-			Energy -= value;
 		}
 
         /// <summary>
@@ -322,8 +301,8 @@ namespace JewelCollector.Bot
 
 			if (CheckForRadiation(map) && hasInteracted)
 			{
-				ConsumeEnergy(EnergyAmount.NearRadiation);
-			}
+				RadiationDamage(map);
+            }
 
 			if (hasInteracted)
 			{
@@ -336,37 +315,128 @@ namespace JewelCollector.Bot
 
         }
 
-		private bool CheckForRadiation(Map map)
+		#endregion [Interaction]
+
+        /// <summary>
+        /// Recharges Robot's energy by the given <paramref name="value"/> amount.
+        /// </summary>
+        /// <param name="value"></param>
+        private void RechargeEnergy(int value)
+        {
+            Energy += value;
+        }
+
+		/// <summary>
+		/// Consumes Robot's energy by the given <paramref name="value"/> amount.
+		/// </summary>
+		/// <param name="value"></param>
+		private void ConsumeEnergy(int value)
+		{
+			Energy -= value;
+		}
+
+		/// <summary>
+		/// Check if there is a Radiation near Robot's position.
+		/// </summary>
+		/// <param name="map"></param>
+		/// <returns>Returns <paramref name="True"/> if there is a Radiation nearby. </returns>
+        private bool CheckForRadiation(Map map)
 		{
 			return CheckUpFor(map, Symbols.Radiation) || CheckDownFor(map, Symbols.Radiation) || CheckLeftFor(map, Symbols.Radiation) || CheckRightFor(map, Symbols.Radiation);
 		}
 
-		private bool CheckForTree(Map map)
+		/// <summary>
+		/// Get all Radiation nearby Robot's position.
+		/// </summary>
+		/// <param name="map"></param>
+		/// <returns>Returns a <typeparamref name="List" /> of <typeparamref name="Obstacle" /> with all Radiation nearby.</returns>
+		private List<Obstacle> GetRadiation(Map map)
+		{
+			return map.Obstacles.FindAll(o => o.X <= X + 1 && o.X >= X - 1 && o.Y <= Y + 1 && o.Y >= Y - 1 && o.Type == EnumObstacle.Radiation);
+        }
+
+		/// <summary>
+		/// Applies damage for all Radiation found nearby.
+		/// </summary>
+		/// <param name="map"></param>
+		private void RadiationDamage(Map map)
+		{
+            var radiations = GetRadiation(map);
+
+            foreach (Radiation radiation in radiations)
+            {
+                if (radiation.X == X && radiation.Y == Y)
+                {
+                    ConsumeEnergy(radiation.StepDamageSource());
+                }
+                else
+                {
+                    ConsumeEnergy(radiation.NearDamageSource());
+
+                }
+            }
+        }
+
+        /// <summary>
+        /// Check if there is a Tree near Robot's position.
+        /// </summary>
+        /// <param name="map"></param>
+        /// <returns>Returns <paramref name="True"/> if there is a Tree nearby. </returns>
+        private bool CheckForTree(Map map)
 		{
 			return CheckUpFor(map, Symbols.Tree) || CheckDownFor(map, Symbols.Tree) || CheckLeftFor(map, Symbols.Tree) || CheckRightFor(map, Symbols.Tree);
 		}
 
-		private bool JewelUp(Map map)
+        /// <summary>
+        /// Get all Radiation nearby Robot's position.
+        /// </summary>
+        /// <param name="map"></param>
+        /// <returns>Returns a <typeparamref name="List" /> of <typeparamref name="Obstacle" /> with all Radiation nearby.</returns>
+        private List<Obstacle> GetTrees(Map map)
+		{
+			return map.Obstacles.FindAll(o => o.X <= X + 1 && o.X >= X - 1 && o.Y <= Y + 1 && o.Y >= Y - 1 && o.Type == EnumObstacle.Tree);
+		}
+
+        /// <summary>
+        /// Check if there is a Jewel Above Robot's position.
+        /// </summary>
+        /// <param name="map"></param>
+        /// <returns>Returns <paramref name="True"/> if there is any Jewel nearby. </returns>
+        private bool JewelUp(Map map)
 		{
 			return CheckUpFor(map, Symbols.BlueJewel) || CheckUpFor(map, Symbols.GreenJewel) || CheckUpFor(map, Symbols.RedJewel);
 		}
 
-		private bool JewelDown(Map map)
+        /// <summary>
+        /// Check if there is a Jewel Below Robot's position.
+        /// </summary>
+        /// <param name="map"></param>
+        /// <returns>Returns <paramref name="True"/> if there is any Jewel nearby. </returns>
+        private bool JewelDown(Map map)
 		{
 			return CheckDownFor(map, Symbols.BlueJewel) || CheckDownFor(map, Symbols.GreenJewel) || CheckDownFor(map, Symbols.RedJewel);
 		}
 
-		private bool JewelLeft(Map map)
+        /// <summary>
+        /// Check if there is a Jewel to the Left of Robot's position.
+        /// </summary>
+        /// <param name="map"></param>
+        /// <returns>Returns <paramref name="True"/> if there is any Jewel nearby. </returns>
+        private bool JewelLeft(Map map)
 		{
 			return CheckLeftFor(map, Symbols.BlueJewel) || CheckLeftFor(map, Symbols.GreenJewel) || CheckLeftFor(map, Symbols.RedJewel);
 		}
 
-		private bool JewelRight(Map map)
+        /// <summary>
+        /// Check if there is a Jewel to the Right of Robot's position.
+        /// </summary>
+        /// <param name="map"></param>
+        /// <returns>Returns <paramref name="True"/> if there is any Jewel nearby. </returns>
+        private bool JewelRight(Map map)
 		{
 			return CheckRightFor(map, Symbols.BlueJewel) || CheckRightFor(map, Symbols.GreenJewel) || CheckRightFor(map, Symbols.RedJewel);
 		}
 
-		#endregion [Interaction]
 
 		#region [Utils]
 
@@ -426,17 +496,20 @@ namespace JewelCollector.Bot
         /// <summary>
         ///	Shows in Console the values in <typeparamref name="Bag" />.
         /// </summary>
-        [Obsolete(message: "Method no longer used")]
         public void PrintBag()
         {
             Bag.PrintBag();
         }
 
-		/// <summary>
-		/// Event Trigger when Robot moves
-		/// </summary>
-		/// <param name="e"></param>
-		protected virtual void OnRobotMoved(EventArgs e)
+        #endregion [Utils]
+
+        #region [Events]
+
+        /// <summary>
+        /// Event Trigger when Robot moves.
+        /// </summary>
+        /// <param name="e"></param>
+        protected virtual void OnRobotMoved(EventArgs e)
 		{
 			var raiseEvent = RobotMoved;
 
@@ -447,7 +520,7 @@ namespace JewelCollector.Bot
 		}
 
 		/// <summary>
-		/// Event Trigger when Robot interacts with Environment
+		/// Event Trigger when Robot interacts with Environment.
 		/// </summary>
 		/// <param name="e"></param>
 		protected virtual void OnInteraction(EventArgs e)
@@ -460,7 +533,11 @@ namespace JewelCollector.Bot
 			}
 		}
 
-		protected virtual void OnEnergyDepleted()
+        /// <summary>
+        /// Event Trigger when Robot's Energy is depleted.
+        /// </summary>
+        /// <param name="e"></param>
+        protected virtual void OnEnergyDepleted()
 		{
 			var raiseEvent = EnergyDepleted;
 
@@ -470,7 +547,6 @@ namespace JewelCollector.Bot
 			}
 		}
 
-        #endregion [Utils]
-
-    }
+		#endregion {events]
+	}
 }

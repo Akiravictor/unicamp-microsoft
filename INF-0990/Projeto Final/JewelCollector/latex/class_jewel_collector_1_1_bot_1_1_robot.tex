@@ -1,0 +1,866 @@
+\hypertarget{class_jewel_collector_1_1_bot_1_1_robot}{}\doxysection{Jewel\+Collector.\+Bot.\+Robot Class Reference}
+\label{class_jewel_collector_1_1_bot_1_1_robot}\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+Inheritance diagram for Jewel\+Collector.\+Bot.\+Robot\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_jewel_collector_1_1_bot_1_1_robot}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_a5928c8ab74c15929f1d991bf4742244c}{Robot}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map)
+\begin{DoxyCompactList}\small\item\em Constructor for {\itshape Robot}  Sets the robot in position (0,0) in the Grid.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_ac5ddbbaa870d43d9bd7def19d2b271ae}{Reset\+Robot}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map)
+\begin{DoxyCompactList}\small\item\em Resets \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s properties  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_aa1332130c139bd319110edeeaf46c84b}{Move}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map, \mbox{\hyperlink{namespace_jewel_collector_1_1_bot_a301f23cafc0eabeaf8c341ecebfee534}{Enum\+Move}} move\+To)
+\begin{DoxyCompactList}\small\item\em Move robot accordingly to {\itshape move\+To} .  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_a71ab599f3840ae56f449f0280cafc7f7}{Interact}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map)
+\begin{DoxyCompactList}\small\item\em Interacts with the surroundings  \end{DoxyCompactList}\item 
+override string \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_ab65f38137c22f47fcec8b94392c323e2}{To\+String}} ()
+\begin{DoxyCompactList}\small\item\em Overrides To\+String for showing \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s status.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_af77234f733560b43a840f74eec966afd}{Print\+Bag}} ()
+\begin{DoxyCompactList}\small\item\em Shows in Console the values in {\itshape Bag} .  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_aafa3a6ca0070654888c41cae1b83c3e1}{On\+Robot\+Moved}} (Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Event Trigger when \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}} moves.  \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_ae7d94bb5ab39b63b18e6ad45eec6551c}{On\+Interaction}} (Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Event Trigger when \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}} interacts with Environment.  \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_a699c98e26f7f06f0ecd683d2985c297b}{On\+Energy\+Depleted}} ()
+\begin{DoxyCompactList}\small\item\em Event Trigger when \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s Energy is depleted.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_a6da5c2f1b1fd8382ea9a0d9bfc039177}{X}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Stores the X position of the {\itshape Robot}  in the Grid.  \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_a7edb52e1be1efe4f4d2684b1292c714d}{Y}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Stores the Y position of the {\itshape Robot}  in the Grid.  \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_bag}{Bag}} \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_aea9c5ef1e9638b2ad06fdfa8bc43ab04}{Bag}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em {\itshape Bag}  for storing the collected items.  \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_a50d4784c81ba5b731649427bd20a723e}{Energy}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s energy  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+Event\+Handler? \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_a80d5427358b3a5ddc557c9af69753b94}{Robot\+Moved}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s Moved event  \end{DoxyCompactList}\item 
+Event\+Handler? \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_a993ab1e4cb5e2a2fff31b01fc8bf5125}{Robot\+Interacted}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s Interaction event  \end{DoxyCompactList}\item 
+Event\+Handler? \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_ae87f44f8bf1b5d4dda2c7044c464cc24}{Energy\+Depleted}}
+\begin{DoxyCompactList}\small\item\em Event for Energy depleted  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_af4696d173b36e17053a3d985f5f1d44e}{Move\+Up}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map)
+\begin{DoxyCompactList}\small\item\em Moves the robot 1 position Up in the Grid.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_acab761f760f66bacc193bfa9251bbe4e}{Move\+Down}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map)
+\begin{DoxyCompactList}\small\item\em Moves the robot 1 position Down in the Grid.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_af5a982ffff84affada787597d601a8ea}{Move\+Right}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map)
+\begin{DoxyCompactList}\small\item\em Moves the robot 1 position Right in the Grid.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_a41c15fcfb1dc70708a19d5fb2e609809}{Move\+Left}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map)
+\begin{DoxyCompactList}\small\item\em Moves the robot 1 position Left in the Grid.  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_aa8c813a012c034c1190e46789e5832cd}{Collect\+Jewel}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map)
+\begin{DoxyCompactList}\small\item\em Collect a {\itshape Jewel}  that is adjacent to the robot.  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_acc2a3ad7e0e052a31b1a96bce57e5672}{Interact\+Tree}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map)
+\begin{DoxyCompactList}\small\item\em Interaction with a Tree in the map  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_a3587125cc61ec090436b9eedf11364d4}{Recharge\+Energy}} (int value)
+\begin{DoxyCompactList}\small\item\em Recharges \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s energy by the given {\itshape value}  amount.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_a40cdeab7b0bccfd960c80d1a56944249}{Consume\+Energy}} (int value)
+\begin{DoxyCompactList}\small\item\em Consumes \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s energy by the given {\itshape value}  amount.  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_a934ecda1525dec4f6417e173f4e7daf3}{Check\+For\+Radiation}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map)
+\begin{DoxyCompactList}\small\item\em Check if there is a Radiation near \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s position.  \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle}{Obstacle}} $>$ \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_aa206ad728c565326f810e29155cd9619}{Get\+Radiation}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map)
+\begin{DoxyCompactList}\small\item\em Get all Radiation nearby \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s position.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_aebc4b30eb2b6a2fa080d27108d91046f}{Radiation\+Damage}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map)
+\begin{DoxyCompactList}\small\item\em Applies damage for all Radiation found nearby.  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_a602f0a4fa149ffc23157ab253b036031}{Check\+For\+Tree}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map)
+\begin{DoxyCompactList}\small\item\em Check if there is a Tree near \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s position.  \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle}{Obstacle}} $>$ \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_aebcd37618e9d350119352637f8af73be}{Get\+Trees}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map)
+\begin{DoxyCompactList}\small\item\em Get all Radiation nearby \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s position.  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_a7e0470f480ce70347323646390fed8c5}{Jewel\+Up}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map)
+\begin{DoxyCompactList}\small\item\em Check if there is a Jewel Above \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s position.  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_a2a822b1a7df3ceebf2d3790ce4e2428f}{Jewel\+Down}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map)
+\begin{DoxyCompactList}\small\item\em Check if there is a Jewel Below \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s position.  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_aae198e1d478b9c4d7c4487913eb35cdb}{Jewel\+Left}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map)
+\begin{DoxyCompactList}\small\item\em Check if there is a Jewel to the Left of \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s position.  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_ae4cdc4f8d422db13d850b97c6199a90b}{Jewel\+Right}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map)
+\begin{DoxyCompactList}\small\item\em Check if there is a Jewel to the Right of \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s position.  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_af0566eb3d6b227f7902e8fc6a903ee45}{Check\+Up\+For}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map, string str)
+\begin{DoxyCompactList}\small\item\em Verifies the Up cell, relative to the robot, if it contains {\itshape str} .  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_a8260ded02e4ed69161393c475a5650b7}{Check\+Down\+For}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map, string str)
+\begin{DoxyCompactList}\small\item\em Verifies the Down cell, relative to the robot, if it contains {\itshape str} .  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_a4eb8457fed911bb385a1830946413558}{Check\+Left\+For}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map, string str)
+\begin{DoxyCompactList}\small\item\em Verifies the Left cell, relative to the robot, if it contains {\itshape str} .  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot_a9ff914b32f25ce294920ceb8abcee3c5}{Check\+Right\+For}} (\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}} map, string str)
+\begin{DoxyCompactList}\small\item\em Verifies the Right cell, relative to the robot, if it contains {\itshape str} .  \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00015}{15}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_a5928c8ab74c15929f1d991bf4742244c}\label{class_jewel_collector_1_1_bot_1_1_robot_a5928c8ab74c15929f1d991bf4742244c}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!Robot@{Robot}}
+\index{Robot@{Robot}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{Robot()}{Robot()}}
+{\footnotesize\ttfamily Jewel\+Collector.\+Bot.\+Robot.\+Robot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map }\end{DoxyParamCaption})}
+
+
+
+Constructor for {\itshape Robot}  Sets the robot in position (0,0) in the Grid.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00057}{57}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_a8260ded02e4ed69161393c475a5650b7}\label{class_jewel_collector_1_1_bot_1_1_robot_a8260ded02e4ed69161393c475a5650b7}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!CheckDownFor@{CheckDownFor}}
+\index{CheckDownFor@{CheckDownFor}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{CheckDownFor()}{CheckDownFor()}}
+{\footnotesize\ttfamily bool Jewel\+Collector.\+Bot.\+Robot.\+Check\+Down\+For (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map,  }\item[{string}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Verifies the Down cell, relative to the robot, if it contains {\itshape str} .  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+{\em str} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if {\itshape str}  is found in the cell, else false.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00460}{460}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_a934ecda1525dec4f6417e173f4e7daf3}\label{class_jewel_collector_1_1_bot_1_1_robot_a934ecda1525dec4f6417e173f4e7daf3}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!CheckForRadiation@{CheckForRadiation}}
+\index{CheckForRadiation@{CheckForRadiation}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{CheckForRadiation()}{CheckForRadiation()}}
+{\footnotesize\ttfamily bool Jewel\+Collector.\+Bot.\+Robot.\+Check\+For\+Radiation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Check if there is a Radiation near \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s position.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns {\itshape True}  if there is a Radiation nearby. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00343}{343}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_a602f0a4fa149ffc23157ab253b036031}\label{class_jewel_collector_1_1_bot_1_1_robot_a602f0a4fa149ffc23157ab253b036031}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!CheckForTree@{CheckForTree}}
+\index{CheckForTree@{CheckForTree}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{CheckForTree()}{CheckForTree()}}
+{\footnotesize\ttfamily bool Jewel\+Collector.\+Bot.\+Robot.\+Check\+For\+Tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Check if there is a Tree near \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s position.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns {\itshape True}  if there is a Tree nearby. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00385}{385}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_a4eb8457fed911bb385a1830946413558}\label{class_jewel_collector_1_1_bot_1_1_robot_a4eb8457fed911bb385a1830946413558}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!CheckLeftFor@{CheckLeftFor}}
+\index{CheckLeftFor@{CheckLeftFor}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{CheckLeftFor()}{CheckLeftFor()}}
+{\footnotesize\ttfamily bool Jewel\+Collector.\+Bot.\+Robot.\+Check\+Left\+For (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map,  }\item[{string}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Verifies the Left cell, relative to the robot, if it contains {\itshape str} .  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+{\em str} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if {\itshape str}  is found in the cell, else false.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00471}{471}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_a9ff914b32f25ce294920ceb8abcee3c5}\label{class_jewel_collector_1_1_bot_1_1_robot_a9ff914b32f25ce294920ceb8abcee3c5}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!CheckRightFor@{CheckRightFor}}
+\index{CheckRightFor@{CheckRightFor}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{CheckRightFor()}{CheckRightFor()}}
+{\footnotesize\ttfamily bool Jewel\+Collector.\+Bot.\+Robot.\+Check\+Right\+For (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map,  }\item[{string}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Verifies the Right cell, relative to the robot, if it contains {\itshape str} .  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+{\em str} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if {\itshape str}  is found in the cell, else false.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00482}{482}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_af0566eb3d6b227f7902e8fc6a903ee45}\label{class_jewel_collector_1_1_bot_1_1_robot_af0566eb3d6b227f7902e8fc6a903ee45}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!CheckUpFor@{CheckUpFor}}
+\index{CheckUpFor@{CheckUpFor}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{CheckUpFor()}{CheckUpFor()}}
+{\footnotesize\ttfamily bool Jewel\+Collector.\+Bot.\+Robot.\+Check\+Up\+For (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map,  }\item[{string}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Verifies the Up cell, relative to the robot, if it contains {\itshape str} .  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+{\em str} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if {\itshape str}  is found in the cell, else false.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00449}{449}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_aa8c813a012c034c1190e46789e5832cd}\label{class_jewel_collector_1_1_bot_1_1_robot_aa8c813a012c034c1190e46789e5832cd}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!CollectJewel@{CollectJewel}}
+\index{CollectJewel@{CollectJewel}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{CollectJewel()}{CollectJewel()}}
+{\footnotesize\ttfamily bool Jewel\+Collector.\+Bot.\+Robot.\+Collect\+Jewel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Collect a {\itshape Jewel}  that is adjacent to the robot.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00234}{234}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_a40cdeab7b0bccfd960c80d1a56944249}\label{class_jewel_collector_1_1_bot_1_1_robot_a40cdeab7b0bccfd960c80d1a56944249}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!ConsumeEnergy@{ConsumeEnergy}}
+\index{ConsumeEnergy@{ConsumeEnergy}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{ConsumeEnergy()}{ConsumeEnergy()}}
+{\footnotesize\ttfamily void Jewel\+Collector.\+Bot.\+Robot.\+Consume\+Energy (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Consumes \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s energy by the given {\itshape value}  amount.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00333}{333}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_aa206ad728c565326f810e29155cd9619}\label{class_jewel_collector_1_1_bot_1_1_robot_aa206ad728c565326f810e29155cd9619}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!GetRadiation@{GetRadiation}}
+\index{GetRadiation@{GetRadiation}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{GetRadiation()}{GetRadiation()}}
+{\footnotesize\ttfamily List$<$ \mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle}{Obstacle}} $>$ Jewel\+Collector.\+Bot.\+Robot.\+Get\+Radiation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get all Radiation nearby \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s position.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a {\itshape List}  of {\itshape Obstacle}  with all Radiation nearby.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00353}{353}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_aebcd37618e9d350119352637f8af73be}\label{class_jewel_collector_1_1_bot_1_1_robot_aebcd37618e9d350119352637f8af73be}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!GetTrees@{GetTrees}}
+\index{GetTrees@{GetTrees}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{GetTrees()}{GetTrees()}}
+{\footnotesize\ttfamily List$<$ \mbox{\hyperlink{class_jewel_collector_1_1_obstacles_1_1_obstacle}{Obstacle}} $>$ Jewel\+Collector.\+Bot.\+Robot.\+Get\+Trees (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Get all Radiation nearby \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s position.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a {\itshape List}  of {\itshape Obstacle}  with all Radiation nearby.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00395}{395}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_a71ab599f3840ae56f449f0280cafc7f7}\label{class_jewel_collector_1_1_bot_1_1_robot_a71ab599f3840ae56f449f0280cafc7f7}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!Interact@{Interact}}
+\index{Interact@{Interact}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{Interact()}{Interact()}}
+{\footnotesize\ttfamily void Jewel\+Collector.\+Bot.\+Robot.\+Interact (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map }\end{DoxyParamCaption})}
+
+
+
+Interacts with the surroundings  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Nothing\+To\+Interact\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{interface_jewel_collector_1_1_interfaces_1_1_i_interaction_a8af40c850d3db029366800e83d987b36}{Jewel\+Collector.\+Interfaces.\+IInteraction}}.
+
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00298}{298}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_acc2a3ad7e0e052a31b1a96bce57e5672}\label{class_jewel_collector_1_1_bot_1_1_robot_acc2a3ad7e0e052a31b1a96bce57e5672}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!InteractTree@{InteractTree}}
+\index{InteractTree@{InteractTree}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{InteractTree()}{InteractTree()}}
+{\footnotesize\ttfamily bool Jewel\+Collector.\+Bot.\+Robot.\+Interact\+Tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Interaction with a Tree in the map  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00276}{276}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_a2a822b1a7df3ceebf2d3790ce4e2428f}\label{class_jewel_collector_1_1_bot_1_1_robot_a2a822b1a7df3ceebf2d3790ce4e2428f}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!JewelDown@{JewelDown}}
+\index{JewelDown@{JewelDown}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{JewelDown()}{JewelDown()}}
+{\footnotesize\ttfamily bool Jewel\+Collector.\+Bot.\+Robot.\+Jewel\+Down (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Check if there is a Jewel Below \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s position.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns {\itshape True}  if there is any Jewel nearby. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00415}{415}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_aae198e1d478b9c4d7c4487913eb35cdb}\label{class_jewel_collector_1_1_bot_1_1_robot_aae198e1d478b9c4d7c4487913eb35cdb}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!JewelLeft@{JewelLeft}}
+\index{JewelLeft@{JewelLeft}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{JewelLeft()}{JewelLeft()}}
+{\footnotesize\ttfamily bool Jewel\+Collector.\+Bot.\+Robot.\+Jewel\+Left (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Check if there is a Jewel to the Left of \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s position.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns {\itshape True}  if there is any Jewel nearby. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00425}{425}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_ae4cdc4f8d422db13d850b97c6199a90b}\label{class_jewel_collector_1_1_bot_1_1_robot_ae4cdc4f8d422db13d850b97c6199a90b}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!JewelRight@{JewelRight}}
+\index{JewelRight@{JewelRight}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{JewelRight()}{JewelRight()}}
+{\footnotesize\ttfamily bool Jewel\+Collector.\+Bot.\+Robot.\+Jewel\+Right (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Check if there is a Jewel to the Right of \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s position.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns {\itshape True}  if there is any Jewel nearby. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00435}{435}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_a7e0470f480ce70347323646390fed8c5}\label{class_jewel_collector_1_1_bot_1_1_robot_a7e0470f480ce70347323646390fed8c5}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!JewelUp@{JewelUp}}
+\index{JewelUp@{JewelUp}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{JewelUp()}{JewelUp()}}
+{\footnotesize\ttfamily bool Jewel\+Collector.\+Bot.\+Robot.\+Jewel\+Up (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Check if there is a Jewel Above \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s position.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns {\itshape True}  if there is any Jewel nearby. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00405}{405}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_aa1332130c139bd319110edeeaf46c84b}\label{class_jewel_collector_1_1_bot_1_1_robot_aa1332130c139bd319110edeeaf46c84b}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!Move@{Move}}
+\index{Move@{Move}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{Move()}{Move()}}
+{\footnotesize\ttfamily void Jewel\+Collector.\+Bot.\+Robot.\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map,  }\item[{\mbox{\hyperlink{namespace_jewel_collector_1_1_bot_a301f23cafc0eabeaf8c341ecebfee534}{Enum\+Move}}}]{move\+To }\end{DoxyParamCaption})}
+
+
+
+Move robot accordingly to {\itshape move\+To} .  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+{\em move\+To} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Cant\+Move\+Robot\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \mbox{\hyperlink{interface_jewel_collector_1_1_interfaces_1_1_i_interaction_a1adc0a922efb8825d158753564ab918a}{Jewel\+Collector.\+Interfaces.\+IInteraction}}.
+
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00088}{88}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_acab761f760f66bacc193bfa9251bbe4e}\label{class_jewel_collector_1_1_bot_1_1_robot_acab761f760f66bacc193bfa9251bbe4e}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!MoveDown@{MoveDown}}
+\index{MoveDown@{MoveDown}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{MoveDown()}{MoveDown()}}
+{\footnotesize\ttfamily void Jewel\+Collector.\+Bot.\+Robot.\+Move\+Down (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Moves the robot 1 position Down in the Grid.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Cant\+Move\+Robot\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00156}{156}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_a41c15fcfb1dc70708a19d5fb2e609809}\label{class_jewel_collector_1_1_bot_1_1_robot_a41c15fcfb1dc70708a19d5fb2e609809}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!MoveLeft@{MoveLeft}}
+\index{MoveLeft@{MoveLeft}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{MoveLeft()}{MoveLeft()}}
+{\footnotesize\ttfamily void Jewel\+Collector.\+Bot.\+Robot.\+Move\+Left (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Moves the robot 1 position Left in the Grid.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Cant\+Move\+Robot\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00206}{206}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_af5a982ffff84affada787597d601a8ea}\label{class_jewel_collector_1_1_bot_1_1_robot_af5a982ffff84affada787597d601a8ea}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!MoveRight@{MoveRight}}
+\index{MoveRight@{MoveRight}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{MoveRight()}{MoveRight()}}
+{\footnotesize\ttfamily void Jewel\+Collector.\+Bot.\+Robot.\+Move\+Right (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Moves the robot 1 position Right in the Grid.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Cant\+Move\+Robot\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00181}{181}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_af4696d173b36e17053a3d985f5f1d44e}\label{class_jewel_collector_1_1_bot_1_1_robot_af4696d173b36e17053a3d985f5f1d44e}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!MoveUp@{MoveUp}}
+\index{MoveUp@{MoveUp}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{MoveUp()}{MoveUp()}}
+{\footnotesize\ttfamily void Jewel\+Collector.\+Bot.\+Robot.\+Move\+Up (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Moves the robot 1 position Up in the Grid.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Cant\+Move\+Robot\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00131}{131}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_a699c98e26f7f06f0ecd683d2985c297b}\label{class_jewel_collector_1_1_bot_1_1_robot_a699c98e26f7f06f0ecd683d2985c297b}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!OnEnergyDepleted@{OnEnergyDepleted}}
+\index{OnEnergyDepleted@{OnEnergyDepleted}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{OnEnergyDepleted()}{OnEnergyDepleted()}}
+{\footnotesize\ttfamily virtual void Jewel\+Collector.\+Bot.\+Robot.\+On\+Energy\+Depleted (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Event Trigger when \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s Energy is depleted.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00540}{540}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_ae7d94bb5ab39b63b18e6ad45eec6551c}\label{class_jewel_collector_1_1_bot_1_1_robot_ae7d94bb5ab39b63b18e6ad45eec6551c}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!OnInteraction@{OnInteraction}}
+\index{OnInteraction@{OnInteraction}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{OnInteraction()}{OnInteraction()}}
+{\footnotesize\ttfamily virtual void Jewel\+Collector.\+Bot.\+Robot.\+On\+Interaction (\begin{DoxyParamCaption}\item[{Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Event Trigger when \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}} interacts with Environment.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00526}{526}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_aafa3a6ca0070654888c41cae1b83c3e1}\label{class_jewel_collector_1_1_bot_1_1_robot_aafa3a6ca0070654888c41cae1b83c3e1}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!OnRobotMoved@{OnRobotMoved}}
+\index{OnRobotMoved@{OnRobotMoved}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{OnRobotMoved()}{OnRobotMoved()}}
+{\footnotesize\ttfamily virtual void Jewel\+Collector.\+Bot.\+Robot.\+On\+Robot\+Moved (\begin{DoxyParamCaption}\item[{Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Event Trigger when \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}} moves.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00512}{512}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_af77234f733560b43a840f74eec966afd}\label{class_jewel_collector_1_1_bot_1_1_robot_af77234f733560b43a840f74eec966afd}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!PrintBag@{PrintBag}}
+\index{PrintBag@{PrintBag}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{PrintBag()}{PrintBag()}}
+{\footnotesize\ttfamily void Jewel\+Collector.\+Bot.\+Robot.\+Print\+Bag (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Shows in Console the values in {\itshape Bag} .  
+
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00499}{499}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_aebc4b30eb2b6a2fa080d27108d91046f}\label{class_jewel_collector_1_1_bot_1_1_robot_aebc4b30eb2b6a2fa080d27108d91046f}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!RadiationDamage@{RadiationDamage}}
+\index{RadiationDamage@{RadiationDamage}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{RadiationDamage()}{RadiationDamage()}}
+{\footnotesize\ttfamily void Jewel\+Collector.\+Bot.\+Robot.\+Radiation\+Damage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Applies damage for all Radiation found nearby.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00362}{362}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_a3587125cc61ec090436b9eedf11364d4}\label{class_jewel_collector_1_1_bot_1_1_robot_a3587125cc61ec090436b9eedf11364d4}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!RechargeEnergy@{RechargeEnergy}}
+\index{RechargeEnergy@{RechargeEnergy}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{RechargeEnergy()}{RechargeEnergy()}}
+{\footnotesize\ttfamily void Jewel\+Collector.\+Bot.\+Robot.\+Recharge\+Energy (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Recharges \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s energy by the given {\itshape value}  amount.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00324}{324}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_ac5ddbbaa870d43d9bd7def19d2b271ae}\label{class_jewel_collector_1_1_bot_1_1_robot_ac5ddbbaa870d43d9bd7def19d2b271ae}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!ResetRobot@{ResetRobot}}
+\index{ResetRobot@{ResetRobot}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{ResetRobot()}{ResetRobot()}}
+{\footnotesize\ttfamily void Jewel\+Collector.\+Bot.\+Robot.\+Reset\+Robot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_jewel_collector_1_1_board_1_1_map}{Map}}}]{map }\end{DoxyParamCaption})}
+
+
+
+Resets \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s properties  
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00069}{69}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_ab65f38137c22f47fcec8b94392c323e2}\label{class_jewel_collector_1_1_bot_1_1_robot_ab65f38137c22f47fcec8b94392c323e2}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!ToString@{ToString}}
+\index{ToString@{ToString}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily override string Jewel\+Collector.\+Bot.\+Robot.\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Overrides To\+String for showing \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s status.  
+
+\begin{DoxyReturn}{Returns}
+Returns a string containing the \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s status.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00491}{491}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_aea9c5ef1e9638b2ad06fdfa8bc43ab04}\label{class_jewel_collector_1_1_bot_1_1_robot_aea9c5ef1e9638b2ad06fdfa8bc43ab04}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!Bag@{Bag}}
+\index{Bag@{Bag}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{Bag}{Bag}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_bag}{Bag}} Jewel\+Collector.\+Bot.\+Robot.\+Bag\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+{\itshape Bag}  for storing the collected items.  
+
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00030}{30}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_a50d4784c81ba5b731649427bd20a723e}\label{class_jewel_collector_1_1_bot_1_1_robot_a50d4784c81ba5b731649427bd20a723e}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!Energy@{Energy}}
+\index{Energy@{Energy}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{Energy}{Energy}}
+{\footnotesize\ttfamily int Jewel\+Collector.\+Bot.\+Robot.\+Energy\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+\mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s energy  
+
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00035}{35}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_a6da5c2f1b1fd8382ea9a0d9bfc039177}\label{class_jewel_collector_1_1_bot_1_1_robot_a6da5c2f1b1fd8382ea9a0d9bfc039177}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!X@{X}}
+\index{X@{X}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{X}{X}}
+{\footnotesize\ttfamily int Jewel\+Collector.\+Bot.\+Robot.\+X\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Stores the X position of the {\itshape Robot}  in the Grid.  
+
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00020}{20}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_a7edb52e1be1efe4f4d2684b1292c714d}\label{class_jewel_collector_1_1_bot_1_1_robot_a7edb52e1be1efe4f4d2684b1292c714d}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!Y@{Y}}
+\index{Y@{Y}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{Y}{Y}}
+{\footnotesize\ttfamily int Jewel\+Collector.\+Bot.\+Robot.\+Y\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+Stores the Y position of the {\itshape Robot}  in the Grid.  
+
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00025}{25}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+
+
+\doxysubsection{Event Documentation}
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_ae87f44f8bf1b5d4dda2c7044c464cc24}\label{class_jewel_collector_1_1_bot_1_1_robot_ae87f44f8bf1b5d4dda2c7044c464cc24}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!EnergyDepleted@{EnergyDepleted}}
+\index{EnergyDepleted@{EnergyDepleted}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{EnergyDepleted}{EnergyDepleted}}
+{\footnotesize\ttfamily Event\+Handler? Jewel\+Collector.\+Bot.\+Robot.\+Energy\+Depleted}
+
+
+
+Event for Energy depleted  
+
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00050}{50}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_a993ab1e4cb5e2a2fff31b01fc8bf5125}\label{class_jewel_collector_1_1_bot_1_1_robot_a993ab1e4cb5e2a2fff31b01fc8bf5125}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!RobotInteracted@{RobotInteracted}}
+\index{RobotInteracted@{RobotInteracted}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{RobotInteracted}{RobotInteracted}}
+{\footnotesize\ttfamily Event\+Handler? Jewel\+Collector.\+Bot.\+Robot.\+Robot\+Interacted}
+
+
+
+\mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s Interaction event  
+
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00045}{45}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+\mbox{\Hypertarget{class_jewel_collector_1_1_bot_1_1_robot_a80d5427358b3a5ddc557c9af69753b94}\label{class_jewel_collector_1_1_bot_1_1_robot_a80d5427358b3a5ddc557c9af69753b94}} 
+\index{JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}!RobotMoved@{RobotMoved}}
+\index{RobotMoved@{RobotMoved}!JewelCollector.Bot.Robot@{JewelCollector.Bot.Robot}}
+\doxysubsubsection{\texorpdfstring{RobotMoved}{RobotMoved}}
+{\footnotesize\ttfamily Event\+Handler? Jewel\+Collector.\+Bot.\+Robot.\+Robot\+Moved}
+
+
+
+\mbox{\hyperlink{class_jewel_collector_1_1_bot_1_1_robot}{Robot}}\textquotesingle{}s Moved event  
+
+
+
+Definition at line \mbox{\hyperlink{_robot_8cs_source_l00040}{40}} of file \mbox{\hyperlink{_robot_8cs_source}{Robot.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Jewel\+Collector/\+Bot/\mbox{\hyperlink{_robot_8cs}{Robot.\+cs}}\end{DoxyCompactItemize}

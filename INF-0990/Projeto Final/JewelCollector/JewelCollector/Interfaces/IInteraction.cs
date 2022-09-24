@@ -10,7 +10,17 @@ namespace JewelCollector.Interfaces
 {
     public interface IInteraction
     {
+        /// <summary>
+        /// Interface method for Moving.
+        /// </summary>
+        /// <param name="map"></param>
+        /// <param name="moveTo"></param>
         void Move(Map map, EnumMove moveTo);
+
+        /// <summary>
+        /// Interface method for Interacting with Map.
+        /// </summary>
+        /// <param name="map"></param>
         void Interact(Map map);
     }
 }

@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['totalitems_0',['TotalItems',['../d7/d02/class_jewel_collector_1_1_bot_1_1_bag.html#a021ed7ae955f7bbcd5775ec1ef0d18b5',1,'JewelCollector::Bot::Bag']]],
-  ['totalvalue_1',['TotalValue',['../d7/d02/class_jewel_collector_1_1_bot_1_1_bag.html#a87878aa14cfccd72a49522c23f939200',1,'JewelCollector::Bot::Bag']]],
-  ['tree_2',['Tree',['../d0/d3d/class_jewel_collector_1_1_obstacles_1_1_tree.html',1,'JewelCollector.Obstacles.Tree'],['../d0/d3d/class_jewel_collector_1_1_obstacles_1_1_tree.html#a9567260e54ecc37ee2f32026b91c79f4',1,'JewelCollector.Obstacles.Tree.Tree()']]],
-  ['tree_2ecs_3',['Tree.cs',['../dd/d4a/_tree_8cs.html',1,'']]]
+  ['printbag_0',['PrintBag',['../class_jewel_collector_1_1_bot_1_1_bag.html#ac78f3e0c3985cfbc8608d1b35a9edf8e',1,'JewelCollector.Bot.Bag.PrintBag()'],['../class_jewel_collector_1_1_bot_1_1_robot.html#af77234f733560b43a840f74eec966afd',1,'JewelCollector.Bot.Robot.PrintBag()']]],
+  ['printmap_1',['PrintMap',['../class_jewel_collector_1_1_board_1_1_map.html#ac1931cf10e883e78270f75ef37962d2f',1,'JewelCollector.Board.Map.PrintMap()'],['../class_jewel_collector_1_1_jewel_collector.html#ab46932d9290308e00b24fcb008ad7b25',1,'JewelCollector.JewelCollector.PrintMap()']]]
 ];

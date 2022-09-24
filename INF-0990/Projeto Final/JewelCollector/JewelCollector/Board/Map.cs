@@ -39,22 +39,23 @@ namespace JewelCollector.Board
 		public List<Obstacle> Obstacles { get; private set; }
 
 		/// <summary>
-		/// Stores the current level
+		/// Stores the current level.
 		/// </summary>
 		public int Level { get; private set; }
 
+		/// <summary>
+		/// Reference for <typeparamref name="MapGenerator" />.
+		/// </summary>
 		private MapGenerator MapGen { get; set; }
 
 		/// <summary>
-		/// EventHandler for collecting a Jewel
-		/// </summary>
-		public event EventHandler? JewelCollected;
-
-		/// <summary>
-		/// EventHandler for clearing the level
+		/// EventHandler for clearing the level.
 		/// </summary>
 		public event EventHandler? LevelCleared;
 
+		/// <summary>
+		/// EventHandler for clearing the game.
+		/// </summary>
 		public event EventHandler? GameCleared;
 
 		/// <summary>
@@ -76,6 +77,9 @@ namespace JewelCollector.Board
 			Obstacles = MapGen.Obstacles.ToList();
 		}
 
+		/// <summary>
+		/// Increase the Map's Level.
+		/// </summary>
 		public void LevelUp()
 		{
 			Level += 1;
@@ -91,6 +95,9 @@ namespace JewelCollector.Board
 			MapGen.Reset();
 		}
 
+		/// <summary>
+		/// Resets Map's properties.
+		/// </summary>
 		public void ResetLevel()
 		{
 			Level = 1;
@@ -101,6 +108,9 @@ namespace JewelCollector.Board
 			MapGen.Reset();
 		}
 
+		/// <summary>
+		/// Generates a new Map.
+		/// </summary>
 		public void GenerateMap()
 		{
 			Grid = MapGen.GenerateMap(Height, Width, Level);
@@ -120,11 +130,13 @@ namespace JewelCollector.Board
 			
 		}
 
-		/// <summary>
-		/// Add a <typeparamref name="Jewel" /> to Collection <paramref name="Jewels"/>.
-		/// </summary>
-		/// <param name="jewel"></param>
-		public void AddJewel(Jewel jewel)
+        #region [Add/Remove]
+
+        /// <summary>
+        /// Add a <typeparamref name="Jewel" /> to Collection <paramref name="Jewels"/>.
+        /// </summary>
+        /// <param name="jewel"></param>
+        public void AddJewel(Jewel jewel)
 		{
 			Jewels.Add(jewel);
 			Grid[jewel.X, jewel.Y] = jewel.Symbol;
@@ -164,10 +176,14 @@ namespace JewelCollector.Board
 			Grid[obstacle.X, obstacle.Y] = Symbols.Empty;
 		}
 
-		/// <summary>
-		/// Shows the <paramref name="Grid" /> in Console.
-		/// </summary>
-		public void PrintMap()
+        #endregion [Add/Remove]
+
+        #region [Grid Utils]
+
+        /// <summary>
+        /// Shows the <paramref name="Grid" /> in Console.
+        /// </summary>
+        public void PrintMap()
 		{
 			for (int i = 0; i < Height; i++)
 			{
@@ -199,11 +215,16 @@ namespace JewelCollector.Board
             return sb.ToString();
 		}
 
+		/// <summary>
+		/// Refreshes Grid.
+		/// </summary>
+		/// <param name="robotX"></param>
+		/// <param name="robotY"></param>
 		public void RefreshMap(int robotX, int robotY)
 		{
-			for(int i = 0; i < Height; i++)
+			for (int i = 0; i < Height; i++)
 			{
-				for(int j = 0; j < Width; j++)
+				for (int j = 0; j < Width; j++)
 				{
 					Grid[i, j] = Symbols.Empty;
 				}
@@ -223,7 +244,14 @@ namespace JewelCollector.Board
 
 		}
 
-		protected virtual void OnClearLevel()
+        #endregion [Grid Utils]
+
+        #region [Events]
+
+        /// <summary>
+        /// Event Trigger when Level is Cleared.
+        /// </summary>
+        protected virtual void OnClearLevel()
 		{
 			var raiseEvent = LevelCleared;
 
@@ -233,6 +261,9 @@ namespace JewelCollector.Board
 			}
 		}
 
+		/// <summary>
+		/// Event Trigger when all Levels are Cleared.
+		/// </summary>
 		protected virtual void OnGameClear()
 		{
 			var raiseEvent = GameCleared;
@@ -242,5 +273,7 @@ namespace JewelCollector.Board
 				raiseEvent(this, EventArgs.Empty);
 			}
 		}
-	}
+
+        #endregion [Events]
+    }
 }
