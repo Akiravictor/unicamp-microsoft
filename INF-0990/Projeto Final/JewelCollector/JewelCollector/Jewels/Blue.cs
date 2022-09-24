@@ -1,4 +1,6 @@
 ﻿using JewelCollector.Board;
+using JewelCollector.Consts;
+using JewelCollector.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace JewelCollector.Jewels
 {
-	public class Blue : Jewel
+	public class Blue : Jewel, IRechargeable
 	{
         /// <summary>
         /// Constructor for <typeparamref name="Blue Jewel" />.
@@ -17,6 +19,11 @@ namespace JewelCollector.Jewels
         public Blue(int x, int y) : base(x, y, 10, EnumColor.Blue)
 		{ 
 		
+		}
+
+		public int RechargeEnergy()
+		{
+			return EnergyAmount.BlueEnergy;
 		}
 	}
 }

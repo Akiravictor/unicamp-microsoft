@@ -17,18 +17,22 @@ namespace JewelCollector.Board
 		/// Stores the state of the grid.
 		/// </summary>
 		public string[,] Grid { get; private set; }
+
 		/// <summary>
 		/// Stores the Height of the grid.
 		/// </summary>
 		public int Height { get; private set; }
+
 		/// <summary>
 		/// Stores the Width of the grid.
 		/// </summary>
 		public int Width { get; private set; }
+
 		/// <summary>
 		/// Stores a collection of <typeparamref name="Jewel" />.
 		/// </summary>
 		public List<Jewel> Jewels { get; private set; }
+
 		/// <summary>
 		/// Stores a collection of <typeparamref name="Obstacle" />.
 		/// </summary>
@@ -132,11 +136,6 @@ namespace JewelCollector.Board
         /// <param name="jewel"></param>
         public void RemoveJewel(Jewel jewel)
 		{
-			if(jewel.Color == EnumColor.Blue)
-			{
-				OnBlueJewelCollect(EventArgs.Empty);
-			}
- 
 			Jewels.Remove(jewel);
 			
 			if(Jewels.Count == 0)
@@ -222,20 +221,6 @@ namespace JewelCollector.Board
 
 			Grid[robotX, robotY] = Symbols.Robot;
 
-		}
-
-		/// <summary>
-		/// Event for Collecting a BlueJewel
-		/// </summary>
-		/// <param name="e"></param>
-		protected virtual void OnBlueJewelCollect(EventArgs e)
-		{
-			var raiseEvent = JewelCollected;
-
-			if(raiseEvent != null)
-			{
-				raiseEvent(this, e);
-			}
 		}
 
 		protected virtual void OnClearLevel()

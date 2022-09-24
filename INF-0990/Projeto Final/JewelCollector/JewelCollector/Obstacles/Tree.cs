@@ -1,4 +1,6 @@
-﻿using System;
+﻿using JewelCollector.Consts;
+using JewelCollector.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace JewelCollector.Obstacles
 {
-	public class Tree : Obstacle
+	public class Tree : Obstacle, IRechargeable
 	{
         /// <summary>
         /// Constructor for <typeparamref name="Tree Obstacle" />.
@@ -17,5 +19,10 @@ namespace JewelCollector.Obstacles
 		{
 
 		}
-	}
+
+        public int RechargeEnergy()
+        {
+            return EnergyAmount.TreeEnergy;
+        }
+    }
 }

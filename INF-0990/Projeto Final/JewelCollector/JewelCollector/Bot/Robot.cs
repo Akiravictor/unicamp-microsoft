@@ -1,7 +1,9 @@
 ﻿using JewelCollector.Board;
 using JewelCollector.Bot.Exceptions;
 using JewelCollector.Consts;
+using JewelCollector.Interfaces;
 using JewelCollector.Jewels;
+using JewelCollector.Obstacles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace JewelCollector.Bot
 {
-	public class Robot : IInteraction
+    public class Robot : IInteraction
 	{
         /// <summary>
         /// Stores the X position of the <typeparamref name="Robot" /> in the Grid.
@@ -56,9 +58,8 @@ namespace JewelCollector.Bot
 		{
 			Bag = new Bag();
 			map.Grid[0, 0] = Symbols.Robot;
-			Energy = 5;
+			Energy = EnergyAmount.StartEnergy;
 
-			map.JewelCollected += Map_BlueJewelCollected;
 		}
 
 		public void ResetRobot(Map map)
@@ -68,18 +69,8 @@ namespace JewelCollector.Bot
 
 			X = 0;
 			Y = 0;
-			Energy = 5;
+			Energy = EnergyAmount.StartEnergy;
 
-		}
-
-		/// <summary>
-		/// Event handling for Blue Jewel Collected
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void Map_BlueJewelCollected(object? sender, EventArgs e)
-		{
-			RechargeEnergy(5);
 		}
 
 		#region [Movement]
@@ -138,15 +129,15 @@ namespace JewelCollector.Bot
 			if(CheckUpFor(map, Symbols.Empty) || CheckUpFor(map, Symbols.Radiation))
 			{
 				X--;
-				ConsumeEnergy(1);
+				ConsumeEnergy(EnergyAmount.MovementEnergy);
 
 				if (map.Grid[X, Y] == Symbols.Radiation)
 				{
-					ConsumeEnergy(30);
+					ConsumeEnergy(EnergyAmount.StepRadiation);
 				}
 				if (CheckForRadiation(map))
 				{
-					ConsumeEnergy(10);
+					ConsumeEnergy(EnergyAmount.NearRadiation);
 				}
 
 				OnRobotMoved(EventArgs.Empty);
@@ -167,15 +158,15 @@ namespace JewelCollector.Bot
 			if(CheckDownFor(map, Symbols.Empty) || CheckDownFor(map, Symbols.Radiation))
 			{
 				X++;
-				ConsumeEnergy(1);
+				ConsumeEnergy(EnergyAmount.MovementEnergy);
 
 				if (map.Grid[X, Y] == Symbols.Radiation)
 				{
-					ConsumeEnergy(30);
+					ConsumeEnergy(EnergyAmount.StepRadiation);
 				}
 				if (CheckForRadiation(map))
 				{
-					ConsumeEnergy(10);
+					ConsumeEnergy(EnergyAmount.NearRadiation);
 				}
 
 				OnRobotMoved(EventArgs.Empty);
@@ -196,15 +187,15 @@ namespace JewelCollector.Bot
 			if(CheckRightFor(map, Symbols.Empty) || CheckRightFor(map, Symbols.Radiation))
 			{
 				Y++;
-				ConsumeEnergy(1);
+				ConsumeEnergy(EnergyAmount.MovementEnergy);
 
 				if (map.Grid[X, Y] == Symbols.Radiation)
 				{
-					ConsumeEnergy(30);
+					ConsumeEnergy(EnergyAmount.StepRadiation);
 				}
 				if (CheckForRadiation(map))
 				{
-					ConsumeEnergy(10);
+					ConsumeEnergy(EnergyAmount.NearRadiation);
 				}
 
 				OnRobotMoved(EventArgs.Empty);
@@ -225,15 +216,15 @@ namespace JewelCollector.Bot
 			if(CheckLeftFor(map, Symbols.Empty) || CheckLeftFor(map, Symbols.Radiation))
 			{
 				Y--;
-				ConsumeEnergy(1);
+				ConsumeEnergy(EnergyAmount.MovementEnergy);
 
 				if (map.Grid[X, Y] == Symbols.Radiation)
 				{
-					ConsumeEnergy(30);
+					ConsumeEnergy(EnergyAmount.StepRadiation);
 				}
 				if (CheckForRadiation(map))
 				{
-					ConsumeEnergy(10);
+					ConsumeEnergy(EnergyAmount.NearRadiation);
 				}
 
 				OnRobotMoved(EventArgs.Empty);
@@ -273,8 +264,14 @@ namespace JewelCollector.Bot
 				jewel = map.Jewels.First(jewel => jewel.X == X && jewel.Y == Y + 1);
 			}
 
-			if(jewel != null)
+			if (jewel != null)
 			{
+				if (jewel.GetType() == typeof(Blue))
+				{
+					var blue = (Blue)jewel;
+					RechargeEnergy(blue.RechargeEnergy());
+				}
+
 				Bag.AddItem(jewel.Value);
 				map.RemoveJewel(jewel);
 
@@ -292,7 +289,8 @@ namespace JewelCollector.Bot
 		{
 			if(CheckForTree(map))
 			{
-				RechargeEnergy(3);
+				RechargeEnergy(EnergyAmount.TreeEnergy);
+
 				return true;
 			}
 
@@ -322,9 +320,9 @@ namespace JewelCollector.Bot
         {
 			var hasInteracted = CollectJewel(map) || InteractTree(map);
 
-			if (CheckForRadiation(map))
+			if (CheckForRadiation(map) && hasInteracted)
 			{
-				ConsumeEnergy(10);
+				ConsumeEnergy(EnergyAmount.NearRadiation);
 			}
 
 			if (hasInteracted)
