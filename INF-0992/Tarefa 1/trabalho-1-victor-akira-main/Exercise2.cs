@@ -8,6 +8,7 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using DataModel;
+using System.Runtime;
 
 namespace Class1
 {
@@ -44,7 +45,7 @@ namespace Class1
             que os nomes das colunas.
             */
 
-            var output_filepath = "output/ex2output.json";
+            var output_filepath = "../../../output/ex2output.json";
 
             var db = new BodiesDb(
                 new LinqToDB.Configuration.LinqToDBConnectionOptionsBuilder()
@@ -55,9 +56,37 @@ namespace Class1
                       "Database=Bodies;Data Source=../../../ex2data/bodies.sqlite")
                     .Build<BodiesDb>());
 
-            var astralBody = from a in db.AstralBodies orderby a.MassE21Kg descending select a.Body;
+            var astralBody = from a in db.AstralBodies where a.ParentBody == "Jupiter" select a;
 
-            astralBody.ToList();
+            var moons = new Moons
+            {
+                MoonsOfJupiter = astralBody.ToList()
+            };
+
+            var jsonOptions = new JsonSerializerOptions
+            {
+                WriteIndented = true
+            };
+
+            var json = JsonSerializer.Serialize(moons, options: jsonOptions).ToString();
+
+            using FileStream fs = new(output_filepath, FileMode.Create, FileAccess.Write);
+
+            using StreamWriter sw = new(fs);
+
+            sw.Write(json);
+
+            sw.Flush();
+            sw.Close();
+
+            fs.Close();
+
         }
+    }
+
+    public class Moons
+    {
+        [JsonPropertyName("Moons Of Jupiter")]
+        public List<AstralBody> MoonsOfJupiter { get; set; }
     }
 }

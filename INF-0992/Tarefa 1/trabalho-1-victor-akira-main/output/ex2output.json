@@ -1,0 +1,52 @@
+{
+  "Moons Of Jupiter": [
+    {
+      "Body": "Ganymede",
+      "RadiusKm": 2634.1,
+      "VolumeE9Km3": 76.3,
+      "MassE21Kg": 148.2,
+      "SurfaceAreaKm2": 86999000,
+      "DensityGCm3": 1.936,
+      "GravityMS2": 1.428,
+      "Type": "moon of Jupiter (icy)",
+      "ParentBody": "Jupiter",
+      "Discovery": "1610"
+    },
+    {
+      "Body": "Callisto",
+      "RadiusKm": 2410.3,
+      "VolumeE9Km3": 58.65,
+      "MassE21Kg": 107.6,
+      "SurfaceAreaKm2": 73005000,
+      "DensityGCm3": 1.834,
+      "GravityMS2": 1.23603,
+      "Type": "moon of Jupiter (icy)",
+      "ParentBody": "Jupiter",
+      "Discovery": "1610"
+    },
+    {
+      "Body": "Io",
+      "RadiusKm": 1821.6,
+      "VolumeE9Km3": 25.32,
+      "MassE21Kg": 89.32,
+      "SurfaceAreaKm2": 41698000,
+      "DensityGCm3": 3.528,
+      "GravityMS2": 1.797,
+      "Type": "moon of Jupiter (terrestrial)",
+      "ParentBody": "Jupiter",
+      "Discovery": "1610"
+    },
+    {
+      "Body": "Europa",
+      "RadiusKm": 1560.8,
+      "VolumeE9Km3": 15.93,
+      "MassE21Kg": 48,
+      "SurfaceAreaKm2": 30613000,
+      "DensityGCm3": 3.013,
+      "GravityMS2": 1.316,
+      "Type": "moon of Jupiter (terrestrial)",
+      "ParentBody": "Jupiter",
+      "Discovery": "1610"
+    }
+  ]
+}
