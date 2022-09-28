@@ -9,6 +9,7 @@ using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using DataModel;
 using System.Runtime;
+using System.Reflection.Emit;
 
 namespace Class1
 {
@@ -56,7 +57,7 @@ namespace Class1
                       "Database=Bodies;Data Source=../../../ex2data/bodies.sqlite")
                     .Build<BodiesDb>());
 
-            var astralBody = from a in db.AstralBodies where a.ParentBody == "Jupiter" select a;
+            var astralBody = from a in db.AstralBodies where a.ParentBody == "Jupiter" orderby a.MassE21Kg descending select a;
 
             var moons = new Moons
             {
