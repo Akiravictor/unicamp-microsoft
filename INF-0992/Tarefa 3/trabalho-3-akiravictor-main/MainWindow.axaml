@@ -1,0 +1,52 @@
+<Window xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" d:Width="500" d:Height="450" x:Class="Class3.MainWindow" Title="Class3">
+    <StackPanel Margin="10" Spacing="10" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel.Styles>
+            <Style Selector="Button">
+                <Setter Property="Width" Value="50"></Setter>
+                <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+            </Style>
+            <Style Selector="StackPanel">
+                <Setter Property="Spacing" Value="10"></Setter>
+            </Style>
+        </StackPanel.Styles>
+        <TextBox Height="20" Width="230"/>
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="π"/>
+            <Button Content="↶"/>
+            <Button Content="↷"/>
+            <Button Content="C"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="7"/>
+            <Button Content="8"/>
+            <Button Content="9"/>
+            <Button Content="+"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="5"/>
+            <Button Content="6"/>
+            <Button Content="7"/>
+            <Button Content="-"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="1"/>
+            <Button Content="2"/>
+            <Button Content="3"/>
+            <Button Content="*"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="0"/>
+            <Button Content="."/>
+            <Button Content="="/>
+            <Button Content="/"/>
+        </StackPanel>
+
+
+
+    </StackPanel>
+</Window>

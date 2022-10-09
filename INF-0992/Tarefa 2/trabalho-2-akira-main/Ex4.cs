@@ -47,21 +47,22 @@ namespace Class2
 
 		public static void parallel_mergesort(int[] list, int l, int r, int[] scratch)
 		{
-
 			// Paralelize esta função.
 			if (r - l <= 1)
 				return;
 			var m = l + (r - l + 1) / 2; // divida a array no meio.
-			var thread1 = new Thread(delegate() { parallel_mergesort(list, l, m, scratch); } );
-			var thread2 = new Thread(delegate() { parallel_mergesort(list, m, r, scratch); } );
 
-			thread1.Start();
-			thread2.Start();
-			thread1.Join();
-			thread2.Join();
+			var task1 = Task.Run(() => {
+				sequential_mergesort(list, l, m, scratch); // ordene de l a m-1
+			});
 
-			parallel_mergesort(list, l, m, scratch); // ordene de l a m-1
-			parallel_mergesort(list, m, r, scratch); // ordene de m a r-1
+			var task2 = Task.Run(() => { 
+				sequential_mergesort(list, m, r, scratch); // ordene de m a r-1
+			});	
+
+			task1.Wait();
+			task2.Wait();
+
 			merge(list, l, m, r, scratch); // combine as duas metades
 		}
 
