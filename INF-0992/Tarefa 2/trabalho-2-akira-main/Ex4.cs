@@ -70,7 +70,7 @@ namespace Class2
 		{
 
 			// Carregue a versão não ordenada do arquivo.
-			var unsorted_text = System.IO.File.ReadLines("../../../ex4data/unsorted_ints.txt");
+			var unsorted_text = System.IO.File.ReadLines("ex4data/unsorted_ints.txt");
 			var unsorted_ints = new List<Int32>();
 			foreach (var line in unsorted_text)
 			{

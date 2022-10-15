@@ -45,8 +45,8 @@ namespace Class2
 			// A versão sequencial já está disponível. Crie uma versão paralela.
 			// Para esse exercício, o resultado não precisa ser mais rápido que a versão sequencial.
 
-			var vetor_a = File.ReadAllLines("../../../ex3data/vetor_a.txt").Select((x) => float.Parse(x)).ToArray();
-			var vetor_b = File.ReadAllLines("../../../ex3data/vetor_b.txt").Select((x) => float.Parse(x)).ToArray();
+			var vetor_a = File.ReadAllLines("ex3data/vetor_a.txt").Select((x) => float.Parse(x)).ToArray();
+			var vetor_b = File.ReadAllLines("ex3data/vetor_b.txt").Select((x) => float.Parse(x)).ToArray();
 
 			var sw = new System.Diagnostics.Stopwatch();
 			sw.Start();

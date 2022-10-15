@@ -344,6 +344,8 @@ namespace Class3
 
             Console.Write("Expressao: ");
             tree.Accept(mathVisitor);
+
+            Console.WriteLine();
         }
     }
 }

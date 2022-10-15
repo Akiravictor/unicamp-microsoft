@@ -16,7 +16,7 @@ namespace Class2
             // Para garantir o funcionamento correto, é preciso usar um lock para
             // cada conta.
 
-            var fileLines = File.ReadAllLines("../../../ex5data/transactions.txt").ToList();
+            var fileLines = File.ReadAllLines("ex5data/transactions.txt").ToList();
 
             var funds = new int[100];
             var transactions = new List<Transaction>();
@@ -56,7 +56,7 @@ namespace Class2
                 sb.AppendLine($"FUNDS {i} = {funds[i]}");
             }
 
-            using FileStream fs = new FileStream("../../../ex5data/transaction_results.txt", FileMode.Create);
+            using FileStream fs = new FileStream("ex5data/transaction_results.txt", FileMode.Create);
             using StreamWriter sw = new StreamWriter(fs);
 
             sw.Write(sb);
