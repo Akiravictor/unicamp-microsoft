@@ -8,5 +8,10 @@ namespace Class3.Calculator
 {
 	public class ButtonObserver
 	{
+
+		public void Update()
+		{
+
+		}
 	}
 }
