@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace Class3.Calculator
 {
-    public class CalculatorCommand
+    public class CalculatorCommand : Command
     {
+        public override void Execute()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Unexecute()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

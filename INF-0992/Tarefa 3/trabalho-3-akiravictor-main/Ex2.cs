@@ -1,4 +1,5 @@
 using Class3.Calculator;
+using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Text;
@@ -37,112 +38,13 @@ namespace Class3
 
             // Exemplos:
 
-            var calculator = SingletonCalculator.GetInstance();
-            var observer = new ButtonObserver(calculator);
+            var buttonHandler = new ButtonHandler(ui);
+            var calculator = SingletonCalculator.GetInstance(buttonHandler, ui);
 
-            ui.SetDisplayText("Hello, world!");
 
-            ui.AddCallbackForButton('0', () =>
-            {
-                calculator.ButtonPressed("0");
-            });
+            buttonHandler.AddObserver(calculator);
 
-            ui.AddCallbackForButton('1', () =>
-            {
-				calculator.ButtonPressed("1");
-			});
-
-            ui.AddCallbackForButton('2', () =>
-            {
-				calculator.ButtonPressed("2");
-			});
-
-            ui.AddCallbackForButton('3', () =>
-            {
-				calculator.ButtonPressed("3");
-			});
-
-            ui.AddCallbackForButton('4', () =>
-            {
-				calculator.ButtonPressed("4");
-			});
-
-            ui.AddCallbackForButton('5', () =>
-            {
-				calculator.ButtonPressed("5");
-			});
-
-            ui.AddCallbackForButton('6', () =>
-            {
-				calculator.ButtonPressed("6");
-			});
-
-            ui.AddCallbackForButton('7', () =>
-            {
-				calculator.ButtonPressed("7");
-			});
-
-            ui.AddCallbackForButton('8', () =>
-            {
-				calculator.ButtonPressed("8");
-			});
-
-            ui.AddCallbackForButton('9', () =>
-            {
-				calculator.ButtonPressed("9");
-			});
-
-            ui.AddCallbackForButton('+', () =>
-            {
-				calculator.ButtonPressed("sum");
-			});
-
-            ui.AddCallbackForButton('-', () =>
-            {
-				calculator.ButtonPressed("subtraction");
-			});
-
-            ui.AddCallbackForButton('*', () =>
-            {
-				calculator.ButtonPressed("multiply");
-			});
-
-            ui.AddCallbackForButton('/', () =>
-            {
-				calculator.ButtonPressed("division");
-			});
-
-            ui.AddCallbackForButton('↶', () =>
-            {
-				calculator.ButtonPressed("undo");
-			});
-
-            ui.AddCallbackForButton('↷', () =>
-            {
-				calculator.ButtonPressed("redo");
-			});
-
-            ui.AddCallbackForButton('C', () =>
-            {
-				calculator.ButtonPressed("clear");
-			});
-
-            ui.AddCallbackForButton('.', () =>
-            {
-				calculator.ButtonPressed(".");
-			});
-
-            ui.AddCallbackForButton('=', () =>
-            {
-				calculator.ButtonPressed("equal");
-			});
-
-            ui.AddCallbackForButton('π', () =>
-            {
-				calculator.ButtonPressed("pi");
-			});
-
+            buttonHandler.SetCallbacks();
         }
 	}
 }
-calculator.ButtonPressed("0");
