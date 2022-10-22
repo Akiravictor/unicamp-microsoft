@@ -40,131 +40,109 @@ namespace Class3
             var calculator = SingletonCalculator.GetInstance();
             var observer = new ButtonObserver(calculator);
 
-            string buttonPressed;
-
             ui.SetDisplayText("Hello, world!");
 
             ui.AddCallbackForButton('0', () =>
             {
-                buttonPressed = "0";
-                observer.Update();
-
+                calculator.ButtonPressed("0");
             });
 
             ui.AddCallbackForButton('1', () =>
             {
-				buttonPressed = "1";
-				observer.Update();
+				calculator.ButtonPressed("1");
 			});
 
             ui.AddCallbackForButton('2', () =>
             {
-				buttonPressed = "2";
-				observer.Update();
+				calculator.ButtonPressed("2");
 			});
 
             ui.AddCallbackForButton('3', () =>
             {
-				buttonPressed = "3";
-				observer.Update();
+				calculator.ButtonPressed("3");
 			});
 
             ui.AddCallbackForButton('4', () =>
             {
-				buttonPressed = "4";
-				observer.Update();
+				calculator.ButtonPressed("4");
 			});
 
             ui.AddCallbackForButton('5', () =>
             {
-				buttonPressed = "5";
-				observer.Update();
+				calculator.ButtonPressed("5");
 			});
 
             ui.AddCallbackForButton('6', () =>
             {
-				buttonPressed = "6";
-				observer.Update();
+				calculator.ButtonPressed("6");
 			});
 
             ui.AddCallbackForButton('7', () =>
             {
-				buttonPressed = "7";
-				observer.Update();
+				calculator.ButtonPressed("7");
 			});
 
             ui.AddCallbackForButton('8', () =>
             {
-				buttonPressed = "8";
-				observer.Update();
+				calculator.ButtonPressed("8");
 			});
 
             ui.AddCallbackForButton('9', () =>
             {
-				buttonPressed = "9";
-				observer.Update();
+				calculator.ButtonPressed("9");
 			});
 
             ui.AddCallbackForButton('+', () =>
             {
-				buttonPressed = "sum";
-				observer.Update();
+				calculator.ButtonPressed("sum");
 			});
 
             ui.AddCallbackForButton('-', () =>
             {
-				buttonPressed = "subtraction";
-				observer.Update();
+				calculator.ButtonPressed("subtraction");
 			});
 
             ui.AddCallbackForButton('*', () =>
             {
-				buttonPressed = "multiply";
-				observer.Update();
+				calculator.ButtonPressed("multiply");
 			});
 
             ui.AddCallbackForButton('/', () =>
             {
-				buttonPressed = "division";
-				observer.Update();
+				calculator.ButtonPressed("division");
 			});
 
             ui.AddCallbackForButton('↶', () =>
             {
-				buttonPressed = "undo";
-				observer.Update();
+				calculator.ButtonPressed("undo");
 			});
 
             ui.AddCallbackForButton('↷', () =>
             {
-				buttonPressed = "redo";
-				observer.Update();
+				calculator.ButtonPressed("redo");
 			});
 
             ui.AddCallbackForButton('C', () =>
             {
-				buttonPressed = "clear";
-				observer.Update();
+				calculator.ButtonPressed("clear");
 			});
 
             ui.AddCallbackForButton('.', () =>
             {
-				buttonPressed = ".";
-				observer.Update();
+				calculator.ButtonPressed(".");
 			});
 
             ui.AddCallbackForButton('=', () =>
             {
-				buttonPressed = "equal";
-				observer.Update();
+				calculator.ButtonPressed("equal");
 			});
 
             ui.AddCallbackForButton('π', () =>
             {
-				buttonPressed = "pi";
-				observer.Update();
+				calculator.ButtonPressed("pi");
 			});
 
         }
 	}
 }
+calculator.ButtonPressed("0");

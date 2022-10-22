@@ -8,10 +8,11 @@ namespace Class3.Calculator
 {
 	public class SingletonCalculator
 	{
-		public static SingletonCalculator? instance;
+		private static SingletonCalculator? _instance;
+		private ButtonObserver? _observer;
 
 		private double currentValue = 0;
-		private char lastKeyPressed;
+		public string lastKeyPressed { get; private set; } = "";
 
 		protected SingletonCalculator()
 		{
@@ -19,17 +20,27 @@ namespace Class3.Calculator
 
 		public static SingletonCalculator GetInstance()
 		{
-			if(instance == null)
+			if(_instance == null)
 			{
-				instance = new SingletonCalculator();
+				_instance = new SingletonCalculator();
 			}
 
-			return instance;
+			return _instance;
 		}
+
+		public void AddObserver(ButtonObserver observer)
+		{
+			_observer = observer ?? throw new ArgumentNullException(nameof(observer));
+		}
+
 
 		public void ButtonPressed(string button)
 		{
-
+			if(_observer != null)
+			{
+				lastKeyPressed = button;
+				_observer.Notify();
+			}
 		}
 	}
 }

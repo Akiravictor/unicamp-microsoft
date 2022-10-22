@@ -15,9 +15,14 @@ namespace Class3.Calculator
 			_calculator = calculator ?? throw new ArgumentNullException(nameof(calculator));
 		}
 
-		public void Update()
+		public void Notify()
 		{
 			
+		}
+
+		public void Update()
+		{
+
 		}
 	}
 }
