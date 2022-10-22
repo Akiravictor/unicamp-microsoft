@@ -8,52 +8,26 @@ namespace Class3.Calculator
 {
 	public class SingletonCalculator
 	{
-		public static SingletonCalculator? Instance;
-		public ButtonObserver observer;
+		public static SingletonCalculator? instance;
 
 		private double currentValue = 0;
+		private char lastKeyPressed;
 
 		protected SingletonCalculator()
 		{
-			observer = new();
 		}
 
 		public static SingletonCalculator GetInstance()
 		{
-			if(Instance == null)
+			if(instance == null)
 			{
-				Instance = new SingletonCalculator();
+				instance = new SingletonCalculator();
 			}
 
-			return Instance;
+			return instance;
 		}
 
-		public void Sum()
-		{
-
-		}
-
-		public void Subtract()
-		{
-
-		}
-
-		public void Multiply()
-		{
-
-		}
-
-		public void Divide()
-		{
-
-		}
-
-		public void Clear()
-		{
-
-		}
-
-		public void Equal()
+		public void ButtonPressed(string button)
 		{
 
 		}

@@ -9,8 +9,8 @@ namespace Class3
 {
 	public class Ex2
 	{
-		public static void run(CalculatorUI ui)
-		{
+        public static void run(CalculatorUI ui)
+        {
 
             // Implemente uma calculadora usando a interface gráfica que já está pronta. Há um exemplo no arquivo `Ex2.cs`.
 
@@ -38,109 +38,133 @@ namespace Class3
             // Exemplos:
 
             var calculator = SingletonCalculator.GetInstance();
+            var observer = new ButtonObserver(calculator);
 
-			ui.SetDisplayText("Hello, world!");
+            string buttonPressed;
+
+            ui.SetDisplayText("Hello, world!");
 
             ui.AddCallbackForButton('0', () =>
             {
-                Console.WriteLine("I just pressed button 0!");
+                buttonPressed = "0";
+                observer.Update();
+
             });
-            
+
             ui.AddCallbackForButton('1', () =>
             {
-                Console.WriteLine("I just pressed button 1!");
-            });
-            
+				buttonPressed = "1";
+				observer.Update();
+			});
+
             ui.AddCallbackForButton('2', () =>
             {
-                Console.WriteLine("I just pressed button 2!");
-            });
-            
+				buttonPressed = "2";
+				observer.Update();
+			});
+
             ui.AddCallbackForButton('3', () =>
             {
-                Console.WriteLine("I just pressed button 3!");
-            });
-            
+				buttonPressed = "3";
+				observer.Update();
+			});
+
             ui.AddCallbackForButton('4', () =>
             {
-                Console.WriteLine("I just pressed button 4!");
-            });
-            
+				buttonPressed = "4";
+				observer.Update();
+			});
+
             ui.AddCallbackForButton('5', () =>
             {
-                Console.WriteLine("I just pressed button 5!");
-            });
-            
+				buttonPressed = "5";
+				observer.Update();
+			});
+
             ui.AddCallbackForButton('6', () =>
             {
-                Console.WriteLine("I just pressed button 6!");
-            });
-            
+				buttonPressed = "6";
+				observer.Update();
+			});
+
             ui.AddCallbackForButton('7', () =>
             {
-                Console.WriteLine("I just pressed button 7!");
-            });
+				buttonPressed = "7";
+				observer.Update();
+			});
 
             ui.AddCallbackForButton('8', () =>
             {
-                Console.WriteLine("I just pressed button 8!");
-            });
+				buttonPressed = "8";
+				observer.Update();
+			});
 
             ui.AddCallbackForButton('9', () =>
             {
-                Console.WriteLine("I just pressed button 9!");
-            });
+				buttonPressed = "9";
+				observer.Update();
+			});
 
             ui.AddCallbackForButton('+', () =>
             {
-                Console.WriteLine("I just pressed button +!");
-            });
+				buttonPressed = "sum";
+				observer.Update();
+			});
 
             ui.AddCallbackForButton('-', () =>
             {
-                Console.WriteLine("I just pressed button -!");
-            });
+				buttonPressed = "subtraction";
+				observer.Update();
+			});
 
             ui.AddCallbackForButton('*', () =>
             {
-                Console.WriteLine("I just pressed button *!");
-            });
+				buttonPressed = "multiply";
+				observer.Update();
+			});
 
             ui.AddCallbackForButton('/', () =>
             {
-                Console.WriteLine("I just pressed button /!");
-            });
+				buttonPressed = "division";
+				observer.Update();
+			});
 
             ui.AddCallbackForButton('↶', () =>
             {
-                Console.WriteLine("I just pressed button Undo!");
-            });
+				buttonPressed = "undo";
+				observer.Update();
+			});
 
             ui.AddCallbackForButton('↷', () =>
             {
-                Console.WriteLine("I just pressed button Redo!");
-            });
+				buttonPressed = "redo";
+				observer.Update();
+			});
 
             ui.AddCallbackForButton('C', () =>
             {
-                Console.WriteLine("I just pressed button C!");
-            });
+				buttonPressed = "clear";
+				observer.Update();
+			});
 
             ui.AddCallbackForButton('.', () =>
             {
-                Console.WriteLine("I just pressed button .!");
-            });
+				buttonPressed = ".";
+				observer.Update();
+			});
 
             ui.AddCallbackForButton('=', () =>
             {
-                Console.WriteLine("I just pressed button =!");
-            });
-
-            ui.AddCallbackForButton('π', () =>
-			{
-				Console.WriteLine("I just pressed button Pi!");
+				buttonPressed = "equal";
+				observer.Update();
 			});
 
-		}
+            ui.AddCallbackForButton('π', () =>
+            {
+				buttonPressed = "pi";
+				observer.Update();
+			});
+
+        }
 	}
 }

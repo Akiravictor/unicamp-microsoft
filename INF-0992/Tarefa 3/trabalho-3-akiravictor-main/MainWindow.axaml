@@ -26,9 +26,9 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="4"/>
             <Button Content="5"/>
             <Button Content="6"/>
-            <Button Content="7"/>
             <Button Content="-"/>
         </StackPanel>
 

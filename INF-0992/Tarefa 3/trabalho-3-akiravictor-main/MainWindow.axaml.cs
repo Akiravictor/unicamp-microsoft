@@ -57,7 +57,6 @@ namespace Class3
         btn.Click += new EventHandler<Avalonia.Interactivity.RoutedEventArgs>((obj, args) => { callback(); });
       }
     }
-
   }
 
 }
