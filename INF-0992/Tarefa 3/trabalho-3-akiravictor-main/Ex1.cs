@@ -227,7 +227,7 @@ namespace Class3
 
         public override void VisitNegation(Negation exp)
         {
-            Console.Write($"-(");
+            Console.Write($"-1 * (");
             exp.value.Accept(this);
             Console.Write($")");
         }

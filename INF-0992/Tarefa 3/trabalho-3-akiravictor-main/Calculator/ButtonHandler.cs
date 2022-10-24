@@ -17,8 +17,6 @@ namespace Class3.Calculator
 
         public void SetCallbacks()
         {
-            _ui.SetDisplayText("Hello, world!");
-
             _ui.AddCallbackForButton('0', () =>
             {
                 keyPressed = "0";
