@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MediaPlayer
+namespace MediaPlayer.WPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,14 +23,6 @@ namespace MediaPlayer
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Console.WriteLine("Hello World!");
-            MessageBox.Show("Hello World!", "Hello", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
         }
     }
 }
