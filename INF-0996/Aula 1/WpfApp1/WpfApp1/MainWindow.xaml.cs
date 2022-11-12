@@ -21,9 +21,18 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        private SelecionarCidade selecionarCidade;
+
         public MainWindow()
         {
+            selecionarCidade = new SelecionarCidade();
             InitializeComponent();
+        }
+
+        private void Cidade_Click(object sender, RoutedEventArgs e)
+        {
+            selecionarCidade.ShowInTaskbar = false;
+            selecionarCidade.Show();
         }
 
         private void MenuSuperior_Click(object sender, RoutedEventArgs args)

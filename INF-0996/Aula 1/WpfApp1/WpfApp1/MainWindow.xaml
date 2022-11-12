@@ -31,7 +31,7 @@
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="0" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Image Margin="20, 0, 20, 0" Source="https://learn.microsoft.com/pt-br/windows/apps/design/layout/images/partially-cloudy.png" />
-            <Button Margin="20,20,20,20" Name="Button" Foreground="White" FontWeight="Bold" Background="#152951" Content="Selecionar Cidade"/>
+            <Button Margin="20,20,20,20" Name="Button" Foreground="White" FontWeight="Bold" Background="#152951" Click="Cidade_Click" Content="Selecionar Cidade"/>
         </StackPanel>
         <MenuItem Grid.Column="1" Click="MenuSuperior_Click" x:Name="MenuSuperiorEsquerdo" Background="#1f3d7a" VerticalAlignment="Top" HorizontalAlignment="Right" Height="50">
             <MenuItem.Header>
