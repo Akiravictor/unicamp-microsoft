@@ -1,0 +1,3 @@
+Este eh o texto claro.
+Ele carrega informacao sensivel.
+Por isto, deve ser protegido.
