@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
+    <PackageReference Include="TagLibSharp" Version="2.3.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="TagLibSharp" Version="2.3.0" />
+    <ProjectReference Include="..\..\3- Domain\MediaPlayer.Domain\MediaPlayer.Domain.csproj" />
   </ItemGroup>
 
 </Project>

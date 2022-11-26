@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using MediaPlayer.Service.Interfaces;
+using MediaPlayer.Service.Services;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -25,6 +27,7 @@ namespace MediaPlayer.WPF
 
 		private void ConfigureServices(ServiceCollection services)
 		{
+			services.AddSingleton<IMediaControlService, MediaControlService>();
 			services.AddSingleton<MainWindow>();
 		}
 

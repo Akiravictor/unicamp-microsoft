@@ -18,6 +18,8 @@ using MediaPlayer.Domain.Model;
 using System.Windows.Controls.Primitives;
 using System.Windows.Threading;
 using System.Windows.Media.Animation;
+using MediaPlayer.Service.Interfaces;
+using System.IO;
 
 namespace MediaPlayer.WPF
 {
@@ -26,14 +28,19 @@ namespace MediaPlayer.WPF
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		private readonly IMediaControlService _mediaControlService;
+
 		private bool mediaPlayerIsPlaying = false;
 		private bool userIsDraggingSlider = false;
 		public bool Repeat = false;
 		public bool Random = false;
 
-		public MainWindow()
+		public MainWindow(IMediaControlService mediaControlService)
 		{
+			_mediaControlService = mediaControlService ?? throw new ArgumentNullException(nameof(mediaControlService));
+
 			InitializeComponent();
+
 
 			DispatcherTimer timer = new DispatcherTimer();
 			timer.Interval = TimeSpan.FromSeconds(1);
@@ -42,6 +49,28 @@ namespace MediaPlayer.WPF
 
 			Repeat = false;
 			Random = false;
+
+			mePlayer.MediaEnded += MePlayer_MediaEnded;
+
+
+		}
+
+		private void MePlayer_MediaEnded(object sender, RoutedEventArgs e)
+		{
+			if (Repeat)
+			{
+				mePlayer.Position = TimeSpan.Zero;
+			}
+			else if (Random)
+			{
+
+			}
+			else
+			{
+				var media = _mediaControlService.GetNextItem() ?? throw new ArgumentNullException(nameof(_mediaControlService.GetMediaDetails));
+
+				mePlayer.Source = new Uri(media.FilePath);
+			}
 
 		}
 
@@ -58,24 +87,57 @@ namespace MediaPlayer.WPF
 		private void OpenFile(object sender, RoutedEventArgs e)
 		{
 			OpenFileDialog fileDialog = new OpenFileDialog();
-			fileDialog.Filter = "Media Files (*.mp3; *.mpg; *.mpeg)|*.mp3; =*.mpg;*.mpeg|All files (*.*)|*.*";
+			fileDialog.Filter = "Media Files (*.mp3; *.mpg; *.mpeg; *.mp4; *.mkv; *.avi)|*.mp3; *.mpg;*.mpeg;*.mp4;*.mkv;*.avi|All files (*.*)|*.*";
+			fileDialog.Multiselect = true;
 
 			if (fileDialog.ShowDialog() == true)
 			{
-				var tagFile = TagLib.File.Create(fileDialog.FileName);
+				_mediaControlService.LoadFiles(fileDialog.FileNames);
+			}
 
-				mePlayer.Source = new Uri(fileDialog.FileName);
+			if (mediaPlayerIsPlaying)
+			{
+				mePlayer.Stop();
+				mediaPlayerIsPlaying = false;
 
+			}
+		}
+
+		private void OpenPlaylist(object sender, RoutedEventArgs e)
+		{
+			OpenFileDialog fileDialog = new OpenFileDialog();
+			fileDialog.Filter = "INF0997 Playlist File (*.plst)|*.plst";
+
+			if(fileDialog.ShowDialog() == true)
+			{
+
+			}
+		}
+
+		private void SavePlaylist(object sender, RoutedEventArgs e)
+		{
+			SaveFileDialog fileDialog = new SaveFileDialog();
+			fileDialog.Filter = "INF0997 Playlist File (*.plst)|*.plst";
+
+			if(fileDialog.ShowDialog() == true)
+			{
+				File.WriteAllText(fileDialog.FileName, "");
 			}
 		}
 
 		private void Play_CanExecute(object sender, CanExecuteRoutedEventArgs e)
 		{
-			e.CanExecute = (mePlayer != null) && (mePlayer.Source != null);
+			e.CanExecute = (mePlayer != null) && !_mediaControlService.IsPlaylistEmpty();
 		}
 
 		private void Play_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
+			if (!mediaPlayerIsPlaying)
+			{
+				var media = _mediaControlService.GetFirstPlaylistItem() ?? throw new ArgumentNullException();
+				mePlayer.Source = new Uri(media.FilePath);
+			}
+
 			mePlayer.Play();
 			mediaPlayerIsPlaying = true;
 		}
@@ -99,6 +161,7 @@ namespace MediaPlayer.WPF
 		{
 			mePlayer.Stop();
 			mediaPlayerIsPlaying = false;
+			_mediaControlService.ResetPlaylistIndex();
 		}
 
 		private void Has_NextTrack(object sender, CanExecuteRoutedEventArgs e)
@@ -108,7 +171,8 @@ namespace MediaPlayer.WPF
 
 		private void NextTrack(object sender, ExecutedRoutedEventArgs e)
 		{
-			Console.WriteLine($"Next Track Repeat is {Repeat} and Random is {Random}");
+			var media = _mediaControlService.GetNextItem(Random) ?? throw new ArgumentNullException();
+			mePlayer.Source = new Uri(media.FilePath);
 		}
 
 		private void Has_PreviousTrack(object sender, CanExecuteRoutedEventArgs e)
@@ -118,7 +182,8 @@ namespace MediaPlayer.WPF
 
 		private void PreviousTrack(object sender, ExecutedRoutedEventArgs e)
 		{
-
+			var media = _mediaControlService.GetPreviousItem(Random) ?? throw new ArgumentNullException();
+			mePlayer.Source = new Uri(media.FilePath);
 		}
 
 		private void sliProgress_DragStarted(object sender, DragStartedEventArgs e)
