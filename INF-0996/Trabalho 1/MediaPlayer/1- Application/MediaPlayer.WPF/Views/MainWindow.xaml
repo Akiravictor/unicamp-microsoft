@@ -78,8 +78,9 @@
 				<Slider Name="sliProgress" Thumb.DragStarted="sliProgress_DragStarted"  Thumb.DragCompleted="sliProgress_DragCompleted" ValueChanged="sliProgress_ValueChanged" />
 			</StatusBarItem>
 			<StatusBarItem Grid.Column="2" MouseWheel="Grid_MouseWheel">
-				<ProgressBar Name="pbVolume" Width="50" Height="12" Maximum="1" Value="{Binding ElementName=mePlayer, Path=Volume}" />
-			</StatusBarItem>
+                <ProgressBar Name="pbVolume" Width="50" Height="12" Maximum="1" Value="{Binding ElementName=mePlayer, Path=Volume}" />
+                
+            </StatusBarItem>
 		</StatusBar>
 
 		<Grid Grid.Column="0" Grid.Row="1" >
