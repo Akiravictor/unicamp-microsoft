@@ -3,7 +3,8 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-		xmlns:ds="clr-namespace:MediaPlayer.Domain.Model;assembly=MediaPlayer.Domain"
+		xmlns:ds="clr-namespace:MediaPlayer.WPF.ViewModel"
+		xmlns:cmd="clr-namespace:MediaPlayer.WPF.Commands"
 		xmlns:local="clr-namespace:MediaPlayer.WPF"
 		mc:Ignorable="d"
 		Title="INF0996 - MediaPlayer" Height="450" Width="800">
@@ -17,10 +18,10 @@
 	</Window.CommandBindings>
 
 	<Window.Resources>
-		<ObjectDataProvider x:Key="MediaDataSource" ObjectType="{x:Type ds:Media}" />
+		<ds:PlayerVM x:Key="playerViewModel" />
 	</Window.Resources>
 	
-	<Grid>
+	<Grid DataContext="{StaticResource playerViewModel}">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="2*"/>
 			<ColumnDefinition Width="8*" />
@@ -47,6 +48,16 @@
 		<Viewbox Grid.Row="1" Grid.Column="1" Stretch="UniformToFill">
 			<MediaElement Name="mePlayer" LoadedBehavior="Manual" />
 		</Viewbox>
+
+		<ListBox Grid.Row="1" Grid.Column="0" >
+			<ItemsControl Name="playlistItems">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding Title}" />
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</ListBox>
 		
 
 		<DockPanel Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0,5,0,5">
@@ -72,7 +83,7 @@
 				</ItemsPanelTemplate>
 			</StatusBar.ItemsPanel>
 			<StatusBarItem>
-				<TextBlock Name="lblProgressStatus">00:00:00</TextBlock>
+				<TextBlock Name="lblProgressStatus">00:00:00 / 00:00:00</TextBlock>
 			</StatusBarItem>
 			<StatusBarItem Grid.Column="1" HorizontalContentAlignment="Stretch">
 				<Slider Name="sliProgress" Thumb.DragStarted="sliProgress_DragStarted"  Thumb.DragCompleted="sliProgress_DragCompleted" ValueChanged="sliProgress_ValueChanged" />
@@ -82,14 +93,6 @@
 			</StatusBarItem>
 		</StatusBar>
 
-		<Grid Grid.Column="0" Grid.Row="1" >
-			<ListView ItemsSource="{Binding Source={StaticResource MediaDataSource}}">
-				<ListView.ItemTemplate>
-					<DataTemplate></DataTemplate>
-				</ListView.ItemTemplate>
-			</ListView>	
-		</Grid>
-		
 
 	</Grid>
 </Window>

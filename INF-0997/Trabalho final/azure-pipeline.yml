@@ -1,0 +1,156 @@
+# Nome da Pipeline
+name: $(TeamProject)_$(Build.DefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.rrr)
+
+# Trigger da Pipeline
+trigger:
+- main
+
+# Recursos a serem utilizados pela Pipeline
+resources:
+ repositories:
+   - repository: mainRepository
+     type: git
+     name: inf0997-trabalhofinal
+
+# Definição dos Stages
+stages:
+
+# Primeiro estágio - Deploy da Infraestrutura
+- stage: Deploy_Infrastructure
+  displayName: Deploy Infrastructure
+
+  # Utilizando a pool do Ubuntu disponibilizada pela Azure
+  pool:
+    vmImage: ubuntu-latest
+
+  # Definição dos jobs da pipeline
+  jobs:
+
+  # Execução do Terraform para criar a infraestrutura
+  - job:
+    displayName: Run Terraform
+
+    steps:
+    - checkout: self
+      clean: true
+      displayName: Checkout repository
+
+    - bash: |
+        ls -la
+        ls -la terraform
+      displayName: Run Scripts
+
+    # Execução do comando Terraform Init para inicializar o Terraform
+    # Baixa os comandos do provider na máquina
+    - task: AzureCLI@2
+      displayName: Init Terraform
+      inputs:
+        azureSubscription: 'Assinatura-Pessoal(4fde75b1-7c34-4801-88f1-45944b4e4929)'
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          terraform init
+        addSpnToEnvironment: true
+        workingDirectory: 'terraform'
+
+    # Execução do planejamento do Terraform
+    # Cria toda a estrutura de dependencias para criar a infraestrutura
+    - task: AzureCLI@2
+      displayName: Plan Terraform
+      inputs:
+        azureSubscription: 'Assinatura-Pessoal(4fde75b1-7c34-4801-88f1-45944b4e4929)'
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          terraform plan -input=false -out deploy.tfplan
+        addSpnToEnvironment: true
+        workingDirectory: 'terraform'
+
+    # Execução do Terraform apply para criar a infraestrutura no Azure Cloud
+    - task: AzureCLI@2
+      displayName: Apply Terraform
+      inputs:
+        azureSubscription: 'Assinatura-Pessoal(4fde75b1-7c34-4801-88f1-45944b4e4929)'
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          terraform apply -input=false -auto-approve deploy.tfplan
+        addSpnToEnvironment: true
+        workingDirectory: 'terraform'
+
+# Segundo estágio - Deploy do Web App
+# Depende da finalização com sucesso do estágio anterior
+- stage: Deploy_WebApp
+  displayName: Deploy WebApp
+  dependsOn: Deploy_Infrastructure
+  condition: succeeded()
+
+  # Utiliza uma vm Windows Server 2019 para executar
+  pool:
+    vmImage: windows-2019
+
+  jobs:
+  - job:
+    displayName: 'Deploy Sample Web App'
+
+    # Cria um manifest file para poder instalar outras tools
+    steps:
+    - task: DotNetCoreCLI@2
+      displayName: Dotnet new manifest
+      inputs:
+        command: 'custom'
+        custom: 'new'
+        arguments: 'tool-manifest'
+        workingDirectory: 'SampleWebApp/SampleWebApp'
+
+    # Instala a tool do Entity Framework 
+    - task: DotNetCoreCLI@2
+      displayName: Install dotnet-ef
+      inputs:
+        command: 'custom'
+        custom: 'tool'
+        arguments: 'install --global dotnet-ef'
+        workingDirectory: 'SampleWebApp/SampleWebApp'
+
+    # Executa comando Update-Database do Entity Framework para criação das tabelas do banco de dados
+    - task: DotNetCoreCLI@2
+      displayName: Entity Framework Update Database
+      inputs:
+        command: 'custom'
+        custom: 'ef'
+        arguments: 'database update'
+        workingDirectory: 'SampleWebApp/SampleWebApp'
+    
+    # Compila o código em modo Release
+    - task: DotNetCoreCLI@2
+      displayName: Build Release
+      inputs:
+        command: 'custom'
+        custom: 'build'
+        arguments: '--configuration Release'
+        workingDirectory: 'SampleWebApp/SampleWebApp'
+
+    # Realiza o Publish da aplicação em modo Release
+    - task: DotNetCoreCLI@2
+      displayName: Publish Release
+      inputs:
+        command: 'publish'
+        publishWebProjects: true
+        arguments: '-f net6.0 -c Release'
+        workingDirectory: 'SampleWebApp'
+
+    - powershell: |
+        dir
+        dir SampleWebApp/
+        dir SampleWebApp/SampleWebApp
+      displayName: List Directories
+
+    # Realiza o deploy da Web App no Azure Web Services
+    - task: AzureWebApp@1
+      displayName: Publish Web App
+      inputs:
+        azureSubscription: 'Assinatura-Pessoal(4fde75b1-7c34-4801-88f1-45944b4e4929)'
+        appType: 'webApp'
+        appName: 'inf0997-sample'
+        package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+        deploymentMethod: 'auto'

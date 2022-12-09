@@ -15,6 +15,8 @@ namespace MediaPlayer.Service.Interfaces
 
 		Media? GetFirstPlaylistItem();
 
+		List<Media> GetPlaylist();
+
 		void ResetPlaylistIndex();
 
 		Media? GetNextItem(bool isRandom);

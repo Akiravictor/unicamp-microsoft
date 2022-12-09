@@ -1,0 +1,71 @@
+name: $(BuildDefinitionName)_$(Date:yyyyMMdd)
+
+# schedules:
+#   - cron: "0 0 * * *"
+#     displayName: Daily midnight run
+#     branches:
+#       include:
+#         - main
+  
+
+pool:
+  vmImage: windows-2019
+
+resources:
+  repositories:
+  - repository: main
+    type: git
+    name: INF-0997
+
+variables:
+  - name: System.Debug
+    value: true
+  - name: myName
+    value: Victor Akira
+  - name: course
+    value: INF-0997
+
+stages:
+  - stage:
+    displayName: "Start"
+    condition: succeeded()
+
+    jobs:
+      - job:
+        displayName: PowerShell print variables
+        dependsOn:
+
+        steps:
+        - task: PowerShell@2
+          inputs:
+            targetType: 'inline'
+            script: |
+              $nome = "Victor Akira"
+              $curso = "INF-0997"
+
+              Write-Host "Hello World!"
+              Write-Host $nome
+              Write-Host $curso
+
+              Write-Host "Variaveis da Pipeline"
+              Write-Host $(myName)
+              Write-Host $(course)
+
+      - job:
+        displayName: Publish Artifacts
+        steps:
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+            ArtifactName: 'pipeline-drop'
+            publishLocation: 'Container'
+      
+      - job:
+        displayName: Publish Azure Services
+        steps:
+        - task: AzureRmWebAppDeployment@4
+          inputs:
+            ConnectionType: 'PublishProfile'
+            PublishProfilePath: '$(System.DefaultWorkingDirectory)/**/*.pubxml'
+            PublishProfilePassword: '$(PUBLISHPASSWORD)'
+            packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'

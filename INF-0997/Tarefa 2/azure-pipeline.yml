@@ -1,0 +1,49 @@
+name: $(BuildDefinitionName)_$(Date:yyyyMMdd)$(rev.rrr)
+
+trigger:
+  branches:
+    include:
+    - main
+
+pool:
+  vmImage: windows-2019-latest
+
+resources:
+  repositories:
+  - repository: main
+    type: git
+    name: INF-0997
+
+variables:
+  - name: System.Debug
+    value: true
+  - name: NAME
+    value: Victor Akira
+  - name: COURSE
+    value: INF-0997
+
+stages:
+  - stage:
+    displayName: "Start"
+    condition: succeeded()
+
+    jobs:
+      - job:
+        displayName: PowerShell print variables
+        dependsOn:
+
+        steps:
+        - task: PowerShell@2
+          inputs:
+            targetType: 'inline'
+            script: |
+              $nome = "Victor Akira"
+              $curso = "INF-0997"
+
+              Write-Host "Hello World!"
+              Write-Host $nome
+              Write-Host $curso
+
+              Write-Host "Variaveis da Pipeline"
+              Write-Host ${{ NAME }}
+              Write-Host ${{ COURSE }}

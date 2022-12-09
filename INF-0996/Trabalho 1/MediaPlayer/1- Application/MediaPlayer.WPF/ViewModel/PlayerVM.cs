@@ -1,4 +1,5 @@
 ﻿using MediaPlayer.Domain.Model;
+using MediaPlayer.Service.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,8 @@ namespace MediaPlayer.WPF.ViewModel
 {
 	public class PlayerVM : INotifyPropertyChanged
 	{
+		private readonly IMediaControlService _mediaControlService;
+
 		public event PropertyChangedEventHandler? PropertyChanged;
 
 		private void OnPropertyChanged(string propertyName)
@@ -41,6 +44,36 @@ namespace MediaPlayer.WPF.ViewModel
 			}
 		}
 
-		public List<Media> Playlist;
+		private List<Media> playlist;
+
+		public List<Media> Playlist
+		{
+			get { return playlist; }
+			set
+			{
+				playlist = value;
+				OnPropertyChanged("Playlist");
+			}
+		}
+
+		public PlayerVM()
+		{
+			Playlist = new List<Media>();
+			Playlist.Add(new Media
+			{
+				Title = "Batatatatata",
+				ListNumber = 0
+			});
+			Playlist.Add(new Media
+			{
+				Title = "Bananananana",
+				ListNumber = 0
+			});
+		}
+
+		public void LoadPlaylist(List<Media> list)
+		{
+			Playlist = list;
+		}
 	}
 }

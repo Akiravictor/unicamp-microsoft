@@ -67,6 +67,11 @@ namespace MediaPlayer.Service.Services
 			return null;
 		}
 
+		public List<Media> GetPlaylist()
+		{
+			return _playlist;
+		}
+
 		public void ResetPlaylistIndex()
 		{
 			currentIndex = 0;

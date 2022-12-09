@@ -20,6 +20,7 @@ using System.Windows.Threading;
 using System.Windows.Media.Animation;
 using MediaPlayer.Service.Interfaces;
 using System.IO;
+using MediaPlayer.WPF.ViewModel;
 
 namespace MediaPlayer.WPF
 {
@@ -29,6 +30,8 @@ namespace MediaPlayer.WPF
 	public partial class MainWindow : Window
 	{
 		private readonly IMediaControlService _mediaControlService;
+
+		private PlayerVM _playerVM;
 
 		private bool mediaPlayerIsPlaying = false;
 		private bool userIsDraggingSlider = false;
@@ -52,7 +55,6 @@ namespace MediaPlayer.WPF
 
 			mePlayer.MediaEnded += MePlayer_MediaEnded;
 
-
 		}
 
 		private void MePlayer_MediaEnded(object sender, RoutedEventArgs e)
@@ -67,7 +69,7 @@ namespace MediaPlayer.WPF
 			}
 			else
 			{
-				var media = _mediaControlService.GetNextItem() ?? throw new ArgumentNullException(nameof(_mediaControlService.GetMediaDetails));
+				var media = _mediaControlService.GetNextItem(Random) ?? throw new ArgumentNullException(nameof(_mediaControlService.GetMediaDetails));
 
 				mePlayer.Source = new Uri(media.FilePath);
 			}
@@ -101,6 +103,7 @@ namespace MediaPlayer.WPF
 				mediaPlayerIsPlaying = false;
 
 			}
+
 		}
 
 		private void OpenPlaylist(object sender, RoutedEventArgs e)
@@ -199,7 +202,7 @@ namespace MediaPlayer.WPF
 
 		private void sliProgress_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
 		{
-			lblProgressStatus.Text = TimeSpan.FromSeconds(sliProgress.Value).ToString(@"hh\:mm\:ss");
+			lblProgressStatus.Text = $"{TimeSpan.FromSeconds(sliProgress.Value).ToString(@"hh\:mm\:ss")} / 00:00:00";
 		}
 
 		private void Grid_MouseWheel(object sender, MouseWheelEventArgs e)
