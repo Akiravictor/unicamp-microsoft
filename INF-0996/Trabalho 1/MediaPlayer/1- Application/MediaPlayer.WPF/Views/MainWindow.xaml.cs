@@ -249,5 +249,10 @@ namespace MediaPlayer.WPF
 
 
 		}
+
+		private void close(object sender, RoutedEventArgs e)
+		{
+			Application.Current.Shutdown();
+		}
 	}
 }

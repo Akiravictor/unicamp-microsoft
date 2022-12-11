@@ -34,7 +34,7 @@
 					<MenuItem Header="_Open Playlist" Click="OpenPlaylist"/>
 					<MenuItem Header="_Save Playlist" Click="SavePlaylist"/>
 					<Separator />
-					<MenuItem Header="_Close" />
+					<MenuItem Header="_Close" Click="close" />
 				</MenuItem>
 			</Menu>
 		</DockPanel>
