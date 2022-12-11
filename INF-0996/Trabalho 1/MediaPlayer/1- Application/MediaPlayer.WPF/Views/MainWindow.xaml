@@ -3,12 +3,10 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-		xmlns:ds="clr-namespace:MediaPlayer.WPF.ViewModel"
-		xmlns:cmd="clr-namespace:MediaPlayer.WPF.Commands"
 		xmlns:local="clr-namespace:MediaPlayer.WPF"
 		mc:Ignorable="d"
 		Title="INF0996 - MediaPlayer" Height="450" Width="800">
-	
+
 	<Window.CommandBindings>
 		<CommandBinding Command="MediaCommands.Play" CanExecute="Play_CanExecute" Executed="Play_Executed" />
 		<CommandBinding Command="MediaCommands.Pause" CanExecute="Pause_CanExecute" Executed="Pause_Executed" />
@@ -17,11 +15,7 @@
 		<CommandBinding Command="MediaCommands.PreviousTrack" CanExecute="Has_PreviousTrack" Executed="PreviousTrack" />
 	</Window.CommandBindings>
 
-	<Window.Resources>
-		<ds:PlayerVM x:Key="playerViewModel" />
-	</Window.Resources>
-	
-	<Grid DataContext="{StaticResource playerViewModel}">
+	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="2*"/>
 			<ColumnDefinition Width="8*" />
@@ -49,7 +43,7 @@
 			<MediaElement Name="mePlayer" LoadedBehavior="Manual" />
 		</Viewbox>
 
-		<ListBox Grid.Row="1" Grid.Column="0" >
+		<!--<ListBox Grid.Row="1" Grid.Column="0" >
 			<ItemsControl Name="playlistItems">
 				<ItemsControl.ItemTemplate>
 					<DataTemplate>
@@ -57,6 +51,14 @@
 					</DataTemplate>
 				</ItemsControl.ItemTemplate>
 			</ItemsControl>
+		</ListBox>-->
+
+		<ListBox Name="playlistItems" MouseDoubleClick="media_MouseDoubleClick" Grid.Row="1" Grid.Column="0">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding Title}" />
+				</DataTemplate>
+			</ListBox.ItemTemplate>
 		</ListBox>
 		
 

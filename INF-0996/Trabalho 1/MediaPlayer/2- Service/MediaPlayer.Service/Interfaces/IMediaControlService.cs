@@ -23,7 +23,13 @@ namespace MediaPlayer.Service.Interfaces
 
 		Media? GetPreviousItem(bool isRandom);
 
+		void GoToSelectedMedia(Media item);
+
 		Media GetMediaDetails(string filePath);
+
+		string SavePlaylist();
+
+		void LoadPlaylist(string json);
 
 	}
 }

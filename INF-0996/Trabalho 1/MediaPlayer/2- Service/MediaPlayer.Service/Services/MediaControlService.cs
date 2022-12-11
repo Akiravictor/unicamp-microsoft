@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace MediaPlayer.Service.Services
@@ -142,11 +144,33 @@ namespace MediaPlayer.Service.Services
 			return previous;
 		}
 
+		public void GoToSelectedMedia(Media item)
+		{
+			currentIndex = _playlist.IndexOf(item);
+			randomIndex = _randomPlaylist.IndexOf(item);
+		}
+
 		public Media GetMediaDetails(string filePath)
 		{
 			return new Media();
 		}
 
+		public string SavePlaylist()
+		{
+			return JsonSerializer.Serialize(_playlist);
+		}
 
+		public void LoadPlaylist(string json)
+		{
+			_ = _playlist ?? throw new InvalidOperationException("Error on loading playlist.");
+			_ = string.IsNullOrEmpty(json) ? throw new ArgumentNullException(nameof(json)) : "";
+
+			_playlist = JsonSerializer.Deserialize<List<Media>>(json);
+
+			Random r = new Random();
+			_randomPlaylist = _playlist.OrderBy(a => r.Next()).ToList();
+
+
+		}
 	}
 }

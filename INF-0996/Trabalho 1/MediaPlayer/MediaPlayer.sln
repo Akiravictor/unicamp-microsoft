@@ -9,13 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2- Service", "2- Service", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3- Domain", "3- Domain", "{0EB6B27B-9003-4787-9DCD-D4FE7043C7B2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4- Infrastructure", "4- Infrastructure", "{2268EB29-F985-44C5-9D30-A08597886C88}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaPlayer.Service", "2- Service\MediaPlayer.Service\MediaPlayer.Service.csproj", "{CB52978A-4B00-4770-AAE5-7BDB58DDDBC7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaPlayer.Domain", "3- Domain\MediaPlayer.Domain\MediaPlayer.Domain.csproj", "{90E0EFB4-3559-4C9F-B369-25BD05FFCEEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaPlayer.WPF", "1- Application\MediaPlayer.WPF\MediaPlayer.WPF.csproj", "{B1E18796-FEF8-4CDF-94E7-C86B8537B323}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaPlayer.WPF", "1- Application\MediaPlayer.WPF\MediaPlayer.WPF.csproj", "{B1E18796-FEF8-4CDF-94E7-C86B8537B323}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

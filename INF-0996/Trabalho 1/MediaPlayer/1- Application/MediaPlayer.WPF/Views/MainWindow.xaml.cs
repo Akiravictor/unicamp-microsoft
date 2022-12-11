@@ -20,7 +20,6 @@ using System.Windows.Threading;
 using System.Windows.Media.Animation;
 using MediaPlayer.Service.Interfaces;
 using System.IO;
-using MediaPlayer.WPF.ViewModel;
 
 namespace MediaPlayer.WPF
 {
@@ -31,7 +30,8 @@ namespace MediaPlayer.WPF
 	{
 		private readonly IMediaControlService _mediaControlService;
 
-		private PlayerVM _playerVM;
+		private string lenght = "00:00:00";
+		private string musicName = "";
 
 		private bool mediaPlayerIsPlaying = false;
 		private bool userIsDraggingSlider = false;
@@ -63,13 +63,9 @@ namespace MediaPlayer.WPF
 			{
 				mePlayer.Position = TimeSpan.Zero;
 			}
-			else if (Random)
-			{
-
-			}
 			else
 			{
-				var media = _mediaControlService.GetNextItem(Random) ?? throw new ArgumentNullException(nameof(_mediaControlService.GetMediaDetails));
+				var media = _mediaControlService.GetNextItem(Random) ?? throw new ArgumentNullException(nameof(_mediaControlService.GetNextItem));
 
 				mePlayer.Source = new Uri(media.FilePath);
 			}
@@ -95,6 +91,8 @@ namespace MediaPlayer.WPF
 			if (fileDialog.ShowDialog() == true)
 			{
 				_mediaControlService.LoadFiles(fileDialog.FileNames);
+				playlistItems.ItemsSource = _mediaControlService.GetPlaylist();
+				playlistItems.Items.Refresh();
 			}
 
 			if (mediaPlayerIsPlaying)
@@ -113,6 +111,17 @@ namespace MediaPlayer.WPF
 
 			if(fileDialog.ShowDialog() == true)
 			{
+				var playlist = File.ReadAllText(fileDialog.FileName);
+				_mediaControlService.LoadPlaylist(playlist);
+
+				playlistItems.ItemsSource = _mediaControlService.GetPlaylist();
+				playlistItems.Items.Refresh();
+			}
+
+			if (mediaPlayerIsPlaying)
+			{
+				mePlayer.Stop();
+				mediaPlayerIsPlaying = false;
 
 			}
 		}
@@ -124,7 +133,8 @@ namespace MediaPlayer.WPF
 
 			if(fileDialog.ShowDialog() == true)
 			{
-				File.WriteAllText(fileDialog.FileName, "");
+				var playlist = _mediaControlService.SavePlaylist();
+				File.WriteAllText(fileDialog.FileName, playlist);
 			}
 		}
 
@@ -139,6 +149,7 @@ namespace MediaPlayer.WPF
 			{
 				var media = _mediaControlService.GetFirstPlaylistItem() ?? throw new ArgumentNullException();
 				mePlayer.Source = new Uri(media.FilePath);
+				lenght = $"{media.Duration.Hours.ToString("00")}:{media.Duration.Minutes.ToString("00")}:{media.Duration.Seconds.ToString("00")}";
 			}
 
 			mePlayer.Play();
@@ -176,6 +187,7 @@ namespace MediaPlayer.WPF
 		{
 			var media = _mediaControlService.GetNextItem(Random) ?? throw new ArgumentNullException();
 			mePlayer.Source = new Uri(media.FilePath);
+			lenght = $"{media.Duration.Hours.ToString("00")}:{media.Duration.Minutes.ToString("00")}:{media.Duration.Seconds.ToString("00")}";
 		}
 
 		private void Has_PreviousTrack(object sender, CanExecuteRoutedEventArgs e)
@@ -187,6 +199,7 @@ namespace MediaPlayer.WPF
 		{
 			var media = _mediaControlService.GetPreviousItem(Random) ?? throw new ArgumentNullException();
 			mePlayer.Source = new Uri(media.FilePath);
+			lenght = $"{media.Duration.Hours.ToString("00")}:{media.Duration.Minutes.ToString("00")}:{media.Duration.Seconds.ToString("00")}";
 		}
 
 		private void sliProgress_DragStarted(object sender, DragStartedEventArgs e)
@@ -202,7 +215,7 @@ namespace MediaPlayer.WPF
 
 		private void sliProgress_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
 		{
-			lblProgressStatus.Text = $"{TimeSpan.FromSeconds(sliProgress.Value).ToString(@"hh\:mm\:ss")} / 00:00:00";
+			lblProgressStatus.Text = $"{TimeSpan.FromSeconds(sliProgress.Value).ToString(@"hh\:mm\:ss")} / {lenght}";
 		}
 
 		private void Grid_MouseWheel(object sender, MouseWheelEventArgs e)
@@ -218,6 +231,23 @@ namespace MediaPlayer.WPF
 		private void ToggleRandom(object sender, RoutedEventArgs e)
 		{
 			Random = !Random;
+		}
+
+		private void media_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+		{
+			_ = sender ?? throw new ArgumentNullException(nameof(sender));
+
+			var items = sender as ListBox;
+			var selectedItem = items!.SelectedItems[0] as Media;
+
+			_mediaControlService.GoToSelectedMedia(selectedItem);
+
+			mePlayer.Source = new Uri(selectedItem.FilePath);
+
+			lenght = $"{selectedItem.Duration.Hours.ToString("00")}:{selectedItem.Duration.Minutes.ToString("00")}:{selectedItem.Duration.Seconds.ToString("00")}";
+			
+
+
 		}
 	}
 }
