@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using OngConnection.Domain.Enums
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (User.IsInRole(UserType.ONG.GetDescription()))
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Ong" asp-action="People">Dashboard</a>
+    </li>
+}
+else if(User.IsInRole(UserType.AssistenteSocial.GetDescription()))
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="SocialWorker" asp-action="Register">Cadastrar Família</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="SocialWorker" asp-action="List">Listar Familias</a>
+    </li>
+}

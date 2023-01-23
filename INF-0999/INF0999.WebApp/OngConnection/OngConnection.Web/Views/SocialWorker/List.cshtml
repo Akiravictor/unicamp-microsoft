@@ -1,0 +1,23 @@
+﻿@model List<FamilyViewModel>
+@{
+    ViewData["Title"] = "Lista de Familias";
+}
+
+<h3>Listagem das Famílias Cadastradas</h3>
+
+<div class="row">
+    <div class="col-md-6">
+        @foreach (var person in Model){
+            <div class="card" style="width: 20rem;">
+                <form id="card-@person.Nome" asp-controller="SocialWorker" method="post">
+                    <div class="card-body">
+                        <h5 class="card-title">@person.Nome</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@person.Telefone</h6>
+                        <p class="card-text">Cidade: @person.Cidade - Estado: @person.Estado</p>
+                        <button type="submit" class="btn btn-secondary btn-sm" asp-action="Details" asp-route-nome="@person.Nome" asp-route-endereco="@person.Endereco" asp-route-cidade="@person.Cidade" asp-route-estado="@person.Estado">Atualizar</button>
+                    </div>
+                </form>
+            </div>
+        }
+    </div>
+</div>

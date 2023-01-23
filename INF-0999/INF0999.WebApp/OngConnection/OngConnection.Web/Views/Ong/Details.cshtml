@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Detalhes";
+}
+@model FamilyViewModel
+
+<h3>Detalhes de @Model.Nome</h3>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-floating">
+            <input asp-for="Nome" class="form-control" disabled />
+            <label asp-for="Nome" class="form-label"></label>
+        </div>
+        <div class="form-floating">
+            <input asp-for="Endereco" class="form-control" disabled />
+            <label asp-for="Endereco" class="form-label"></label>
+        </div>
+        <div class="form-floating">
+            <input asp-for="CEP" class="form-control" disabled />
+            <label asp-for="CEP" class="form-label"></label>
+        </div>
+        <div class="form-floating">
+            <input asp-for="Cidade" class="form-control" disabled />
+            <label asp-for="Cidade" class="form-label"></label>
+        </div>
+        <div class="form-floating">
+            <input asp-for="Estado" class="form-control" disabled />
+            <label asp-for="Estado" class="form-label"></label>
+        </div>
+        <div class="form-floating">
+            <input asp-for="Telefone" class="form-control" disabled />
+            <label asp-for="Telefone" class="form-label"></label>
+        </div>
+        <div class="form-floating">
+            <input asp-for="Email" class="form-control" disabled />
+            <label asp-for="Email" class="form-label"></label>
+        </div>
+        <div class="form-floating">
+            <input asp-for="Membros" class="form-control" disabled />
+            <label asp-for="Membros" class="form-label"></label>
+        </div>
+        <div class="form-floating">
+            <textarea type="text" asp-for="Observacoes" class="form-control" rows="4" disabled></textarea>
+            <label asp-for="Observacoes" class="form-label"></label>
+        </div>
+        <a asp-action="People" asp-controller="Ong" class="btn btn-primary">Voltar</a>
+    </div>
+</div>

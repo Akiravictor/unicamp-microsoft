@@ -1,0 +1,121 @@
+name: $(TeamProject)_$(Build.DefinitionName)_$(Date:yyyyMMdd)_$(Rev.rrr)
+
+trigger:
+- main
+
+resources:
+  repositories:
+  - repository: main
+    type: git
+    name: INF0999
+
+variables:
+- name: System.Debug
+  value: true
+- name: Deploy_Infra
+  value: $[eq(variables[ 'Deploy_Infrastructure' ], 'true')]
+- name: Terraform_Working_Directory
+  value: ./INF0999.Pipeline/terraform
+- name: subscription
+  value: 'Azure Cloud Connection'
+- name: WebApp_Working_Directory
+  value: ./INF0999.WebApp/
+
+
+stages:
+- stage: Deploy_Infrastructure
+  condition: eq(variables.Deploy_Infra, 'true')
+
+  pool:
+    vmImage: ubuntu-latest
+
+  jobs:
+  - job: Execute_Terraform
+    displayName: Execute Terraform
+    workspace:
+      clean: all
+    
+    steps:
+    - checkout: self
+      clean: true
+      displayName: Checkout Repository 
+
+    - script: |
+        ls -la
+      displayName: List Working Directory
+
+    - task: TerraformCLI@0
+      displayName: Terraform Version
+      inputs:
+        command: 'version'
+        commandOptions: '$(Terraform_Working_Directory)'
+        allowTelemetryCollection: true
+    
+    - task: TerraformCLI@0
+      displayName: Terraform Init
+      inputs:
+        command: 'init'
+        workingDirectory: '$(Terraform_Working_Directory)'
+        backendType: 'azurerm'
+        backendServiceArm: 'Azure Cloud Connection'
+        backendAzureRmSubscriptionId: '4fde75b1-7c34-4801-88f1-45944b4e4929'
+        backendAzureRmResourceGroupName: 'inf0999-ResourceGroup'
+        backendAzureRmStorageAccountName: 'inf0999storageaccount'
+        backendAzureRmContainerName: 'inf099tfstate'
+        backendAzureRmKey: 'terraform.tfstate'
+        allowTelemetryCollection: true
+
+    - task: TerraformCLI@0
+      displayName: Terraform Plan
+      inputs:
+        command: 'plan'
+        workingDirectory: '$(Terraform_Working_Directory)'
+        environmentServiceName: 'Azure Cloud Connection'
+        providerAzureRmSubscriptionId: '4fde75b1-7c34-4801-88f1-45944b4e4929'
+        commandOptions: '-out deploy.tfplan -input=false -var client_id=$(ARM_CLIENT_ID) -var client_secret=$(ARM_CLIENT_SECRET) -var subscription_id=$(ARM_SUBSCRIPTION_ID) -var tenant_id=$(ARM_TENANT_ID)'
+        allowTelemetryCollection: true
+        publishPlanResults: 'PlanResults'
+        
+    - task: TerraformCLI@0
+      displayName: Terraform Apply
+      inputs:
+        command: 'apply'
+        workingDirectory: '$(Terraform_Working_Directory)'
+        environmentServiceName: 'Azure Cloud Connection'
+        providerAzureRmSubscriptionId: '4fde75b1-7c34-4801-88f1-45944b4e4929'
+        commandOptions: '-auto-approve -input=false deploy.tfplan'
+        allowTelemetryCollection: true
+
+- stage: Deploy_Application
+  displayName: Deploy Application
+  condition: succeeded()
+  dependsOn: Deploy_Infrastructure
+
+  pool:
+    vmImage: windows-latest
+
+  jobs:
+  - job: Build_Publish
+    displayName: Build and Publish
+
+    steps:
+    - checkout: self
+      clean: true
+      displayName: Checkout Repository
+
+    - task: DotNetCoreCLI@2
+      displayName: Build Release
+      inputs:
+        command: 'publish'
+        publishWebProjects: true
+        arguments: '-f net6.0 -c Release'
+        workingDirectory: '$(WebApp_Working_Directory)'
+
+    - task: AzureWebApp@1
+      displayName: Publish Web App
+      inputs:
+        azureSubscription: $(subscription)
+        appType: 'webApp'
+        appName: 'inf0999-OngConnection'
+        package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+        deploymentMethod: 'auto'

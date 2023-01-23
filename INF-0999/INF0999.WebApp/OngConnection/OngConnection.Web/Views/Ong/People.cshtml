@@ -1,0 +1,94 @@
+﻿@using OngConnection.Application.DTO
+@model PeopleViewModel
+@{
+    ViewData["Title"] = "Pessoas";
+}
+
+<h3>@ViewData["Title"]</h3>
+
+@if (!String.IsNullOrEmpty(Model.Message))
+{
+    var statusMessageClass = Model.IsError ? "danger" : "success";
+    <div class="alert alert-@statusMessageClass alert-dismissible" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        @Model.Message
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <h5> Atendimentos Concluidos </h5>
+        @if (Model.ListaDeAtendidos != null && Model.ListaDeAtendidos?.Count > 0)
+        {
+            @foreach (var person in Model.ListaDeAtendidos)
+            {
+                <div class="card" style="width: 20rem;">
+                    <form id="card-done-list-@person.Nome" asp-controller="Ong" method="post">
+                        <div class="card-body">
+                            <h5 class="card-title">@person.Nome</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">@person.Telefone</h6>
+                            <p class="card-text">Cidade: @person.Cidade - Estado: @person.Estado</p>
+                            <button type="submit" class="btn btn-secondary btn-sm" asp-action="Details" asp-route-id="@person.Id">Detalhes</button>
+                        </div>
+                    </form>
+                </div>
+            }
+        }
+        else
+        {
+            <span> Nenhum atendimento concluido. </span>
+        }
+    </div>
+
+    <div class="col-md-4">
+        <h5> Atendimento Em Andamento </h5>
+        @if (Model.ListaAtendendo != null && Model.ListaAtendendo?.Count > 0)
+        {
+            @foreach (var person in Model.ListaAtendendo)
+            {
+                <div class="card" style="width: 20rem;">
+                    <form id="card-in-progress-list-@person.Nome" asp-controller="Ong" method="post">
+                        <div class="card-body">
+                            <h5 class="card-title">@person.Nome</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">@person.Telefone</h6>
+                            <p class="card-text">Cidade: @person.Cidade - Estado: @person.Estado</p>
+                            <button type="submit" class="btn btn-success btn-sm" asp-action="MoveToFinish" asp-route-id="@person.Id">Concluir</button>
+                            <button type="submit" class="btn btn-danger btn-sm" asp-action="MoveToReject" asp-route-id="@person.Id">Recusar</button>
+                            <button type="submit" class="btn btn-secondary btn-sm" asp-action="Details" asp-route-id="@person.Id">Detalhes</button>
+                        </div>
+                    </form>
+                </div>
+            }
+        }
+        else
+        {
+            <span> Nenhum atendimento em andamento. </span>
+        }
+    </div>
+
+    <div class="col-md-4">
+        <h5> Solicitações de Atendimento </h5>
+        @if (Model.ListaDeEspera != null && Model.ListaDeEspera?.Count > 0)
+        {
+            @foreach (var person in Model.ListaDeEspera)
+            {
+                <div class="card" style="width: 20rem;">
+                    <form id="card-wait-list-@person.Nome" asp-controller="Ong" method="post">
+                        <div class="card-body">
+                            <h5 class="card-title">@person.Nome</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">@person.Telefone</h6>
+                            <p class="card-text">Cidade: @person.Cidade - Estado: @person.Estado</p>
+                            <button type="submit" class="btn btn-success btn-sm" asp-action="MoveToAttend" asp-route-id="@person.Id">Atender</button>
+                            <button type="submit" class="btn btn-danger btn-sm" asp-action="MoveToReject" asp-route-id="@person.Id">Recusar</button>
+                            <button type="submit" class="btn btn-secondary btn-sm" asp-action="Details" asp-route-id="@person.Id">Detalhes</button>
+                        </div>
+                    </form>
+                </div>
+            }
+        }
+        else
+        {
+            <span> Nenhuma solicitação de atendimento nova. </span>
+        }
+    </div>
+</div>
